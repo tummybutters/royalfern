@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Royal Fern Barber Studio | San Diego</title>
+    <link rel="preload" as="video" href="/media/hero/video1.mp4" type="video/mp4">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
@@ -288,6 +289,24 @@
             background: #0f201d;
         }
 
+        .hero-video-stack::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+            background:
+                radial-gradient(circle at 16% 18%, rgba(210, 178, 106, 0.18), transparent 42%),
+                linear-gradient(135deg, rgba(20, 78, 71, 0.96), rgba(10, 46, 42, 0.96)),
+                repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.025) 0 2px, transparent 2px 13px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 280ms ease;
+        }
+
+        .hero-video-stack:not(.is-initial-media-ready)::before {
+            opacity: 1;
+        }
+
         .hero-video-card {
             position: absolute;
             inset: 0;
@@ -307,6 +326,15 @@
             object-position: center;
             filter: sepia(22%) saturate(0.82) contrast(1.04);
             background: #0e1b19;
+        }
+
+        .hero-video-card[data-video-index="0"] video {
+            opacity: 1;
+            transition: opacity 320ms ease;
+        }
+
+        .hero-video-stack:not(.is-initial-media-ready) .hero-video-card[data-video-index="0"] video {
+            opacity: 0;
         }
 
         .hero-video-card::after {
@@ -1861,7 +1889,7 @@
                 <div class="hero-image">
                     <div class="hero-video-stack" id="heroVideoStack" aria-label="Royal Fern Barber Studio highlights">
                         <div class="hero-video-card" data-video-index="0" data-title="Precision Fades">
-                            <video autoplay muted loop playsinline preload="metadata">
+                            <video autoplay muted loop playsinline preload="auto">
                                 <source src="/media/hero/video1.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -2357,6 +2385,7 @@
             const prevBtn = stack.querySelector('[data-hero-prev]');
             const nextBtn = stack.querySelector('[data-hero-next]');
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const firstVideo = videos[0];
 
             let currentIndex = 0;
             let isAnimating = false;
@@ -2364,6 +2393,58 @@
             let leavingPhase = 'idle';
             let autoTimer = null;
             const AUTO_INTERVAL = prefersReducedMotion ? 12000 : 4500;
+            let firstVideoReady = false;
+            let firstVideoPrimed = false;
+
+            function markInitialMediaReady() {
+                if (firstVideoReady) return;
+                firstVideoReady = true;
+                stack.classList.add('is-initial-media-ready');
+            }
+
+            function primeFirstVisibleFrame() {
+                if (!firstVideo || firstVideoPrimed) return;
+                firstVideoPrimed = true;
+                try {
+                    const target = 0.35;
+                    const maxSafe = Math.max((firstVideo.duration || 1) - 0.15, 0);
+                    firstVideo.currentTime = Math.min(target, maxSafe);
+                } catch (_) {}
+            }
+
+            function warmHeroVideos() {
+                if (!videos.length) return;
+
+                if (firstVideo) {
+                    firstVideo.preload = 'auto';
+                    if (firstVideo.readyState >= 2) {
+                        primeFirstVisibleFrame();
+                        markInitialMediaReady();
+                    } else {
+                        firstVideo.addEventListener('loadedmetadata', primeFirstVisibleFrame, { once: true });
+                        firstVideo.addEventListener('loadeddata', markInitialMediaReady, { once: true });
+                        firstVideo.addEventListener('canplay', markInitialMediaReady, { once: true });
+                    }
+
+                    // Trigger network fetch immediately during the hero intro animation.
+                    firstVideo.load();
+                }
+
+                const warmRest = () => {
+                    videos.slice(1).forEach((video) => {
+                        try {
+                            video.preload = 'auto';
+                            video.load();
+                        } catch (_) {}
+                    });
+                };
+
+                if ('requestIdleCallback' in window) {
+                    window.requestIdleCallback(warmRest, { timeout: 1200 });
+                } else {
+                    setTimeout(warmRest, 500);
+                }
+            }
 
             function rel(index) {
                 return (index - currentIndex + cards.length) % cards.length;
@@ -2505,6 +2586,7 @@
                 else scheduleAuto();
             });
 
+            warmHeroVideos();
             applyCardStyles();
             scheduleAuto();
         })();
