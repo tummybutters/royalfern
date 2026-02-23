@@ -166,6 +166,22 @@
             transition: all 0.3s ease;
         }
 
+        .mobile-menu-btn[aria-expanded="true"] span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .mobile-menu-btn[aria-expanded="true"] span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn[aria-expanded="true"] span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .mobile-nav-panel {
+            display: none;
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -1688,6 +1704,82 @@
 
             .mobile-menu-btn {
                 display: flex;
+                z-index: 1002;
+            }
+
+            .mobile-nav-panel {
+                position: absolute;
+                top: calc(100% + 10px);
+                left: 20px;
+                right: 20px;
+                display: block;
+                background: rgba(245, 240, 232, 0.97);
+                border: 1px solid rgba(210, 178, 106, 0.35);
+                box-shadow: 0 20px 40px rgba(10, 46, 42, 0.12);
+                backdrop-filter: blur(14px);
+                padding: 14px;
+                opacity: 0;
+                transform: translateY(-8px);
+                pointer-events: none;
+                transition: opacity 0.25s ease, transform 0.25s ease;
+                z-index: 1001;
+            }
+
+            .main-nav.mobile-open .mobile-nav-panel {
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+
+            .mobile-nav-panel::before {
+                content: '';
+                position: absolute;
+                inset: 8px;
+                border: 1px solid rgba(20, 78, 71, 0.1);
+                pointer-events: none;
+            }
+
+            .mobile-nav-links {
+                display: grid;
+                gap: 8px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .mobile-nav-links a {
+                display: block;
+                text-decoration: none;
+                color: var(--primary);
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-size: 12px;
+                padding: 12px 14px;
+                border: 1px solid rgba(20, 78, 71, 0.08);
+                background: rgba(255, 255, 255, 0.35);
+                transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+            }
+
+            .mobile-nav-links a:hover,
+            .mobile-nav-links a:focus-visible {
+                background: rgba(210, 178, 106, 0.12);
+                border-color: rgba(210, 178, 106, 0.35);
+                transform: translateY(-1px);
+                outline: none;
+            }
+
+            .mobile-nav-links .mobile-nav-cta {
+                background: var(--primary);
+                color: var(--white);
+                border-color: var(--primary);
+                font-family: 'Cinzel', serif;
+                letter-spacing: 1.5px;
+            }
+
+            .mobile-nav-links .mobile-nav-cta:hover,
+            .mobile-nav-links .mobile-nav-cta:focus-visible {
+                background: var(--gold);
+                color: var(--primary);
+                border-color: var(--gold);
             }
 
             .hero {
@@ -1856,13 +1948,22 @@
             <a href="#about">About</a>
             <a href="#gallery">Gallery</a>
             <a href="#contact">Contact</a>
-            <a href="#contact" class="nav-cta">Book Now</a>
+            <a href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city/barber/fernando-moreno-1/services" class="nav-cta" target="_blank" rel="noopener noreferrer">Book Now</a>
         </div>
         <button class="mobile-menu-btn">
             <span></span>
             <span></span>
             <span></span>
         </button>
+        <div class="mobile-nav-panel" id="mobileNavPanel" aria-hidden="true">
+            <div class="mobile-nav-links">
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+                <a href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city/barber/fernando-moreno-1/services" class="mobile-nav-cta" target="_blank" rel="noopener noreferrer">Book Now</a>
+            </div>
+        </div>
     </nav>
 
     <!-- Hero Section -->
@@ -1942,7 +2043,7 @@
                     <h2 class="hero-text">
                         Providing men’s haircuts, fade haircuts, skin fades, taper fades, lineups, beard trims, beard shaping, and hot towel shaves in National City, Chula Vista, Bonita, Paradise Hills, and South Bay San Diego.
                     </h2>
-                    <a href="#contact" class="hero-cta">Reserve Your Chair</a>
+                    <a href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city/barber/fernando-moreno-1/services" class="hero-cta" target="_blank" rel="noopener noreferrer">Reserve Your Chair</a>
                 </div>
             </div>
         </div>
@@ -2346,7 +2447,7 @@
             <div class="footer-links">
                 <h4>Contact</h4>
                 <ul>
-                    <li><a href="#">Book Online</a></li>
+                    <li><a href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city/barber/fernando-moreno-1/services" target="_blank" rel="noopener noreferrer">Book Online</a></li>
                     <li><a href="#">Call Us</a></li>
                     <li><a href="#">Gift Cards</a></li>
                     <li><a href="#">FAQs</a></li>
@@ -2365,6 +2466,8 @@
 
         // Navigation scroll effect
         const nav = document.querySelector('.main-nav');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileNavPanel = document.getElementById('mobileNavPanel');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
                 nav.classList.add('scrolled');
@@ -2372,6 +2475,43 @@
                 nav.classList.remove('scrolled');
             }
         }, { passive: true });
+
+        // Mobile nav dropdown
+        (function initMobileNav() {
+            if (!nav || !mobileMenuBtn || !mobileNavPanel) return;
+
+            const setOpen = (open) => {
+                nav.classList.toggle('mobile-open', open);
+                mobileMenuBtn.setAttribute('aria-expanded', String(open));
+                mobileNavPanel.setAttribute('aria-hidden', String(!open));
+            };
+
+            mobileMenuBtn.setAttribute('aria-label', 'Toggle menu');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                setOpen(!nav.classList.contains('mobile-open'));
+            });
+
+            mobileNavPanel.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => setOpen(false));
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!nav.classList.contains('mobile-open')) return;
+                if (nav.contains(e.target)) return;
+                setOpen(false);
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') setOpen(false);
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) setOpen(false);
+            }, { passive: true });
+        })();
 
         // Hero Video Stack Carousel
         (function initHeroVideoStack() {
@@ -2395,6 +2535,7 @@
             const AUTO_INTERVAL = prefersReducedMotion ? 12000 : 4500;
             let firstVideoReady = false;
             let firstVideoPrimed = false;
+            let heroIntroDone = false;
 
             function markInitialMediaReady() {
                 if (firstVideoReady) return;
@@ -2420,10 +2561,17 @@
                     if (firstVideo.readyState >= 2) {
                         primeFirstVisibleFrame();
                         markInitialMediaReady();
+                        tryStartInitialVideo();
                     } else {
                         firstVideo.addEventListener('loadedmetadata', primeFirstVisibleFrame, { once: true });
-                        firstVideo.addEventListener('loadeddata', markInitialMediaReady, { once: true });
-                        firstVideo.addEventListener('canplay', markInitialMediaReady, { once: true });
+                        firstVideo.addEventListener('loadeddata', () => {
+                            markInitialMediaReady();
+                            tryStartInitialVideo();
+                        }, { once: true });
+                        firstVideo.addEventListener('canplay', () => {
+                            markInitialMediaReady();
+                            tryStartInitialVideo();
+                        }, { once: true });
                     }
 
                     // Trigger network fetch immediately during the hero intro animation.
@@ -2535,6 +2683,13 @@
                 }
             }
 
+            function tryStartInitialVideo() {
+                if (!heroIntroDone) return;
+                if (currentIndex !== 0) return;
+                if (!firstVideo || firstVideo.readyState < 2) return;
+                playActiveVideoNow();
+            }
+
             function goTo(target, options = { animated: true }) {
                 if (!cards.length) return;
                 const nextIndex = (target + cards.length) % cards.length;
@@ -2602,7 +2757,8 @@
             scheduleAuto();
 
             window.addEventListener('royalfern:hero-intro-complete', () => {
-                playActiveVideoNow();
+                heroIntroDone = true;
+                tryStartInitialVideo();
             });
         })();
 
@@ -3049,10 +3205,12 @@
             ease: 'power3.out'
         });
 
+        const BOOKING_URL = 'https://getsquire.com/booking/book/royalfern-barber-studio-national-city/barber/fernando-moreno-1/services';
+
         // Form submission
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your booking request! We will confirm your appointment shortly.');
+            window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
         });
 
         // Smooth scroll for anchor links
