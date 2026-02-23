@@ -25,6 +25,7 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: clip;
         }
 
         body {
@@ -60,6 +61,7 @@
             align-items: center;
             gap: 15px;
             text-decoration: none;
+            min-width: 0;
         }
 
         .nav-logo-icon {
@@ -1648,6 +1650,10 @@
                 padding: 20px 30px;
             }
 
+            .nav-logo-text {
+                display: none;
+            }
+
             .nav-links {
                 display: none;
             }
@@ -1753,6 +1759,13 @@
             .about-image-main.before-after {
                 height: 520px;
                 gap: 10px;
+            }
+
+            .about-image-accent {
+                right: 0;
+                bottom: 0;
+                width: 160px;
+                height: 160px;
             }
 
             .about-image-label {
