@@ -2524,6 +2524,17 @@
                 autoTimer = setTimeout(() => goTo(currentIndex + 1, { animated: true }), AUTO_INTERVAL);
             }
 
+            function playActiveVideoNow() {
+                const activeVideo = videos[currentIndex];
+                if (!activeVideo) return;
+                activeVideo.muted = true;
+                activeVideo.playsInline = true;
+                const playPromise = activeVideo.play();
+                if (playPromise && typeof playPromise.catch === 'function') {
+                    playPromise.catch(() => {});
+                }
+            }
+
             function goTo(target, options = { animated: true }) {
                 if (!cards.length) return;
                 const nextIndex = (target + cards.length) % cards.length;
@@ -2589,6 +2600,10 @@
             warmHeroVideos();
             applyCardStyles();
             scheduleAuto();
+
+            window.addEventListener('royalfern:hero-intro-complete', () => {
+                playActiveVideoNow();
+            });
         })();
 
         // Testimonials: JSON-driven auto-scrolling review carousel (drag/swipe + arrows)
@@ -2817,7 +2832,12 @@
         })();
 
         // Hero Animations
-        const heroTl = gsap.timeline({ delay: 0.3 });
+        const heroTl = gsap.timeline({
+            delay: 0.3,
+            onComplete: () => {
+                window.dispatchEvent(new CustomEvent('royalfern:hero-intro-complete'));
+            }
+        });
         
         heroTl.from('.hero-logo-icon', {
             scale: 0,
