@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tradition Barbershop | San Diego</title>
+    <title>Royal Fern Barber Studio | San Diego</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
@@ -73,10 +73,11 @@
             transition: all 0.4s ease;
         }
 
-        .nav-logo-icon svg {
-            width: 22px;
-            height: 22px;
-            stroke: var(--primary);
+        .nav-logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
             transition: all 0.4s ease;
         }
 
@@ -84,14 +85,14 @@
             background: var(--primary);
         }
 
-        .nav-logo:hover .nav-logo-icon svg {
-            stroke: var(--gold);
+        .nav-logo:hover .nav-logo-icon img {
+            filter: saturate(0.95) contrast(1.05);
         }
 
         .nav-logo-text {
             font-family: 'Cinzel', serif;
-            font-size: 18px;
-            letter-spacing: 4px;
+            font-size: 14px;
+            letter-spacing: 2px;
             color: var(--primary);
         }
 
@@ -126,7 +127,7 @@
             width: 100%;
         }
 
-        .nav-cta {
+        .nav-links .nav-cta {
             padding: 14px 28px;
             background: var(--primary);
             color: var(--white);
@@ -139,7 +140,7 @@
             transition: all 0.4s ease;
         }
 
-        .nav-cta:hover {
+        .nav-links .nav-cta:hover {
             background: transparent;
             color: var(--primary);
         }
@@ -212,22 +213,23 @@
             justify-content: center;
         }
 
-        .hero-logo-icon svg {
-            width: 35px;
-            height: 35px;
-            stroke: var(--primary);
+        .hero-logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         .hero-logo-text {
             font-family: 'Cinzel', serif;
-            font-size: 28px;
-            letter-spacing: 12px;
+            font-size: 24px;
+            letter-spacing: 6px;
             color: var(--primary);
         }
 
         .hero-established {
             font-size: 11px;
-            letter-spacing: 5px;
+            letter-spacing: 3px;
             color: var(--gold);
             margin-top: 12px;
             text-transform: uppercase;
@@ -237,7 +239,7 @@
             position: relative;
             width: 100%;
             max-width: 1100px;
-            aspect-ratio: 16/9;
+            min-height: 660px;
             border: 1px solid rgba(20, 78, 71, 0.2);
             padding: 50px;
         }
@@ -258,13 +260,14 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
-            height: 100%;
+            min-height: 560px;
             align-items: center;
         }
 
         .hero-image {
             position: relative;
             height: 100%;
+            min-height: 560px;
             overflow: hidden;
         }
 
@@ -275,11 +278,208 @@
             filter: sepia(20%) contrast(1.05);
         }
 
+        .hero-video-stack {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 0;
+            background: #0f201d;
+        }
+
+        .hero-video-card {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            border: 1px solid rgba(20, 78, 71, 0.12);
+            box-shadow: 0 28px 55px rgba(20, 78, 71, 0.12);
+            transition: transform 540ms cubic-bezier(0.25, 1, 0.5, 1), opacity 540ms ease;
+            will-change: transform, opacity;
+            transform-origin: center center;
+            background: #122824;
+        }
+
+        .hero-video-card video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: sepia(22%) saturate(0.82) contrast(1.04);
+            background: #0e1b19;
+        }
+
+        .hero-video-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to top, rgba(10, 46, 42, 0.55), rgba(10, 46, 42, 0.08) 42%, rgba(10, 46, 42, 0.02)),
+                linear-gradient(to right, rgba(210, 178, 106, 0.08), transparent 38%);
+            pointer-events: none;
+        }
+
+        .hero-video-card::before {
+            content: '';
+            position: absolute;
+            inset: 14px;
+            border: 1px solid rgba(210, 178, 106, 0.28);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-video-card.is-leaving-left {
+            transform: translateX(-18%) translateY(2px) rotate(-6deg) scale(0.98) !important;
+            opacity: 0.92 !important;
+            z-index: 60 !important;
+            transition: transform 390ms cubic-bezier(0.4, 0, 0.2, 1), opacity 390ms ease !important;
+        }
+
+        .hero-video-card.is-leaving-under {
+            transform: translateX(8px) translateY(20px) rotate(0.5deg) scale(0.9) !important;
+            opacity: 0.3 !important;
+            z-index: 6 !important;
+            transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), opacity 300ms ease !important;
+        }
+
+        .hero-video-card.is-leaving-back {
+            transform: translateX(14px) translateY(10px) rotate(0.8deg) scale(0.95) !important;
+            opacity: 0.58 !important;
+            z-index: 18 !important;
+            transition: transform 380ms cubic-bezier(0.4, 0, 0.2, 1), opacity 380ms ease !important;
+        }
+
+        .hero-video-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 80;
+            pointer-events: none;
+        }
+
+        .hero-video-logo-badge {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            width: 78px;
+            height: 78px;
+            border: 1px solid rgba(210, 178, 106, 0.35);
+            background: rgba(10, 46, 42, 0.55);
+            backdrop-filter: blur(6px);
+            padding: 8px;
+            display: grid;
+            place-items: center;
+        }
+
+        .hero-video-logo-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(0.9) contrast(1.02);
+        }
+
+        .hero-video-label {
+            position: absolute;
+            left: 18px;
+            bottom: 18px;
+            background: rgba(10, 46, 42, 0.72);
+            border: 1px solid rgba(210, 178, 106, 0.3);
+            color: var(--white);
+            padding: 10px 12px;
+            backdrop-filter: blur(6px);
+            min-width: 180px;
+        }
+
+        .hero-video-label span {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 2.2px;
+            text-transform: uppercase;
+            color: rgba(210, 178, 106, 0.9);
+            margin-bottom: 4px;
+        }
+
+        .hero-video-label strong {
+            display: block;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .hero-video-controls {
+            position: absolute;
+            inset: 0;
+            z-index: 6;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 12px;
+            pointer-events: none;
+        }
+
+        .hero-video-control {
+            width: 54px;
+            height: 54px;
+            border-radius: 999px;
+            border: 1px solid rgba(20, 78, 71, 0.2);
+            background: rgba(245, 240, 232, 0.82);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+            pointer-events: auto;
+            box-shadow: 0 10px 20px rgba(10, 46, 42, 0.12);
+        }
+
+        .hero-video-control:hover {
+            background: var(--primary);
+            color: var(--gold);
+            border-color: rgba(20, 78, 71, 0.8);
+            transform: scale(1.04);
+        }
+
+        .hero-video-control svg {
+            width: 22px;
+            height: 22px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .hero-video-dots {
+            position: absolute;
+            left: 50%;
+            bottom: 18px;
+            transform: translateX(-50%);
+            z-index: 6;
+            display: flex;
+            gap: 8px;
+            pointer-events: auto;
+        }
+
+        .hero-video-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            border: none;
+            background: rgba(255, 255, 255, 0.35);
+            cursor: pointer;
+            transition: all 0.35s ease;
+            padding: 0;
+        }
+
+        .hero-video-dot.is-active {
+            width: 28px;
+            background: var(--gold);
+        }
+
         .image-border {
             position: absolute;
             inset: 20px;
             border: 1px solid rgba(210, 178, 106, 0.4);
             pointer-events: none;
+            z-index: 90;
         }
 
         .hero-content {
@@ -519,11 +719,72 @@
             z-index: 1;
         }
 
-        .about-image-main img {
-            width: 100%;
+        .about-image-main.before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
             height: 600px;
+        }
+
+        .about-image-panel {
+            position: relative;
+            overflow: hidden;
+            background: var(--charcoal);
+        }
+
+        .about-image-panel img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            filter: sepia(15%);
+            filter: sepia(12%);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .about-image:hover .about-image-panel img {
+            transform: scale(1.03);
+        }
+
+        .about-image-label {
+            position: absolute;
+            left: 14px;
+            bottom: 14px;
+            background: rgba(10, 46, 42, 0.75);
+            border: 1px solid rgba(210, 178, 106, 0.35);
+            color: var(--white);
+            padding: 8px 10px;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .about-image-divider {
+            position: absolute;
+            top: 20px;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            background: rgba(210, 178, 106, 0.5);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .about-image-divider::before {
+            content: 'Before / After';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-90deg);
+            transform-origin: center;
+            background: var(--cream);
+            color: var(--primary);
+            border: 1px solid rgba(210, 178, 106, 0.35);
+            padding: 6px 10px;
+            font-size: 10px;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            white-space: nowrap;
         }
 
         .about-image-frame {
@@ -812,9 +1073,8 @@
         }
 
         .testimonials-content {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-            text-align: center;
             position: relative;
             z-index: 1;
         }
@@ -827,44 +1087,225 @@
             color: var(--white);
         }
 
-        .testimonial-slider {
-            margin-top: 60px;
+        .testimonials-header {
+            display: grid;
+            grid-template-columns: 1.2fr auto;
+            gap: 30px;
+            align-items: end;
+            margin-bottom: 28px;
         }
 
-        .testimonial-text {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(24px, 3vw, 32px);
+        .testimonials-title-wrap {
+            text-align: left;
+        }
+
+        .testimonials-title-wrap .section-title {
+            text-align: left;
+        }
+
+        .testimonial-trust-bar {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .trust-pill {
+            background: rgba(245, 240, 232, 0.08);
+            border: 1px solid rgba(210, 178, 106, 0.22);
             color: var(--white);
-            line-height: 1.6;
-            margin-bottom: 40px;
-            font-style: italic;
+            padding: 10px 14px;
+            font-size: 12px;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            backdrop-filter: blur(8px);
         }
 
-        .testimonial-author {
+        .trust-pill strong {
+            color: var(--gold);
+            margin-right: 6px;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+        }
+
+        .testimonial-carousel-shell {
+            position: relative;
+            margin-top: 22px;
+            border: 1px solid rgba(210, 178, 106, 0.18);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 26px;
+            overflow: hidden;
+        }
+
+        .testimonial-carousel-shell::before {
+            content: '';
+            position: absolute;
+            inset: 14px;
+            border: 1px solid rgba(210, 178, 106, 0.12);
+            pointer-events: none;
+        }
+
+        .testimonial-carousel-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-carousel-note {
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 12px;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+        }
+
+        .testimonial-control-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .testimonial-arrow {
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            border: 1px solid rgba(210, 178, 106, 0.28);
+            background: rgba(245, 240, 232, 0.85);
+            color: var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            cursor: pointer;
+            transition: all 0.25s ease;
         }
 
-        .testimonial-author img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--gold);
+        .testimonial-arrow:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            transform: translateY(-1px);
         }
 
-        .testimonial-author-info h4 {
-            font-family: 'Cinzel', serif;
-            font-size: 18px;
-            color: var(--white);
-            margin-bottom: 5px;
+        .testimonial-arrow svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
         }
 
-        .testimonial-author-info p {
-            font-size: 13px;
+        .testimonial-viewport {
+            overflow: hidden;
+            cursor: grab;
+            position: relative;
+            z-index: 2;
+            user-select: none;
+            touch-action: pan-y;
+        }
+
+        .testimonial-viewport.is-dragging {
+            cursor: grabbing;
+        }
+
+        .testimonial-track {
+            display: flex;
+            gap: 18px;
+            will-change: transform;
+        }
+
+        .testimonial-card {
+            flex: 0 0 calc((100% - 54px) / 4);
+            min-width: 260px;
+            background: var(--cream);
+            border: 1px solid rgba(20, 78, 71, 0.14);
+            padding: 18px 18px 16px;
+            display: flex;
+            flex-direction: column;
+            min-height: 290px;
+            position: relative;
+            box-shadow: 0 16px 30px rgba(10, 46, 42, 0.08);
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gold);
+            opacity: 0.85;
+        }
+
+        .testimonial-stars {
             color: var(--gold);
+            letter-spacing: 2px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-card-text {
+            color: rgba(20, 78, 71, 0.85);
+            line-height: 1.7;
+            font-size: 14px;
+            margin-bottom: 14px;
+            flex: 1;
+        }
+
+        .testimonial-service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-service-tag {
+            font-size: 10px;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+            background: rgba(20, 78, 71, 0.06);
+            border: 1px solid rgba(20, 78, 71, 0.14);
+            color: var(--primary);
+            padding: 5px 8px;
+        }
+
+        .testimonial-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            border-top: 1px solid rgba(20, 78, 71, 0.08);
+            padding-top: 10px;
+        }
+
+        .testimonial-reviewer {
+            min-width: 0;
+        }
+
+        .testimonial-reviewer-name {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            font-size: 13px;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .testimonial-reviewer-date {
+            color: rgba(20, 78, 71, 0.55);
+            font-size: 11px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .testimonial-price {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 1px;
+            white-space: nowrap;
         }
 
         /* Contact Section */
@@ -1039,10 +1480,26 @@
 
         .footer-brand .footer-logo {
             font-family: 'Cinzel', serif;
-            font-size: 24px;
-            letter-spacing: 4px;
+            font-size: 22px;
+            letter-spacing: 2px;
             color: var(--white);
             margin-bottom: 20px;
+        }
+
+        .footer-brand-logo {
+            width: 76px;
+            height: 76px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(210, 178, 106, 0.35);
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .footer-brand-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .footer-brand p {
@@ -1134,6 +1591,26 @@
                 grid-template-columns: 1fr;
             }
 
+            .hero-frame {
+                aspect-ratio: auto;
+                min-height: 0;
+            }
+
+            .hero-inner {
+                height: auto;
+                min-height: 0;
+                gap: 30px;
+            }
+
+            .hero-content {
+                order: 1;
+            }
+
+            .hero-image {
+                order: 2;
+                min-height: 0;
+            }
+
             .services-grid,
             .barbers-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -1150,6 +1627,19 @@
 
             .footer-content {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-header {
+                grid-template-columns: 1fr;
+                align-items: start;
+            }
+
+            .testimonial-trust-bar {
+                justify-content: flex-start;
+            }
+
+            .testimonial-card {
+                flex-basis: calc((100% - 18px) / 2);
             }
         }
 
@@ -1174,6 +1664,53 @@
                 padding: 25px;
             }
 
+            .hero-video-stack {
+                min-height: 520px;
+            }
+
+            .hero-video-card video {
+                object-fit: contain;
+                object-position: center center;
+                background: #10211e;
+            }
+
+            .hero-video-logo-badge {
+                width: 58px;
+                height: 58px;
+                top: 14px;
+                left: 14px;
+                padding: 6px;
+            }
+
+            .hero-video-label {
+                left: 14px;
+                bottom: 14px;
+                min-width: 0;
+                max-width: calc(100% - 110px);
+                padding: 8px 10px;
+            }
+
+            .hero-video-label strong {
+                font-size: 12px;
+            }
+
+            .hero-video-controls {
+                padding: 0 8px;
+            }
+
+            .hero-video-control {
+                width: 46px;
+                height: 46px;
+            }
+
+            .hero-video-dots {
+                bottom: 16px;
+            }
+
+            .hero-content {
+                padding: 8px 0 0;
+            }
+
             .services,
             .about,
             .gallery,
@@ -1181,6 +1718,26 @@
             .testimonials,
             .contact {
                 padding: 80px 30px;
+            }
+
+            .testimonial-carousel-shell {
+                padding: 18px;
+            }
+
+            .testimonial-card {
+                flex-basis: 88%;
+                min-width: 88%;
+                min-height: 270px;
+            }
+
+            .testimonial-arrow {
+                width: 40px;
+                height: 40px;
+            }
+
+            .testimonial-carousel-note {
+                font-size: 11px;
+                letter-spacing: 1px;
             }
 
             .services-grid,
@@ -1191,6 +1748,24 @@
 
             .about-features {
                 grid-template-columns: 1fr;
+            }
+
+            .about-image-main.before-after {
+                height: 520px;
+                gap: 10px;
+            }
+
+            .about-image-label {
+                left: 10px;
+                bottom: 10px;
+                font-size: 9px;
+                letter-spacing: 1.5px;
+                padding: 7px 8px;
+            }
+
+            .about-image-divider {
+                top: 14px;
+                bottom: 14px;
             }
 
             .services-strip {
@@ -1231,19 +1806,14 @@
     <nav class="main-nav">
         <a href="#" class="nav-logo">
             <div class="nav-logo-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-                    <path d="M6 4l6 16 6-16"/>
-                    <circle cx="12" cy="4" r="2"/>
-                    <circle cx="12" cy="20" r="2"/>
-                </svg>
+                <img src="/media/hero/royal-fern-logo.jpg" alt="Royal Fern Barber Studio logo">
             </div>
-            <span class="nav-logo-text">TRADITION</span>
+            <span class="nav-logo-text">ROYAL FERN BARBER STUDIO</span>
         </a>
         <div class="nav-links">
             <a href="#services">Services</a>
             <a href="#about">About</a>
             <a href="#gallery">Gallery</a>
-            <a href="#barbers">Barbers</a>
             <a href="#contact">Contact</a>
             <a href="#contact" class="nav-cta">Book Now</a>
         </div>
@@ -1261,13 +1831,9 @@
         <header class="hero-header">
             <div class="hero-logo-center">
                 <div class="hero-logo-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-                        <path d="M6 4l6 16 6-16"/>
-                        <circle cx="12" cy="4" r="2"/>
-                        <circle cx="12" cy="20" r="2"/>
-                    </svg>
+                    <img src="/media/hero/royal-fern-logo.jpg" alt="Royal Fern Barber Studio logo">
                 </div>
-                <div class="hero-logo-text">TRADITION</div>
+                <div class="hero-logo-text">ROYAL FERN</div>
                 <div class="hero-established">Est. 2015 • San Diego</div>
             </div>
         </header>
@@ -1280,23 +1846,61 @@
             
             <div class="hero-inner">
                 <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=800&h=1000&fit=crop" alt="Classic barbershop experience">
+                    <div class="hero-video-stack" id="heroVideoStack" aria-label="Royal Fern Barber Studio highlights">
+                        <div class="hero-video-card" data-video-index="0" data-title="Precision Fades">
+                            <video autoplay muted loop playsinline preload="metadata">
+                                <source src="/media/hero/video1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="hero-video-card" data-video-index="1" data-title="Chairside Details">
+                            <video muted loop playsinline preload="metadata">
+                                <source src="/media/hero/video2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="hero-video-card" data-video-index="2" data-title="Studio Atmosphere">
+                            <video muted loop playsinline preload="metadata">
+                                <source src="/media/hero/video3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="hero-video-card" data-video-index="3" data-title="Clean Finishing Work">
+                            <video muted loop playsinline preload="metadata">
+                                <source src="/media/hero/video4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="hero-video-overlay" aria-hidden="true">
+                            <div class="hero-video-logo-badge">
+                                <img src="/media/hero/royal-fern-logo.jpg" alt="">
+                            </div>
+                            <div class="hero-video-controls">
+                                <button class="hero-video-control" type="button" data-hero-prev aria-label="Previous video">
+                                    <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+                                </button>
+                                <button class="hero-video-control" type="button" data-hero-next aria-label="Next video">
+                                    <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                                </button>
+                            </div>
+                            <div class="hero-video-label">
+                                <span>Royal Fern</span>
+                                <strong id="heroVideoLabelText">Precision Fades</strong>
+                            </div>
+                            <div class="hero-video-dots" id="heroVideoDots"></div>
+                        </div>
+                    </div>
                     <div class="image-border"></div>
                 </div>
                 <div class="hero-content">
                     <h1 class="hero-title">
-                        <span>The Gentleman's</span>
-                        Barber Shop
+                        First Class Barber Shop in National City, CA
                     </h1>
                     <div class="divider">
                         <div class="divider-line"></div>
                         <div class="divider-icon"></div>
                         <div class="divider-line"></div>
                     </div>
-                    <p class="hero-text">
-                        Step back in time to an era where craftsmanship mattered. 
-                        Hot towel shaves, precision cuts, and the timeless art of grooming.
-                    </p>
+                    <h2 class="hero-text">
+                        Providing men’s haircuts, fade haircuts, skin fades, taper fades, lineups, beard trims, beard shaping, and hot towel shaves in National City, Chula Vista, Bonita, Paradise Hills, and South Bay San Diego.
+                    </h2>
                     <a href="#contact" class="hero-cta">Reserve Your Chair</a>
                 </div>
             </div>
@@ -1407,8 +2011,16 @@
     <section class="about" id="about">
         <div class="about-content">
             <div class="about-image">
-                <div class="about-image-main">
-                    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=800&h=800&fit=crop" alt="Barbershop interior">
+                <div class="about-image-main before-after">
+                    <div class="about-image-panel">
+                        <img src="/media/review-photos/haircut-set-d_01.jpg" alt="Before haircut at Royal Fern Barber Studio">
+                        <div class="about-image-label">Before</div>
+                    </div>
+                    <div class="about-image-panel">
+                        <img src="/media/review-photos/haircut-set-d_02.jpg" alt="After haircut at Royal Fern Barber Studio">
+                        <div class="about-image-label">After</div>
+                    </div>
+                    <div class="about-image-divider" aria-hidden="true"></div>
                 </div>
                 <div class="about-image-frame"></div>
                 <div class="about-image-accent">
@@ -1419,7 +2031,7 @@
             <div class="about-text">
                 <p class="section-eyebrow">Our Story</p>
                 <h2>Crafting Timeless Styles Since 2015</h2>
-                <p>At Tradition Barbershop, we believe that a great haircut is more than just a service—it's an experience. Founded in the heart of San Diego, our shop was born from a passion for the classic barbershop culture of the 1950s.</p>
+                <p>At Royal Fern Barber Studio, we believe a great haircut is more than a service—it's a ritual. Founded in San Diego, our studio was built around elevated craftsmanship, detail, and modern barber culture.</p>
                 <p>Our master barbers combine time-honored techniques with modern styling to create looks that are both classic and contemporary. Every visit includes a complimentary beverage, hot towel treatment, and the kind of personal attention that has become rare in today's fast-paced world.</p>
                 <div class="about-features">
                     <div class="about-feature">
@@ -1516,64 +2128,36 @@
         </div>
     </section>
 
-    <!-- Barbers Section -->
-    <section class="barbers" id="barbers">
-        <div class="section-header">
-            <p class="section-eyebrow">The Team</p>
-            <h2 class="section-title">Master Barbers</h2>
-        </div>
-        <div class="barbers-grid">
-            <div class="barber-card">
-                <div class="barber-image">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop" alt="Marcus Chen">
-                    <div class="barber-frame"></div>
-                    <div class="barber-social">
-                        <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-                        <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-                    </div>
-                </div>
-                <h3 class="barber-name">Marcus Chen</h3>
-                <p class="barber-role">Founder & Master Barber</p>
-            </div>
-            <div class="barber-card">
-                <div class="barber-image">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&h=600&fit=crop" alt="James Morrison">
-                    <div class="barber-frame"></div>
-                    <div class="barber-social">
-                        <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-                        <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-                    </div>
-                </div>
-                <h3 class="barber-name">James Morrison</h3>
-                <p class="barber-role">Senior Barber</p>
-            </div>
-            <div class="barber-card">
-                <div class="barber-image">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=600&fit=crop" alt="David Park">
-                    <div class="barber-frame"></div>
-                    <div class="barber-social">
-                        <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-                        <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-                    </div>
-                </div>
-                <h3 class="barber-name">David Park</h3>
-                <p class="barber-role">Beard Specialist</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Testimonials Section -->
     <section class="testimonials">
         <div class="testimonials-content">
-            <p class="section-eyebrow">Testimonials</p>
-            <h2 class="section-title">What Our Clients Say</h2>
-            <div class="testimonial-slider">
-                <p class="testimonial-text">"Tradition Barbershop is the only place I trust with my hair. The attention to detail, the atmosphere, and the genuine care they show every customer is unmatched. It's not just a haircut—it's an experience."</p>
-                <div class="testimonial-author">
-                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" alt="Michael Torres">
-                    <div class="testimonial-author-info">
-                        <h4>Michael Torres</h4>
-                        <p>Regular Client Since 2018</p>
+            <div class="testimonials-header">
+                <div class="testimonials-title-wrap">
+                    <p class="section-eyebrow">Client Reviews</p>
+                    <h2 class="section-title">What Clients Say About Our Haircuts, Fades & Beard Trims</h2>
+                </div>
+                <div class="testimonial-trust-bar" id="testimonialTrustBar">
+                    <div class="trust-pill"><strong>5.0</strong> Google Rating</div>
+                    <div class="trust-pill"><strong>27</strong> Google Reviews</div>
+                </div>
+            </div>
+
+            <div class="testimonial-carousel-shell" id="testimonialCarouselShell">
+                <div class="testimonial-carousel-controls">
+                    <div class="testimonial-carousel-note">Auto-scrolling Google reviews • drag or swipe to explore</div>
+                    <div class="testimonial-control-group">
+                        <button class="testimonial-arrow" type="button" data-testimonial-prev aria-label="Previous reviews">
+                            <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+                        </button>
+                        <button class="testimonial-arrow" type="button" data-testimonial-next aria-label="Next reviews">
+                            <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="testimonial-viewport" id="testimonialViewport">
+                    <div class="testimonial-track" id="testimonialTrack">
+                        <!-- Reviews injected from /data/google-reviews.json -->
                     </div>
                 </div>
             </div>
@@ -1689,8 +2273,11 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-brand">
-                <div class="footer-logo">TRADITION</div>
-                <p>Where timeless craftsmanship meets modern style. Experience the art of traditional barbering in the heart of San Diego.</p>
+                <div class="footer-brand-logo">
+                    <img src="/media/hero/royal-fern-logo.jpg" alt="Royal Fern Barber Studio logo">
+                </div>
+                <div class="footer-logo">ROYAL FERN BARBER STUDIO</div>
+                <p>Where timeless craftsmanship meets modern style. Experience elevated barbering at Royal Fern Barber Studio in San Diego.</p>
                 <div class="footer-social">
                     <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
                     <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
@@ -1726,7 +2313,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Tradition Barbershop. All rights reserved.</p>
+            <p>&copy; 2025 Royal Fern Barber Studio. All rights reserved.</p>
             <p>Crafted with precision in San Diego, CA</p>
         </div>
     </footer>
@@ -1744,6 +2331,395 @@
                 nav.classList.remove('scrolled');
             }
         }, { passive: true });
+
+        // Hero Video Stack Carousel
+        (function initHeroVideoStack() {
+            const stack = document.getElementById('heroVideoStack');
+            if (!stack) return;
+
+            const cards = Array.from(stack.querySelectorAll('.hero-video-card'));
+            const videos = cards.map(card => card.querySelector('video')).filter(Boolean);
+            const dotsContainer = document.getElementById('heroVideoDots');
+            const labelText = document.getElementById('heroVideoLabelText');
+            const prevBtn = stack.querySelector('[data-hero-prev]');
+            const nextBtn = stack.querySelector('[data-hero-next]');
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            let currentIndex = 0;
+            let isAnimating = false;
+            let leavingIndex = null;
+            let leavingPhase = 'idle';
+            let autoTimer = null;
+            const AUTO_INTERVAL = prefersReducedMotion ? 12000 : 4500;
+
+            function rel(index) {
+                return (index - currentIndex + cards.length) % cards.length;
+            }
+
+            function applyCardStyles() {
+                cards.forEach((card, index) => {
+                    const depth = rel(index);
+                    card.classList.remove('is-leaving-left', 'is-leaving-under', 'is-leaving-back');
+                    if (index === leavingIndex) {
+                        if (leavingPhase === 'left') card.classList.add('is-leaving-left');
+                        if (leavingPhase === 'under') card.classList.add('is-leaving-under');
+                        if (leavingPhase === 'back') card.classList.add('is-leaving-back');
+                    }
+
+                    let transform = 'translateX(0px) translateY(0px) rotate(0deg) scale(1)';
+                    let opacity = 1;
+                    let zIndex = 30;
+
+                    if (depth === 0) {
+                        transform = 'translateX(0px) translateY(0px) rotate(0deg) scale(1)';
+                        opacity = 1;
+                        zIndex = 30;
+                    } else if (depth === 1) {
+                        transform = 'translateX(14px) translateY(7px) rotate(0.9deg) scale(0.97)';
+                        opacity = 0.62;
+                        zIndex = 20;
+                    } else if (depth === 2) {
+                        transform = 'translateX(24px) translateY(13px) rotate(1.4deg) scale(0.94)';
+                        opacity = 0.35;
+                        zIndex = 12;
+                    } else {
+                        const extra = Math.min(depth, 4);
+                        transform = `translateX(${30 + (extra - 3) * 4}px) translateY(${17 + (extra - 3) * 4}px) rotate(${1.6 + (extra - 3) * 0.35}deg) scale(${Math.max(0.92 - (extra - 3) * 0.02, 0.88)})`;
+                        opacity = 0.16;
+                        zIndex = 8 - extra;
+                    }
+
+                    card.style.transform = transform;
+                    card.style.opacity = String(opacity);
+                    card.style.zIndex = String(zIndex);
+                });
+
+                if (labelText) {
+                    labelText.textContent = cards[currentIndex]?.dataset.title || 'Studio Highlights';
+                }
+
+                if (dotsContainer) {
+                    Array.from(dotsContainer.children).forEach((dot, idx) => {
+                        dot.classList.toggle('is-active', idx === currentIndex);
+                    });
+                }
+
+                videos.forEach((video, idx) => {
+                    if (!video) return;
+                    if (idx === currentIndex) {
+                        const playPromise = video.play();
+                        if (playPromise && typeof playPromise.catch === 'function') {
+                            playPromise.catch(() => {});
+                        }
+                    } else {
+                        video.pause();
+                    }
+                });
+            }
+
+            function stopAuto() {
+                if (autoTimer) {
+                    clearTimeout(autoTimer);
+                    autoTimer = null;
+                }
+            }
+
+            function scheduleAuto() {
+                stopAuto();
+                if (prefersReducedMotion) return;
+                autoTimer = setTimeout(() => goTo(currentIndex + 1, { animated: true }), AUTO_INTERVAL);
+            }
+
+            function goTo(target, options = { animated: true }) {
+                if (!cards.length) return;
+                const nextIndex = (target + cards.length) % cards.length;
+                if (nextIndex === currentIndex || isAnimating) return;
+
+                stopAuto();
+
+                if (!options.animated) {
+                    currentIndex = nextIndex;
+                    leavingIndex = null;
+                    leavingPhase = 'idle';
+                    applyCardStyles();
+                    scheduleAuto();
+                    return;
+                }
+
+                isAnimating = true;
+                leavingIndex = currentIndex;
+                leavingPhase = 'left';
+                applyCardStyles();
+
+                setTimeout(() => {
+                    leavingPhase = 'under';
+                    applyCardStyles();
+                }, 390);
+
+                setTimeout(() => {
+                    currentIndex = nextIndex;
+                    leavingPhase = 'back';
+                    applyCardStyles();
+                }, 690);
+
+                setTimeout(() => {
+                    leavingIndex = null;
+                    leavingPhase = 'idle';
+                    isAnimating = false;
+                    applyCardStyles();
+                    scheduleAuto();
+                }, 1080);
+            }
+
+            if (dotsContainer) {
+                cards.forEach((_, idx) => {
+                    const dot = document.createElement('button');
+                    dot.type = 'button';
+                    dot.className = 'hero-video-dot';
+                    dot.setAttribute('aria-label', `Go to video ${idx + 1}`);
+                    dot.addEventListener('click', () => goTo(idx, { animated: idx > currentIndex }));
+                    dotsContainer.appendChild(dot);
+                });
+            }
+
+            if (prevBtn) prevBtn.addEventListener('click', () => goTo(currentIndex - 1, { animated: false }));
+            if (nextBtn) nextBtn.addEventListener('click', () => goTo(currentIndex + 1, { animated: true }));
+
+            stack.addEventListener('mouseenter', stopAuto);
+            stack.addEventListener('mouseleave', scheduleAuto);
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) stopAuto();
+                else scheduleAuto();
+            });
+
+            applyCardStyles();
+            scheduleAuto();
+        })();
+
+        // Testimonials: JSON-driven auto-scrolling review carousel (drag/swipe + arrows)
+        (function initTestimonialsCarousel() {
+            const shell = document.getElementById('testimonialCarouselShell');
+            const viewport = document.getElementById('testimonialViewport');
+            const track = document.getElementById('testimonialTrack');
+            if (!shell || !viewport || !track) return;
+
+            const prevBtn = shell.querySelector('[data-testimonial-prev]');
+            const nextBtn = shell.querySelector('[data-testimonial-next]');
+            const trustBar = document.getElementById('testimonialTrustBar');
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            let cardWidth = 320;
+            let gap = 18;
+            let baseCycleWidth = 0;
+            let offsetX = 0;
+            let rafId = null;
+            let autoPaused = false;
+            let dragging = false;
+            let pointerId = null;
+            let dragStartX = 0;
+            let dragStartOffset = 0;
+            let velocity = reducedMotion ? 0 : 0.42; // ~50% faster than previous
+            let resumeTimer = null;
+
+            const canonicalTag = (value) => {
+                const map = {
+                    'beard trim': 'Beard Trim',
+                    'beard shaping': 'Beard Shaping',
+                    'beard maintenance': 'Beard Maintenance',
+                    'beard conditioning': 'Beard Conditioning',
+                    'straight razor shave': 'Straight Razor Shave',
+                    'hot towel shave': 'Hot Towel Shave',
+                    'fade cut': 'Fade Cut',
+                    'skin fade': 'Skin Fade',
+                    'taper fade': 'Taper Fade',
+                    'lineup': 'Lineup',
+                    'shape up': 'Shape Up',
+                    'haircut': 'Haircut',
+                    'scissor cut': 'Scissor Cut',
+                    'eyebrow trimming': 'Eyebrow Trimming'
+                };
+                const key = String(value || '').trim().toLowerCase();
+                return map[key] || String(value || '').trim();
+            };
+
+            const starsMarkup = () => '<div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>';
+
+            const cardTemplate = (review) => {
+                const rawTags = [...(review.services_listed || []), ...(review.tags || [])]
+                    .map(canonicalTag)
+                    .filter(Boolean);
+                const tags = [...new Set(rawTags)].slice(0, 4);
+                const tagsMarkup = tags.map(tag => `<span class="testimonial-service-tag">${tag}</span>`).join('');
+                const priceMarkup = review.price_range ? `<div class="testimonial-price">${review.price_range}</div>` : '';
+                const safeText = (review.excerpt || review.review_text || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                const safeName = String(review.reviewer_name || 'Google Reviewer').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                const safeDate = String(review.date_text || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+                return `
+                    <article class="testimonial-card" data-review-id="${review.id}">
+                        ${starsMarkup()}
+                        <p class="testimonial-card-text">“${safeText}”</p>
+                        <div class="testimonial-service-tags">${tagsMarkup}</div>
+                        <div class="testimonial-meta">
+                            <div class="testimonial-reviewer">
+                                <div class="testimonial-reviewer-name">${safeName}</div>
+                                <div class="testimonial-reviewer-date">${safeDate || 'Google Review'}</div>
+                            </div>
+                            ${priceMarkup}
+                        </div>
+                    </article>
+                `;
+            };
+
+            const render = async () => {
+                try {
+                    const res = await fetch('/data/google-reviews.json', { cache: 'no-store' });
+                    if (!res.ok) throw new Error(`Failed to load reviews (${res.status})`);
+                    const data = await res.json();
+                    const reviews = Array.isArray(data.reviews) ? data.reviews : [];
+
+                    if (trustBar && data.business_snapshot?.rating_text) {
+                        const ratingMatch = String(data.business_snapshot.rating_text).match(/([0-9.]+)\s*\((\d+)\s+Google reviews\)/i);
+                        if (ratingMatch) {
+                            trustBar.innerHTML = `
+                                <div class="trust-pill"><strong>${ratingMatch[1]}</strong> Google Rating</div>
+                                <div class="trust-pill"><strong>${ratingMatch[2]}</strong> Google Reviews</div>
+                            `;
+                        }
+                    }
+
+                    // Prioritize richer reviews for cards shown in rotation
+                    const selected = reviews
+                        .slice()
+                        .sort((a, b) => (b.excerpt?.length || 0) - (a.excerpt?.length || 0))
+                        .slice(0, 16);
+
+                    if (!selected.length) {
+                        track.innerHTML = '<div class="testimonial-carousel-note">Reviews unavailable right now.</div>';
+                        return;
+                    }
+
+                    const html = [...selected, ...selected].map(cardTemplate).join('');
+                    track.innerHTML = html;
+
+                    requestAnimationFrame(() => {
+                        measure();
+                        bind();
+                        start();
+                    });
+                } catch (err) {
+                    console.error(err);
+                    track.innerHTML = '<div class="testimonial-carousel-note">Unable to load reviews right now.</div>';
+                }
+            };
+
+            const measure = () => {
+                const firstCard = track.querySelector('.testimonial-card');
+                if (!firstCard) return;
+                const cardRect = firstCard.getBoundingClientRect();
+                const trackStyle = getComputedStyle(track);
+                gap = parseFloat(trackStyle.columnGap || trackStyle.gap || '18') || 18;
+                cardWidth = cardRect.width;
+                const totalCards = track.querySelectorAll('.testimonial-card').length;
+                baseCycleWidth = ((cardWidth + gap) * (totalCards / 2));
+            };
+
+            const normalizeOffset = () => {
+                if (!baseCycleWidth) return;
+                while (offsetX >= baseCycleWidth) offsetX -= baseCycleWidth;
+                while (offsetX < 0) offsetX += baseCycleWidth;
+            };
+
+            const applyTransform = () => {
+                normalizeOffset();
+                track.style.transform = `translate3d(${-offsetX}px, 0, 0)`;
+            };
+
+            const tick = () => {
+                if (!autoPaused && !dragging && !reducedMotion) {
+                    offsetX += velocity;
+                    applyTransform();
+                }
+                rafId = requestAnimationFrame(tick);
+            };
+
+            const start = () => {
+                if (rafId) cancelAnimationFrame(rafId);
+                applyTransform();
+                rafId = requestAnimationFrame(tick);
+            };
+
+            const pauseAuto = () => {
+                autoPaused = true;
+                if (resumeTimer) clearTimeout(resumeTimer);
+            };
+
+            const resumeAutoLater = (delay = 1400) => {
+                if (resumeTimer) clearTimeout(resumeTimer);
+                resumeTimer = setTimeout(() => {
+                    autoPaused = false;
+                }, delay);
+            };
+
+            const stepByCards = (count) => {
+                pauseAuto();
+                offsetX += count * (cardWidth + gap);
+                applyTransform();
+                resumeAutoLater();
+            };
+
+            const onPointerDown = (e) => {
+                if (e.pointerType === 'mouse' && e.button !== 0) return;
+                dragging = true;
+                pauseAuto();
+                pointerId = e.pointerId;
+                dragStartX = e.clientX;
+                dragStartOffset = offsetX;
+                viewport.classList.add('is-dragging');
+                viewport.setPointerCapture(pointerId);
+            };
+
+            const onPointerMove = (e) => {
+                if (!dragging || e.pointerId !== pointerId) return;
+                const dx = e.clientX - dragStartX;
+                offsetX = dragStartOffset - dx;
+                applyTransform();
+            };
+
+            const onPointerUp = (e) => {
+                if (!dragging || e.pointerId !== pointerId) return;
+                dragging = false;
+                viewport.classList.remove('is-dragging');
+                try { viewport.releasePointerCapture(pointerId); } catch {}
+                pointerId = null;
+                resumeAutoLater(900);
+            };
+
+            let bound = false;
+            const bind = () => {
+                if (bound) return;
+                bound = true;
+
+                prevBtn?.addEventListener('click', () => stepByCards(-1));
+                nextBtn?.addEventListener('click', () => stepByCards(1));
+
+                viewport.addEventListener('pointerdown', onPointerDown);
+                viewport.addEventListener('pointermove', onPointerMove);
+                viewport.addEventListener('pointerup', onPointerUp);
+                viewport.addEventListener('pointercancel', onPointerUp);
+                window.addEventListener('resize', () => {
+                    measure();
+                    applyTransform();
+                }, { passive: true });
+
+                document.addEventListener('visibilitychange', () => {
+                    if (document.hidden) pauseAuto();
+                    else resumeAutoLater(500);
+                });
+            };
+
+            render();
+        })();
 
         // Hero Animations
         const heroTl = gsap.timeline({ delay: 0.3 });
@@ -1830,10 +2806,12 @@
             scrollTrigger: {
                 trigger: '.services',
                 start: 'top 80%',
-                toggleActions: 'play none none reverse'
+                toggleActions: 'play none none reverse',
+                invalidateOnRefresh: true
             },
             y: 50,
             opacity: 0,
+            immediateRender: false,
             duration: 0.8,
             ease: 'power3.out'
         });
@@ -1842,10 +2820,12 @@
             scrollTrigger: {
                 trigger: '.services-grid',
                 start: 'top 80%',
-                toggleActions: 'play none none reverse'
+                toggleActions: 'play none none reverse',
+                invalidateOnRefresh: true
             },
             y: 60,
             opacity: 0,
+            immediateRender: false,
             duration: 0.8,
             stagger: 0.1,
             ease: 'power3.out'
@@ -1915,32 +2895,6 @@
             ease: 'power3.out'
         });
 
-        // Barbers Section Animation
-        gsap.from('.barbers .section-header', {
-            scrollTrigger: {
-                trigger: '.barbers',
-                start: 'top 80%',
-                toggleActions: 'play none none reverse'
-            },
-            y: 50,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power3.out'
-        });
-
-        gsap.from('.barber-card', {
-            scrollTrigger: {
-                trigger: '.barbers-grid',
-                start: 'top 80%',
-                toggleActions: 'play none none reverse'
-            },
-            y: 60,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: 'power3.out'
-        });
-
         // Testimonials Animation
         gsap.from('.testimonials-content > *', {
             scrollTrigger: {
@@ -2005,6 +2959,14 @@
             btn.addEventListener('mouseleave', () => {
                 gsap.to(btn, { scale: 1, duration: 0.3, ease: 'power2.out' });
             });
+        });
+
+        // Recalculate scroll triggers after media/layout settle (helps mobile hero + below-the-fold sections)
+        window.addEventListener('load', () => {
+            if (window.ScrollTrigger) {
+                ScrollTrigger.refresh();
+                setTimeout(() => ScrollTrigger.refresh(), 250);
+            }
         });
     </script>
 </body>
