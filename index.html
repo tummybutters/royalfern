@@ -1112,6 +1112,27 @@
             font-weight: 600;
         }
 
+        .trust-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            padding: 11px 14px;
+            border: 1px solid rgba(210, 178, 106, 0.34);
+            background: rgba(245, 240, 232, 0.1);
+            color: var(--white);
+            transition: all 0.25s ease;
+        }
+
+        .trust-cta:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--primary);
+        }
+
         .testimonial-carousel-shell {
             position: relative;
             margin-top: 22px;
@@ -1289,6 +1310,67 @@
             font-size: 12px;
             letter-spacing: 1px;
             white-space: nowrap;
+        }
+
+        /* Instagram Section */
+        .instagram-wall {
+            padding: 120px 60px;
+            background: linear-gradient(180deg, var(--white), rgba(245, 240, 232, 0.65));
+        }
+
+        .instagram-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .instagram-header {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 26px;
+            flex-wrap: wrap;
+        }
+
+        .instagram-cta {
+            display: inline-block;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            padding: 12px 16px;
+            border: 2px solid var(--primary);
+            color: var(--white);
+            background: var(--primary);
+            transition: all 0.28s ease;
+        }
+
+        .instagram-cta:hover {
+            background: transparent;
+            color: var(--primary);
+        }
+
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .instagram-embed-card {
+            border: 1px solid rgba(20, 78, 71, 0.12);
+            background: rgba(255, 255, 255, 0.82);
+            padding: 10px;
+            box-shadow: 0 14px 30px rgba(10, 46, 42, 0.07);
+        }
+
+        .instagram-embed-card .instagram-media {
+            margin: 0 !important;
+            min-width: 100% !important;
+            max-width: 100% !important;
+            width: 100% !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            border: 0 !important;
         }
 
         /* Merch Waitlist Section */
@@ -1786,6 +1868,10 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .instagram-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
             .merch-gallery {
                 min-height: 0;
             }
@@ -1966,7 +2052,8 @@
             .barbers,
             .testimonials,
             .contact,
-            .merch {
+            .merch,
+            .instagram-wall {
                 padding: 80px 30px;
             }
 
@@ -1992,6 +2079,10 @@
 
             .barbers-grid,
             .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .instagram-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -2298,8 +2389,8 @@
                     <h2 class="section-title">What Clients Say About Our Haircuts, Fades & Beard Trims</h2>
                 </div>
                 <div class="testimonial-trust-bar" id="testimonialTrustBar">
-                    <div class="trust-pill"><strong>5.0</strong> Google Rating</div>
-                    <div class="trust-pill"><strong>27</strong> Google Reviews</div>
+                    <div class="trust-pill"><strong id="googleRatingValue">5.0</strong> Google Rating</div>
+                    <a class="trust-cta" href="https://www.google.com/search?client=safari&hs=w2Sp&sca_esv=286534660d0b6d5d&rls=en&sxsrf=ANbL-n63zcvJSC-wna7vevMSnPS0Q3G1Xg:1772748397818&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOewA6s91MtH21LcUzHutzAruWMx4xhJveXrndQczmsTvedCXruNUOVuogNRaMaZ4USTYG0MoV4ex07Rj5Dq6dtN7OpXJhuPnINApegv--7cwuLRzZQ%3D%3D&q=RoyalFern+Barber+Studio+Reviews&sa=X&ved=2ahUKEwjnvpy04omTAxVnC0QIHft1A84Q0bkNegQIUhAH&biw=1633&bih=815&dpr=1.8" target="_blank" rel="noopener noreferrer">Read Reviews</a>
                 </div>
             </div>
 
@@ -2325,46 +2416,31 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
-        <div class="section-header">
-            <p class="section-eyebrow">Our Work</p>
-            <h2 class="section-title">Style Gallery</h2>
-        </div>
-        <div class="gallery-grid">
-            <div class="gallery-item featured">
-                <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800&h=800&fit=crop" alt="Classic fade haircut">
-                <div class="gallery-overlay">
-                    <h4>The Classic Fade</h4>
-                    <p>Timeless Style</p>
+    <!-- Instagram Section -->
+    <section class="instagram-wall" id="instagram">
+        <div class="instagram-content">
+            <div class="instagram-header">
+                <div class="section-header" style="margin-bottom: 0;">
+                    <p class="section-eyebrow">Instagram</p>
+                    <h2 class="section-title">Latest From Royal Fern</h2>
                 </div>
+                <a class="instagram-cta" href="https://www.instagram.com/royalfernbarberstudio_sd/" target="_blank" rel="noopener noreferrer">Follow On Instagram</a>
             </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=400&h=400&fit=crop" alt="Beard grooming">
-                <div class="gallery-overlay">
-                    <h4>Beard Art</h4>
-                    <p>Precision</p>
+            <div class="instagram-grid">
+                <div class="instagram-embed-card">
+                    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DVg7iBrAe0N/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
+                        <a href="https://www.instagram.com/reel/DVg7iBrAe0N/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener noreferrer">View this post on Instagram</a>
+                    </blockquote>
                 </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1493256338651-d82f7acb2b38?w=400&h=400&fit=crop" alt="Hot towel shave">
-                <div class="gallery-overlay">
-                    <h4>Hot Towel</h4>
-                    <p>Shave</p>
+                <div class="instagram-embed-card">
+                    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DVJymBaEj4V/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
+                        <a href="https://www.instagram.com/reel/DVJymBaEj4V/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener noreferrer">View this post on Instagram</a>
+                    </blockquote>
                 </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=400&h=400&fit=crop" alt="Modern pompadour">
-                <div class="gallery-overlay">
-                    <h4>Pompadour</h4>
-                    <p>Modern</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1599351431613-18ef1fdd27e1?w=400&h=400&fit=crop" alt="Textured crop">
-                <div class="gallery-overlay">
-                    <h4>Textured Crop</h4>
-                    <p>Trending</p>
+                <div class="instagram-embed-card">
+                    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DTlxzjKEtRv/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
+                        <a href="https://www.instagram.com/reel/DTlxzjKEtRv/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener noreferrer">View this post on Instagram</a>
+                    </blockquote>
                 </div>
             </div>
         </div>
@@ -2520,6 +2596,7 @@
         </div>
     </footer>
 
+    <script async src="https://www.instagram.com/embed.js"></script>
     <script>
         // Register ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
@@ -2832,6 +2909,7 @@
             const prevBtn = shell.querySelector('[data-testimonial-prev]');
             const nextBtn = shell.querySelector('[data-testimonial-next]');
             const trustBar = document.getElementById('testimonialTrustBar');
+            const ratingValue = document.getElementById('googleRatingValue');
             const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
             let cardWidth = 320;
@@ -2904,14 +2982,9 @@
                     const data = await res.json();
                     const reviews = Array.isArray(data.reviews) ? data.reviews : [];
 
-                    if (trustBar && data.business_snapshot?.rating_text) {
-                        const ratingMatch = String(data.business_snapshot.rating_text).match(/([0-9.]+)\s*\((\d+)\s+Google reviews\)/i);
-                        if (ratingMatch) {
-                            trustBar.innerHTML = `
-                                <div class="trust-pill"><strong>${ratingMatch[1]}</strong> Google Rating</div>
-                                <div class="trust-pill"><strong>${ratingMatch[2]}</strong> Google Reviews</div>
-                            `;
-                        }
+                    if (trustBar && ratingValue && data.business_snapshot?.rating_text) {
+                        const ratingMatch = String(data.business_snapshot.rating_text).match(/([0-9.]+)/);
+                        if (ratingMatch) ratingValue.textContent = ratingMatch[1];
                     }
 
                     // Prioritize richer reviews for cards shown in rotation
@@ -3170,29 +3243,30 @@
             ease: 'power3.out'
         });
 
-        // Gallery Section Animation
-        gsap.from('.gallery .section-header', {
+        // Instagram Section Animation
+        gsap.from('.instagram-wall .section-header, .instagram-cta', {
             scrollTrigger: {
-                trigger: '.gallery',
+                trigger: '.instagram-wall',
+                start: 'top 78%',
+                toggleActions: 'play none none reverse'
+            },
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.instagram-embed-card', {
+            scrollTrigger: {
+                trigger: '.instagram-grid',
                 start: 'top 80%',
                 toggleActions: 'play none none reverse'
             },
             y: 50,
             opacity: 0,
             duration: 0.8,
-            ease: 'power3.out'
-        });
-
-        gsap.from('.gallery-item', {
-            scrollTrigger: {
-                trigger: '.gallery-grid',
-                start: 'top 80%',
-                toggleActions: 'play none none reverse'
-            },
-            y: 60,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.1,
+            stagger: 0.12,
             ease: 'power3.out'
         });
 
@@ -3289,7 +3363,7 @@
         });
 
         // Button hover micro-interactions
-        document.querySelectorAll('.hero-cta, .nav-cta, .submit-btn, .waitlist-submit').forEach(btn => {
+        document.querySelectorAll('.hero-cta, .nav-cta, .submit-btn, .waitlist-submit, .instagram-cta').forEach(btn => {
             btn.addEventListener('mouseenter', () => {
                 gsap.to(btn, { scale: 1.02, duration: 0.3, ease: 'power2.out' });
             });
