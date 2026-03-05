@@ -1291,6 +1291,159 @@
             white-space: nowrap;
         }
 
+        /* Merch Waitlist Section */
+        .merch {
+            padding: 120px 60px;
+            background:
+                radial-gradient(circle at 82% 14%, rgba(210, 178, 106, 0.14), transparent 38%),
+                linear-gradient(140deg, #0b2b27, #123833 60%, #102f2c);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .merch-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 34px;
+            align-items: stretch;
+        }
+
+        .merch-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            min-height: 340px;
+        }
+
+        .merch-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(210, 178, 106, 0.24);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .merch-card::before {
+            content: '';
+            position: absolute;
+            inset: 10px;
+            border: 1px solid rgba(210, 178, 106, 0.14);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .merch-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.9) contrast(1.05);
+            transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1), filter 700ms ease;
+        }
+
+        .merch-card:hover img {
+            transform: scale(1.05);
+            filter: saturate(1.03) contrast(1.08);
+        }
+
+        .merch-info {
+            border: 1px solid rgba(210, 178, 106, 0.28);
+            background: rgba(0, 0, 0, 0.2);
+            padding: 34px;
+            position: relative;
+        }
+
+        .merch-info::before {
+            content: '';
+            position: absolute;
+            inset: 10px;
+            border: 1px solid rgba(210, 178, 106, 0.16);
+            pointer-events: none;
+        }
+
+        .merch-info > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .merch .section-eyebrow {
+            color: var(--gold);
+        }
+
+        .merch .section-title {
+            color: var(--white);
+            margin-bottom: 14px;
+        }
+
+        .merch-copy {
+            color: rgba(255, 255, 255, 0.84);
+            font-size: 15px;
+            line-height: 1.9;
+            margin-bottom: 18px;
+        }
+
+        .waitlist-form {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+        }
+
+        .waitlist-form input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(210, 178, 106, 0.36);
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .waitlist-form input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .waitlist-form input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(210, 178, 106, 0.16);
+        }
+
+        .waitlist-submit {
+            padding: 0 20px;
+            border: 2px solid var(--gold);
+            background: var(--gold);
+            color: var(--primary);
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            white-space: nowrap;
+        }
+
+        .waitlist-submit:hover {
+            background: transparent;
+            color: var(--white);
+        }
+
+        .waitlist-note {
+            margin-top: 10px;
+            color: rgba(255, 255, 255, 0.68);
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .waitlist-form.is-success .waitlist-submit {
+            background: transparent;
+            color: var(--white);
+        }
+
         /* Contact Section */
         .contact {
             padding: 120px 60px;
@@ -1382,6 +1535,36 @@
             background: var(--cream);
             padding: 50px;
             border: 1px solid rgba(20, 78, 71, 0.1);
+        }
+
+        .contact-booking-card {
+            background: var(--cream);
+            padding: 50px;
+            border: 1px solid rgba(20, 78, 71, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-booking-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 32px;
+            line-height: 1.2;
+            color: var(--primary);
+        }
+
+        .contact-booking-card p {
+            font-size: 15px;
+            line-height: 1.9;
+            color: rgba(20, 78, 71, 0.75);
+            max-width: 42ch;
+        }
+
+        .contact-book-btn {
+            display: inline-block;
+            width: fit-content;
+            text-decoration: none;
         }
 
         .form-group {
@@ -1570,7 +1753,8 @@
         @media (max-width: 1024px) {
             .hero-inner,
             .about-content,
-            .contact-content {
+            .contact-content,
+            .merch-content {
                 grid-template-columns: 1fr;
             }
 
@@ -1600,6 +1784,10 @@
 
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .merch-gallery {
+                min-height: 0;
             }
 
             .gallery-item.featured {
@@ -1777,7 +1965,8 @@
             .gallery,
             .barbers,
             .testimonials,
-            .contact {
+            .contact,
+            .merch {
                 padding: 80px 30px;
             }
 
@@ -1803,6 +1992,25 @@
 
             .barbers-grid,
             .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .merch-gallery {
+                grid-template-columns: 1fr;
+                height: 420px;
+            }
+
+            .merch-info {
+                padding: 26px;
+            }
+
+            .waitlist-submit {
+                padding: 14px 16px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .waitlist-form {
                 grid-template-columns: 1fr;
             }
 
@@ -1882,7 +2090,7 @@
             <a href="/gallery/">Gallery</a>
             <a href="/beard-trims-beard-lineups-shaping/">Beard</a>
             <a href="/fade-haircuts/">Fades</a>
-            <a href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city/barber/fernando-moreno-1/services" class="nav-cta" target="_blank" rel="noopener noreferrer">Book Now</a>
+            <a href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" class="nav-cta" target="_blank" rel="noopener noreferrer">Book Now</a>
         </div>
         <button class="mobile-menu-btn">
             <span></span>
@@ -1895,7 +2103,7 @@
                 <a href="/gallery/">Gallery</a>
                 <a href="/beard-trims-beard-lineups-shaping/">Beard</a>
                 <a href="/fade-haircuts/">Fades</a>
-                <a href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city/barber/fernando-moreno-1/services" class="mobile-nav-cta" target="_blank" rel="noopener noreferrer">Book Now</a>
+                <a href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" class="mobile-nav-cta" target="_blank" rel="noopener noreferrer">Book Now</a>
             </div>
         </div>
     </nav>
@@ -1977,7 +2185,7 @@
                     <h2 class="hero-text">
                         Providing men’s haircuts, fade haircuts, skin fades, taper fades, lineups, beard trims, beard shaping, and hot towel shaves in National City, Chula Vista, Bonita, Paradise Hills, and South Bay San Diego.
                     </h2>
-                    <a href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city/barber/fernando-moreno-1/services" class="hero-cta" target="_blank" rel="noopener noreferrer">Reserve Your Chair</a>
+                    <a href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" class="hero-cta" target="_blank" rel="noopener noreferrer">Reserve Your Chair</a>
                 </div>
             </div>
         </div>
@@ -2162,6 +2370,33 @@
         </div>
     </section>
 
+    <!-- Merch Waitlist Section -->
+    <section class="merch" id="merch">
+        <div class="merch-content">
+            <div class="merch-gallery">
+                <figure class="merch-card">
+                    <img src="/media/merch/merch-boxing.jpg" alt="Royal Fern Lifestyle discipline shirt in boxing training." />
+                </figure>
+                <figure class="merch-card">
+                    <img src="/media/merch/merch-tattoo.jpg" alt="Royal Fern Lifestyle discipline shirt in a tattoo studio." />
+                </figure>
+                <figure class="merch-card">
+                    <img src="/media/merch/merch-studio.jpg" alt="Royal Fern Lifestyle discipline shirt in a creative studio." />
+                </figure>
+            </div>
+            <div class="merch-info">
+                <p class="section-eyebrow">Royal Fern Lifestyle</p>
+                <h2 class="section-title">Merch Drop Waitlist</h2>
+                <p class="merch-copy">Join the first drop list for the Discipline collection. Waitlist members get early access, sizing notifications, and first release updates before public launch.</p>
+                <form class="waitlist-form" id="merchWaitlistForm" action="#" method="post">
+                    <input id="merchWaitlistEmail" name="email" type="email" autocomplete="email" placeholder="Enter your email" aria-label="Email address" required />
+                    <button type="submit" class="waitlist-submit">Join Waitlist</button>
+                </form>
+                <p class="waitlist-note">No spam. Merch release updates only.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="section-header">
@@ -2181,7 +2416,7 @@
                         </div>
                         <div class="contact-text">
                             <h4>Address</h4>
-                            <p>1234 Fifth Avenue<br>San Diego, CA 92101</p>
+                            <p>3030 Plaza Bonita Road Unit #1336<br>National City, CA 91950</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -2228,42 +2463,11 @@
                     </div>
                 </div>
             </div>
-            <form class="contact-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" placeholder="John" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" placeholder="Doe" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="tel" placeholder="(555) 123-4567" required>
-                </div>
-                <div class="form-group">
-                    <label>Service</label>
-                    <select required>
-                        <option value="">Select a service</option>
-                        <option value="haircut">Classic Haircut</option>
-                        <option value="shave">Hot Towel Shave</option>
-                        <option value="beard">Beard Sculpting</option>
-                        <option value="full">The Full Experience</option>
-                        <option value="kids">Kids Cut</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Preferred Date & Time</label>
-                    <input type="datetime-local" required>
-                </div>
-                <div class="form-group">
-                    <label>Special Requests</label>
-                    <textarea placeholder="Any specific requests or notes..."></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Book Appointment</button>
-            </form>
+            <aside class="contact-booking-card">
+                <h3>Book in Seconds</h3>
+                <p>Use our booking page to choose your barber, service, and time in one step. Fastest way to lock in your next appointment.</p>
+                <a class="submit-btn contact-book-btn" href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" target="_blank" rel="noopener noreferrer">Book A Haircut</a>
+            </aside>
         </div>
     </section>
 
@@ -2303,7 +2507,7 @@
             <div class="footer-links">
                 <h4>Contact</h4>
                 <ul>
-                    <li><a href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city/barber/fernando-moreno-1/services" target="_blank" rel="noopener noreferrer">Book Online</a></li>
+                    <li><a href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" target="_blank" rel="noopener noreferrer">Book Online</a></li>
                     <li><a href="#">Call Us</a></li>
                     <li><a href="#">Gift Cards</a></li>
                     <li><a href="#">FAQs</a></li>
@@ -2992,6 +3196,32 @@
             ease: 'power3.out'
         });
 
+        // Merch Waitlist Animation
+        gsap.from('.merch-gallery .merch-card', {
+            scrollTrigger: {
+                trigger: '.merch',
+                start: 'top 75%',
+                toggleActions: 'play none none reverse'
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.9,
+            stagger: 0.12,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.merch-info', {
+            scrollTrigger: {
+                trigger: '.merch',
+                start: 'top 75%',
+                toggleActions: 'play none none reverse'
+            },
+            x: 70,
+            opacity: 0,
+            duration: 0.9,
+            ease: 'power3.out'
+        });
+
         // Testimonials Animation
         gsap.from('.testimonials-content > *', {
             scrollTrigger: {
@@ -3019,7 +3249,7 @@
             ease: 'power3.out'
         });
 
-        gsap.from('.contact-form', {
+        gsap.from('.contact-booking-card', {
             scrollTrigger: {
                 trigger: '.contact',
                 start: 'top 70%',
@@ -3031,13 +3261,21 @@
             ease: 'power3.out'
         });
 
-        const BOOKING_URL = 'https://getsquire.com/booking/book/royalfern-barber-studio-national-city/barber/fernando-moreno-1/services';
-
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            window.open(BOOKING_URL, '_blank', 'noopener,noreferrer');
-        });
+        const merchWaitlistForm = document.getElementById('merchWaitlistForm');
+        if (merchWaitlistForm) {
+            merchWaitlistForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = document.getElementById('merchWaitlistEmail');
+                const submitBtn = merchWaitlistForm.querySelector('.waitlist-submit');
+                if (!emailInput.checkValidity()) {
+                    emailInput.reportValidity();
+                    return;
+                }
+                merchWaitlistForm.classList.add('is-success');
+                submitBtn.textContent = "You're On The List";
+                emailInput.value = '';
+            });
+        }
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -3051,7 +3289,7 @@
         });
 
         // Button hover micro-interactions
-        document.querySelectorAll('.hero-cta, .nav-cta, .submit-btn').forEach(btn => {
+        document.querySelectorAll('.hero-cta, .nav-cta, .submit-btn, .waitlist-submit').forEach(btn => {
             btn.addEventListener('mouseenter', () => {
                 gsap.to(btn, { scale: 1.02, duration: 0.3, ease: 'power2.out' });
             });
