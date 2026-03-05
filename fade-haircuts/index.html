@@ -243,6 +243,93 @@
       font-family: 'Inter', sans-serif;
       letter-spacing: 2px;
     }
+    .content-frame {
+      max-width: 1240px;
+      margin: 20px auto 0;
+      border: 1px solid rgba(20,78,71,0.14);
+      background: rgba(255,255,255,0.55);
+      padding: 30px;
+    }
+    .section-header {
+      margin-bottom: 18px;
+      max-width: 68ch;
+    }
+    .section-kicker {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(24px, 2.8vw, 34px);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .section-text {
+      font-size: 15px;
+      line-height: 1.85;
+      color: rgba(20,78,71,0.8);
+    }
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .detail-card {
+      border: 1px solid rgba(20,78,71,0.14);
+      background: rgba(245,240,232,0.85);
+      padding: 16px;
+    }
+    .detail-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+    .detail-card p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(20,78,71,0.8);
+    }
+    .split-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .split-block {
+      border: 1px solid rgba(20,78,71,0.14);
+      background: rgba(245,240,232,0.8);
+      padding: 18px;
+    }
+    .split-block h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .split-block p {
+      font-size: 14px;
+      line-height: 1.85;
+      color: rgba(20,78,71,0.82);
+    }
+    .clean-list {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+    .clean-list li {
+      border-bottom: 1px dashed rgba(20,78,71,0.16);
+      padding-bottom: 8px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(20,78,71,0.82);
+    }
+    .clean-list li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
     @media (max-width: 1024px) {
       .hero-inner {
         grid-template-columns: 1fr;
@@ -259,6 +346,10 @@
       .hero-title {
         max-width: none;
       }
+      .detail-grid,
+      .split-grid {
+        grid-template-columns: 1fr;
+      }
     }
     @media (max-width: 768px) {
       .page-shell { padding: 16px 16px 40px; }
@@ -266,6 +357,7 @@
       .brand span { display: none; }
       .ghost-link { display: none; }
       .hero-frame { padding: 22px; }
+      .content-frame { padding: 22px; }
       .hero-panel { min-height: 360px; }
       .hero-panel-card strong { font-size: 20px; }
       .divider-line { width: 52px; }
@@ -319,6 +411,49 @@
             <a class="hero-cta secondary" href="/">Back to Home</a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="content-frame" aria-labelledby="fade-options-title">
+      <div class="section-header">
+        <span class="section-kicker">Fade Options</span>
+        <h2 id="fade-options-title" class="section-title">Fade styles we handle every day</h2>
+        <p class="section-text">Clean transitions, even blending, and sharp perimeter work tailored to your head shape and preferred maintenance level.</p>
+      </div>
+      <div class="detail-grid">
+        <article class="detail-card">
+          <h3>Skin Fade</h3>
+          <p>Tight-to-skin finish with smooth graduation on the sides and back for a high-contrast, polished look.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Taper Fade</h3>
+          <p>Subtle cleanup around temples and nape that keeps length up top while still looking sharp between cuts.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Low, Mid, High</h3>
+          <p>Fade height placement set to your style goals, hair density, and how bold or conservative you want the final shape.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-frame" aria-labelledby="fade-visit-title">
+      <div class="section-header">
+        <span class="section-kicker">Your Visit</span>
+        <h2 id="fade-visit-title" class="section-title">What to expect at your fade appointment</h2>
+      </div>
+      <div class="split-grid">
+        <article class="split-block">
+          <h3>Service flow</h3>
+          <ul class="clean-list">
+            <li>Quick consultation on fade height, line shape, and finish.</li>
+            <li>Detailed clipper and shear blend with edge refinement.</li>
+            <li>Final check from multiple angles before you leave the chair.</li>
+          </ul>
+        </article>
+        <article class="split-block">
+          <h3>Best fit for</h3>
+          <p>Clients searching for dependable skin fades, taper fades, and lineup-ready cuts around National City and South Bay San Diego.</p>
+        </article>
       </div>
     </section>
   </main>

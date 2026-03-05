@@ -654,93 +654,6 @@
             color: var(--primary);
         }
 
-        /* Services Section */
-        .services {
-            padding: 120px 60px;
-            background: var(--white);
-        }
-
-        .services-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
-
-        .service-card {
-            background: var(--cream);
-            padding: 50px 40px;
-            text-align: center;
-            border: 1px solid rgba(20, 78, 71, 0.1);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gold);
-            transform: scaleX(0);
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(20, 78, 71, 0.1);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 25px;
-            border: 2px solid var(--gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .service-icon svg {
-            width: 32px;
-            height: 32px;
-            stroke: var(--primary);
-        }
-
-        .service-name {
-            font-family: 'Cinzel', serif;
-            font-size: 20px;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .service-desc {
-            font-size: 14px;
-            line-height: 1.8;
-            color: rgba(20, 78, 71, 0.7);
-            margin-bottom: 25px;
-        }
-
-        .service-price {
-            font-family: 'Cinzel', serif;
-            font-size: 28px;
-            color: var(--gold);
-        }
-
-        .service-price span {
-            font-size: 14px;
-            color: rgba(20, 78, 71, 0.5);
-        }
-
         /* About Section */
         .about {
             padding: 120px 60px;
@@ -888,6 +801,30 @@
             line-height: 2;
             color: rgba(20, 78, 71, 0.75);
             margin-bottom: 20px;
+        }
+
+        .about-mission {
+            margin: 26px 0 14px;
+            padding: 20px 22px;
+            border-left: 3px solid var(--gold);
+            background: rgba(20, 78, 71, 0.05);
+        }
+
+        .about-mission p {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--primary);
+        }
+
+        .about-mission-label {
+            display: block;
+            margin-top: 10px;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(20, 78, 71, 0.7);
         }
 
         .about-features {
@@ -1657,7 +1594,6 @@
                 min-height: 0;
             }
 
-            .services-grid,
             .barbers-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1837,7 +1773,6 @@
                 padding: 8px 0 0;
             }
 
-            .services,
             .about,
             .gallery,
             .barbers,
@@ -1866,7 +1801,6 @@
                 letter-spacing: 1px;
             }
 
-            .services-grid,
             .barbers-grid,
             .footer-content {
                 grid-template-columns: 1fr;
@@ -2067,88 +2001,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="section-header">
-            <p class="section-eyebrow">What We Offer</p>
-            <h2 class="section-title">Our Services</h2>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-                        <path d="M6 4l6 16 6-16"/>
-                        <circle cx="12" cy="4" r="2"/>
-                        <circle cx="12" cy="20" r="2"/>
-                    </svg>
-                </div>
-                <h3 class="service-name">Classic Haircut</h3>
-                <p class="service-desc">Precision cut tailored to your style with hot towel finish and straight razor neckline.</p>
-                <div class="service-price">$45 <span>+</span></div>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-                        <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/>
-                        <path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/>
-                        <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"/>
-                    </svg>
-                </div>
-                <h3 class="service-name">Hot Towel Shave</h3>
-                <p class="service-desc">Traditional straight razor shave with hot towels, premium oils, and aftershave balm.</p>
-                <div class="service-price">$40 <span>+</span></div>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-                        <path d="M8 21h8a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2z"/>
-                        <path d="M8 3v18"/>
-                        <path d="M12 7v.01"/>
-                        <path d="M12 11v.01"/>
-                        <path d="M12 15v.01"/>
-                    </svg>
-                </div>
-                <h3 class="service-name">Beard Sculpting</h3>
-                <p class="service-desc">Expert beard shaping and grooming with precision trimmers and straight razor detailing.</p>
-                <div class="service-price">$30 <span>+</span></div>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M12 6v6l4 2"/>
-                    </svg>
-                </div>
-                <h3 class="service-name">The Full Experience</h3>
-                <p class="service-desc">Haircut, hot towel shave, beard trim, facial treatment, and relaxing scalp massage.</p>
-                <div class="service-price">$95 <span>+</span></div>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-                        <path d="M12 3v18"/>
-                        <path d="M8 7l4-4 4 4"/>
-                        <path d="M8 17l4 4 4-4"/>
-                    </svg>
-                </div>
-                <h3 class="service-name">Kids Cut</h3>
-                <p class="service-desc">Gentle, patient service for young gentlemen under 12. Includes a lollipop reward!</p>
-                <div class="service-price">$30 <span>+</span></div>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-                        <path d="M20.2 7.8l-7.7 7.7-4-4-5.7 5.7"/>
-                        <path d="M15 7h6v6"/>
-                    </svg>
-                </div>
-                <h3 class="service-name">Grey Blending</h3>
-                <p class="service-desc">Subtle color treatment to naturally blend grey hair while maintaining a distinguished look.</p>
-                <div class="service-price">$35 <span>+</span></div>
-            </div>
-        </div>
-    </section>
-
     <!-- About Section -->
     <section class="about" id="about">
         <div class="about-content">
@@ -2174,6 +2026,10 @@
                 <p class="section-eyebrow">Our Story</p>
                 <h2>Crafting Timeless Styles Since 2015</h2>
                 <p>At Royal Fern Barber Studio, we believe a great haircut is more than a service—it's a ritual. Founded in San Diego, our studio was built around elevated craftsmanship, detail, and modern barber culture.</p>
+                <blockquote class="about-mission">
+                    <p>"To elevate the craft of barbering into a disciplined lifestyle rooted in growth, purpose, and legacy, where barbers become leaders, clients become family, and every chair represents progress."</p>
+                    <span class="about-mission-label">Royal Fern Mission</span>
+                </blockquote>
                 <p>Our master barbers combine time-honored techniques with modern styling to create looks that are both classic and contemporary. Every visit includes a complimentary beverage, hot towel treatment, and the kind of personal attention that has become rare in today's fast-paced world.</p>
                 <div class="about-features">
                     <div class="about-feature">
@@ -2225,6 +2081,42 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="testimonials-content">
+            <div class="testimonials-header">
+                <div class="testimonials-title-wrap">
+                    <p class="section-eyebrow">Client Reviews</p>
+                    <h2 class="section-title">What Clients Say About Our Haircuts, Fades & Beard Trims</h2>
+                </div>
+                <div class="testimonial-trust-bar" id="testimonialTrustBar">
+                    <div class="trust-pill"><strong>5.0</strong> Google Rating</div>
+                    <div class="trust-pill"><strong>27</strong> Google Reviews</div>
+                </div>
+            </div>
+
+            <div class="testimonial-carousel-shell" id="testimonialCarouselShell">
+                <div class="testimonial-carousel-controls">
+                    <div class="testimonial-carousel-note">Auto-scrolling Google reviews • drag or swipe to explore</div>
+                    <div class="testimonial-control-group">
+                        <button class="testimonial-arrow" type="button" data-testimonial-prev aria-label="Previous reviews">
+                            <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+                        </button>
+                        <button class="testimonial-arrow" type="button" data-testimonial-next aria-label="Next reviews">
+                            <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="testimonial-viewport" id="testimonialViewport">
+                    <div class="testimonial-track" id="testimonialTrack">
+                        <!-- Reviews injected from /data/google-reviews.json -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Gallery Section -->
     <section class="gallery" id="gallery">
         <div class="section-header">
@@ -2265,42 +2157,6 @@
                 <div class="gallery-overlay">
                     <h4>Textured Crop</h4>
                     <p>Trending</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="testimonials-content">
-            <div class="testimonials-header">
-                <div class="testimonials-title-wrap">
-                    <p class="section-eyebrow">Client Reviews</p>
-                    <h2 class="section-title">What Clients Say About Our Haircuts, Fades & Beard Trims</h2>
-                </div>
-                <div class="testimonial-trust-bar" id="testimonialTrustBar">
-                    <div class="trust-pill"><strong>5.0</strong> Google Rating</div>
-                    <div class="trust-pill"><strong>27</strong> Google Reviews</div>
-                </div>
-            </div>
-
-            <div class="testimonial-carousel-shell" id="testimonialCarouselShell">
-                <div class="testimonial-carousel-controls">
-                    <div class="testimonial-carousel-note">Auto-scrolling Google reviews • drag or swipe to explore</div>
-                    <div class="testimonial-control-group">
-                        <button class="testimonial-arrow" type="button" data-testimonial-prev aria-label="Previous reviews">
-                            <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
-                        </button>
-                        <button class="testimonial-arrow" type="button" data-testimonial-next aria-label="Next reviews">
-                            <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="testimonial-viewport" id="testimonialViewport">
-                    <div class="testimonial-track" id="testimonialTrack">
-                        <!-- Reviews injected from /data/google-reviews.json -->
-                    </div>
                 </div>
             </div>
         </div>
@@ -3071,36 +2927,6 @@
             stagger: 0.1,
             ease: 'power3.out'
         }, '-=0.5');
-
-        // Services Section Animation
-        gsap.from('.services .section-header', {
-            scrollTrigger: {
-                trigger: '.services',
-                start: 'top 80%',
-                toggleActions: 'play none none reverse',
-                invalidateOnRefresh: true
-            },
-            y: 50,
-            opacity: 0,
-            immediateRender: false,
-            duration: 0.8,
-            ease: 'power3.out'
-        });
-
-        gsap.from('.service-card', {
-            scrollTrigger: {
-                trigger: '.services-grid',
-                start: 'top 80%',
-                toggleActions: 'play none none reverse',
-                invalidateOnRefresh: true
-            },
-            y: 60,
-            opacity: 0,
-            immediateRender: false,
-            duration: 0.8,
-            stagger: 0.1,
-            ease: 'power3.out'
-        });
 
         // About Section Animation
         gsap.from('.about-image', {
