@@ -239,6 +239,19 @@
     border-color: rgba(210, 178, 106, 0.45);
     background: rgba(210, 178, 106, 0.12);
   }
+
+  .rf-mobile-links .rf-mobile-cta {
+    background: var(--rf-nav-primary);
+    color: var(--rf-nav-text) !important;
+    border-color: var(--rf-nav-primary);
+    text-align: center;
+  }
+
+  .rf-mobile-links .rf-mobile-cta:hover,
+  .rf-mobile-links .rf-mobile-cta:focus-visible {
+    background: transparent;
+    color: var(--rf-nav-primary) !important;
+  }
 }
 
 .rf-site-footer {
