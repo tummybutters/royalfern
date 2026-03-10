@@ -1,0 +1,104 @@
+{
+  "template": "detail",
+  "outputPath": "fade-haircuts/index.html",
+  "bodyClass": "service-page service-page--fade",
+  "title": "Fade Haircuts in National City, CA | Skin Fades, Taper Fades & Lineups",
+  "description": "Get fade haircuts in National City, CA at Royal Fern Barber Studio including skin fades, taper fades, low fades, mid fades, and fade + lineup combinations.",
+  "faqSchema": [
+    {
+      "question": "What kinds of fades can I get at Royal Fern Barber Studio?",
+      "answer": "Royal Fern provides skin fades, taper fades, low fades, mid fades, high fades, and fade plus lineup combinations in National City, CA."
+    },
+    {
+      "question": "Can I book a fade even if I do not know the exact height I want?",
+      "answer": "Yes. Fade height, blend level, and finish can be worked out during the consultation based on hair density, head shape, and how bold or subtle the final cut should look."
+    },
+    {
+      "question": "Are fade haircuts only for very short hairstyles?",
+      "answer": "No. Fades can be paired with shorter or longer top length depending on the style, texture, and maintenance level the client wants."
+    }
+  ],
+  "hero": {
+    "variant": "panel",
+    "eyebrow": "Royal Fern Fade Cuts",
+    "title": "Fade Haircuts in National City, CA",
+    "subtitle": "Fade haircuts, skin fades, taper fades, low fades, mid fades, high fades, and fade lineups for men in National City, CA.",
+    "primaryCta": {
+      "label": "Book Now",
+      "href": "https://getsquire.com/booking/book/royalfern-barber-studio-national-city",
+      "external": true
+    },
+    "secondaryCta": {
+      "label": "Back to Home",
+      "href": "/"
+    },
+    "panel": {
+      "badgeImage": "/media/hero/royal-fern-logo.jpg",
+      "kicker": "Fade Specialist",
+      "headline": "Skin & Taper Fades"
+    }
+  },
+  "sections": [
+    {
+      "id": "fade-options-title",
+      "kicker": "Fade Options",
+      "title": "Fade styles we handle every day",
+      "text": "Clean transitions, even blending, and sharp perimeter work tailored to your head shape and preferred maintenance level.",
+      "layout": "detail-grid",
+      "items": [
+        {
+          "title": "Skin Fade",
+          "text": "Tight-to-skin finish with smooth graduation on the sides and back for a high-contrast, polished look."
+        },
+        {
+          "title": "Taper Fade",
+          "text": "Subtle cleanup around temples and nape that keeps length up top while still looking sharp between cuts."
+        },
+        {
+          "title": "Low, Mid, High",
+          "text": "Fade height placement set to your style goals, hair density, and how bold or conservative you want the final shape."
+        }
+      ]
+    },
+    {
+      "id": "fade-visit-title",
+      "kicker": "Your Visit",
+      "title": "What to expect at your fade appointment",
+      "layout": "split-grid",
+      "items": [
+        {
+          "title": "Service flow",
+          "list": [
+            "Quick consultation on fade height, line shape, and finish.",
+            "Detailed clipper and shear blend with edge refinement.",
+            "Final check from multiple angles before you leave the chair."
+          ]
+        },
+        {
+          "title": "Best fit for",
+          "text": "Clients searching for dependable skin fades, taper fades, and lineup-ready cuts in National City."
+        }
+      ]
+    },
+    {
+      "id": "fade-faq-title",
+      "kicker": "FAQ",
+      "title": "Questions clients ask before booking a fade",
+      "layout": "faq-grid",
+      "items": [
+        {
+          "title": "Which fade should I ask for?",
+          "text": "If you are unsure, the consultation can narrow it down based on how much contrast you want, how quickly you want it to grow out, and how clean you want the perimeter to feel."
+        },
+        {
+          "title": "Do fades work with different hair textures?",
+          "text": "Yes. Fade placement and blending approach can be adjusted for straight, wavy, curly, and coily hair so the transition looks intentional instead of forced."
+        },
+        {
+          "title": "Can I add a lineup to my fade?",
+          "text": "Absolutely. Many clients want the blend from the fade plus sharper edge work around the hairline, temples, or beard for a more complete finish."
+        }
+      ]
+    }
+  ]
+}

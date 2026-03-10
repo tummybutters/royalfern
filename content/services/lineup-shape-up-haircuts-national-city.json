@@ -1,0 +1,109 @@
+{
+  "template": "detail",
+  "outputPath": "lineup-shape-up-haircuts-national-city/index.html",
+  "bodyClass": "service-page service-page--lineup",
+  "title": "Lineup Haircuts & Shape Ups in National City, CA | Clean Edge-Ups",
+  "description": "Get lineup haircuts and shape ups in National City, CA at Royal Fern Barber Studio, including edge-ups, taper lineups, fade plus lineup work, and beard line refinement.",
+  "faqSchema": [
+    {
+      "question": "What is a lineup haircut or shape up?",
+      "answer": "A lineup or shape up focuses on cleaning and defining the hairline, temples, sideburns, and neckline for a sharper outline. It can be part of a full haircut or a detail service between cuts."
+    },
+    {
+      "question": "Can I get a lineup with a fade or taper?",
+      "answer": "Yes. Lineups are commonly paired with fades and tapers to sharpen the edge work and give the cut a cleaner overall finish."
+    },
+    {
+      "question": "How long does a lineup usually stay sharp?",
+      "answer": "It depends on hair texture and growth speed, but many clients refresh lineups more often than full cuts because the front edge and temple area show growth quickly."
+    },
+    {
+      "question": "Do lineups work on different hair textures?",
+      "answer": "Yes. Straight, wavy, curly, and coily textures can all benefit from clean edge work when the hairline is shaped in a way that respects natural growth patterns."
+    }
+  ],
+  "hero": {
+    "variant": "panel",
+    "eyebrow": "Royal Fern Lineups",
+    "title": "Lineup Haircuts & Shape Ups in National City, CA",
+    "subtitle": "Lineup haircuts, edge-ups, shape ups, taper lineups, and fade plus lineup work in National City, CA for clients who want sharper definition around the hairline, temples, beard, and neckline.",
+    "primaryCta": {
+      "label": "Book Now",
+      "href": "https://getsquire.com/booking/book/royalfern-barber-studio-national-city",
+      "external": true
+    },
+    "secondaryCta": {
+      "label": "View Fade Page",
+      "href": "/fade-haircuts/"
+    },
+    "panel": {
+      "badgeImage": "/media/hero/royal-fern-logo.jpg",
+      "kicker": "Shape Ups",
+      "headline": "Crisp lines, controlled detail."
+    }
+  },
+  "sections": [
+    {
+      "id": "lineup-types-title",
+      "kicker": "Detail Work",
+      "title": "What people usually mean when they search lineup or shape up",
+      "text": "Most lineup intent is really about cleaner edges, more control at the front hairline, and sharper temple work. Sometimes it is a quick refresh. Sometimes it is the finishing layer on top of a fade or taper.",
+      "layout": "detail-grid",
+      "items": [
+        {
+          "title": "Hairline Cleanup",
+          "text": "Front edge and temple detailing for clients who want a sharper frame around the face without changing the entire haircut."
+        },
+        {
+          "title": "Fade + Lineup",
+          "text": "A common combo for clients who want the blend itself to stay soft or crisp while the edge work stays especially defined."
+        },
+        {
+          "title": "Beard + Mustache Edge Work",
+          "text": "Cheek lines, lip line, and neck cleanup for facial hair that needs structure to match the haircut instead of competing with it."
+        }
+      ]
+    },
+    {
+      "id": "lineup-visit-title",
+      "kicker": "Appointment Fit",
+      "title": "When this page is the right intent match",
+      "layout": "split-grid",
+      "items": [
+        {
+          "title": "Good reasons to book a lineup",
+          "list": [
+            "Your haircut still looks decent, but the front edge and temple area grew out fast.",
+            "You want the finish of a fade, taper, or beard cleanup to look more intentional.",
+            "You care a lot about crisp framing around the face.",
+            "You want a shape up that respects your natural hairline instead of forcing one."
+          ]
+        },
+        {
+          "title": "Common search intent this page answers",
+          "text": "Lineup haircut near me, shape up barber, edge up haircut, taper fade with lineup, beard lineup, and clean hairline barber in National City are all close matches for what this page is built to serve."
+        }
+      ]
+    },
+    {
+      "id": "lineup-faq-title",
+      "kicker": "FAQ",
+      "title": "Questions clients ask before an edge-up appointment",
+      "layout": "faq-grid",
+      "items": [
+        {
+          "title": "Is a lineup the same thing as a full haircut?",
+          "text": "Not always. A lineup can be part of a full haircut, but it can also be a detail-focused refresh that sharpens the outline without fully changing the cut."
+        },
+        {
+          "title": "Can lineups look too harsh?",
+          "text": "They can if the hairline gets pushed back too aggressively. Good edge work should look clean and deliberate while still working with your natural growth pattern."
+        },
+        {
+          "title": "Do lineups work for curly or textured hair?",
+          "text": "Yes. In fact, textured hair often benefits a lot from careful line work as long as the outline is shaped with restraint and not forced into an unnatural pattern."
+        }
+      ]
+    }
+  ]
+}

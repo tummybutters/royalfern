@@ -1,0 +1,109 @@
+{
+  "template": "detail",
+  "outputPath": "hot-towel-shave-straight-razor-national-city/index.html",
+  "bodyClass": "service-page service-page--shave",
+  "title": "Hot Towel Shave & Straight Razor Shave in National City, CA",
+  "description": "Experience a hot towel shave and straight razor shave in National City, CA at Royal Fern Barber Studio with classic barber prep, clean razor detailing, and premium finishing care.",
+  "faqSchema": [
+    {
+      "question": "What is included in a hot towel shave?",
+      "answer": "A hot towel shave typically includes skin prep, heat to soften the beard, controlled shaving technique, and finishing detail work for a cleaner and more comfortable result."
+    },
+    {
+      "question": "Is a straight razor shave good for special occasions?",
+      "answer": "Yes. Straight razor shaves are a strong fit for clients wanting a refined finish for events, photos, weddings, or simply a more elevated grooming experience."
+    },
+    {
+      "question": "Can I combine a hot towel shave with a haircut?",
+      "answer": "Yes. A haircut and shave combination is a common booking choice for clients who want a complete, cleaned-up finish in one appointment."
+    },
+    {
+      "question": "Is this page for beard trims too?",
+      "answer": "This page is mainly for hot towel shave and straight razor shave intent. Clients looking for beard trims and shaping should also review the beard services page."
+    }
+  ],
+  "hero": {
+    "variant": "panel",
+    "eyebrow": "Royal Fern Shave Services",
+    "title": "Hot Towel Shave & Straight Razor Shave in National City, CA",
+    "subtitle": "Hot towel shave and straight razor shave service in National City, CA for clients looking for a closer finish, classic barber feel, event-ready grooming, or a cleaner reset than a quick home shave.",
+    "primaryCta": {
+      "label": "Book Now",
+      "href": "https://getsquire.com/booking/book/royalfern-barber-studio-national-city",
+      "external": true
+    },
+    "secondaryCta": {
+      "label": "View Beard Services",
+      "href": "/beard-trims-beard-lineups-shaping/"
+    },
+    "panel": {
+      "badgeImage": "/media/hero/royal-fern-logo.jpg",
+      "kicker": "Classic Grooming",
+      "headline": "Hot towel prep, razor finish."
+    }
+  },
+  "sections": [
+    {
+      "id": "shave-why-title",
+      "kicker": "Intent Match",
+      "title": "Why someone lands on this page instead of a beard trim page",
+      "text": "This page is for clients looking for a closer, more traditional shaving service experience. It is the right fit when the goal is removal, refinement, comfort, and a polished finish rather than simple beard maintenance.",
+      "layout": "detail-grid",
+      "items": [
+        {
+          "title": "Hot Towel Prep",
+          "text": "Heat and prep help soften facial hair and make the shave feel more comfortable and deliberate than a rushed dry pass at home."
+        },
+        {
+          "title": "Straight Razor Detail",
+          "text": "This is where the clean edge, closer finish, and sharper final look come from, especially around cheeks, neck, and contour zones."
+        },
+        {
+          "title": "Event-Ready Grooming",
+          "text": "A strong option for weddings, photos, interviews, date nights, or anyone who wants the finished look of a higher-touch barber service."
+        }
+      ]
+    },
+    {
+      "id": "shave-visit-title",
+      "kicker": "Before You Book",
+      "title": "Good expectations for a hot towel or razor shave appointment",
+      "layout": "split-grid",
+      "items": [
+        {
+          "title": "Best reasons to book",
+          "list": [
+            "You want a closer and more finished shave than a standard home routine.",
+            "You are getting ready for an event or want a more polished grooming experience.",
+            "You want facial hair removed cleanly rather than simply trimmed down.",
+            "You want a haircut and shave combination for a full reset."
+          ]
+        },
+        {
+          "title": "Related search intent",
+          "text": "Hot towel shave near me, straight razor shave near me, classic barber shave, luxury shave service, and haircut plus shave in National City are all questions this page is built to answer well."
+        }
+      ]
+    },
+    {
+      "id": "shave-faq-title",
+      "kicker": "FAQ",
+      "title": "Questions clients ask before booking a shave service",
+      "layout": "faq-grid",
+      "items": [
+        {
+          "title": "Is this only for a full clean shave?",
+          "text": "This page leans toward full shave intent, but it also helps clients looking for refined razor finishing and classic grooming service rather than a basic trim-only appointment."
+        },
+        {
+          "title": "Should I book this before a special event?",
+          "text": "Yes. Many clients look for this exact service when they want a sharper finish for weddings, important nights out, travel, or professional photos."
+        },
+        {
+          "title": "Can this be paired with a haircut?",
+          "text": "Absolutely. A haircut and shave together is one of the cleanest ways to leave with a complete, coordinated finish instead of handling each part separately."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "template": "detail",
+  "outputPath": "contact-hours-walk-ins/index.html",
+  "bodyClass": "service-page service-page--contact",
+  "title": "Barber Open Now in National City, CA | Walk-Ins, Hours & Booking",
+  "description": "Looking for a barber open now in National City, CA? Royal Fern Barber Studio offers walk-ins, booking, clear hours, and easy arrival details including Studio #116 at Plaza Bonita Road.",
+  "faqSchema": [
+    {
+      "question": "Do you take walk-ins at Royal Fern Barber Studio?",
+      "answer": "Royal Fern Barber Studio serves both walk-in and booking intent. Clients who want the most predictable timing should book ahead, while walk-in interest is still part of the page intent."
+    },
+    {
+      "question": "What are your business hours?",
+      "answer": "Current listed hours are 10:00 AM to 7:00 PM Monday through Sunday."
+    },
+    {
+      "question": "How do I find the studio once I arrive?",
+      "answer": "Royal Fern Barber Studio is located at 3030 Plaza Bonita Road Unit #1336, National City, CA 91950, Studio #116."
+    },
+    {
+      "question": "What is the best option if I need a fade or beard service at a specific time?",
+      "answer": "If timing matters, booking ahead is the stronger choice because it gives clients a cleaner arrival window than relying on walk-in flow."
+    }
+  ],
+  "hero": {
+    "variant": "side",
+    "eyebrow": "Hours • Walk-Ins • Booking",
+    "title": "Barber Open Now in National City, CA",
+    "subtitle": "This page is for clients looking for current barber hours, walk-in intent, booking options, and clear arrival info so they can find Royal Fern Barber Studio without guessing.",
+    "primaryCta": {
+      "label": "Book Appointment",
+      "href": "https://getsquire.com/booking/book/royalfern-barber-studio-national-city",
+      "external": true
+    },
+    "secondaryCta": {
+      "label": "View Services",
+      "href": "/services/"
+    },
+    "sideArticles": [
+      {
+        "type": "tile",
+        "title": "Walk-Ins Welcome",
+        "text": "This page catches search intent around barber open now, barber near me open today, walk-in barber, and last-minute haircut searches in National City."
+      },
+      {
+        "type": "hours-card",
+        "rows": [
+          {
+            "label": "Monday - Thursday",
+            "value": "10:00 AM - 7:00 PM"
+          },
+          {
+            "label": "Friday",
+            "value": "10:00 AM - 7:00 PM"
+          },
+          {
+            "label": "Saturday",
+            "value": "10:00 AM - 7:00 PM"
+          },
+          {
+            "label": "Sunday",
+            "value": "10:00 AM - 7:00 PM"
+          }
+        ]
+      },
+      {
+        "type": "tile",
+        "title": "Find The Studio",
+        "html": "3030 Plaza Bonita Road Unit #1336, National City, CA 91950. Look for <strong>Studio #116</strong> so you do not end up wandering the building."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "walkin-intent-title",
+      "kicker": "Intent Match",
+      "title": "What this page should answer fast",
+      "text": "Clients landing here usually want to know whether the shop is open, whether they can walk in, whether it is smarter to book ahead, and exactly where to go once they arrive. That is the real use case for this page.",
+      "layout": "detail-grid",
+      "items": [
+        {
+          "title": "Open Now Searches",
+          "text": "If someone is searching barber open now, haircut near me open today, or same-day barber in National City, this page should quickly answer hours and next steps."
+        },
+        {
+          "title": "Walk-In Intent",
+          "text": "This is the right page for people wondering whether they can stop by without much planning or whether it is better to secure a time first."
+        },
+        {
+          "title": "Arrival Clarity",
+          "text": "The studio number matters here. Including Studio #116 and the full address helps reduce confusion once someone reaches Plaza Bonita Road."
+        }
+      ]
+    },
+    {
+      "id": "booking-help-title",
+      "kicker": "Decision Help",
+      "title": "When to walk in and when to book",
+      "layout": "split-grid",
+      "items": [
+        {
+          "title": "Walk-in is usually fine when",
+          "list": [
+            "Your schedule is flexible and you can work around availability.",
+            "You mainly want the next available appointment window.",
+            "You are nearby and checking whether the shop is open before heading over."
+          ]
+        },
+        {
+          "title": "Booking is the stronger move when",
+          "list": [
+            "You need a specific time before work, dinner, travel, or an event.",
+            "You are booking a more detailed service like a fade plus beard cleanup.",
+            "You want the smoothest arrival with less guesswork."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hours-faq-title",
+      "kicker": "FAQ",
+      "title": "Questions people ask before heading over",
+      "layout": "faq-grid",
+      "items": [
+        {
+          "title": "Do you take walk-ins?",
+          "text": "This page is built to serve walk-in intent, but clients who want a more controlled arrival time should still use booking when timing matters."
+        },
+        {
+          "title": "What are your hours?",
+          "text": "The current listed hours are 10:00 AM to 7:00 PM Monday through Sunday, which gives clear open-now and same-day search coverage across the week."
+        },
+        {
+          "title": "How do I find the studio?",
+          "text": "Use the full address and look specifically for Studio #116 at 3030 Plaza Bonita Road Unit #1336, National City, CA 91950 so you can get to the right spot faster."
+        }
+      ]
+    }
+  ]
+}

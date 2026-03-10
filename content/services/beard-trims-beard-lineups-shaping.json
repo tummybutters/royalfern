@@ -1,0 +1,104 @@
+{
+  "template": "detail",
+  "outputPath": "beard-trims-beard-lineups-shaping/index.html",
+  "bodyClass": "service-page service-page--beard",
+  "title": "Beard Trims & Beard Shaping in National City, CA | Beard Lineup Barber",
+  "description": "Royal Fern Barber Studio offers beard trims, beard lineups, and beard shaping in National City, CA. Book a beard barber for clean lines, balance, and professional grooming.",
+  "faqSchema": [
+    {
+      "question": "What beard services can I book at Royal Fern Barber Studio?",
+      "answer": "Royal Fern offers beard trims, beard lineups, beard shaping, and haircut plus beard combinations in National City, CA."
+    },
+    {
+      "question": "What is the difference between a beard trim and beard shaping?",
+      "answer": "A beard trim mainly manages length and cleanup, while beard shaping focuses more on contour, balance, line placement, and how the beard works with the haircut."
+    },
+    {
+      "question": "Can I get beard work even if I do not know the best shape for my face?",
+      "answer": "Yes. Beard work can be guided by face shape, density, growth pattern, and how sharp or natural you want the final look to feel."
+    }
+  ],
+  "hero": {
+    "variant": "panel",
+    "eyebrow": "Royal Fern Beard Services",
+    "title": "Beard Trims, Beard Lineups & Beard Shaping in National City, CA",
+    "subtitle": "Professional beard trims, beard lineups, beard shaping, beard shape ups, and haircut-and-beard-trim combos in National City, CA.",
+    "primaryCta": {
+      "label": "Book Now",
+      "href": "https://getsquire.com/booking/book/royalfern-barber-studio-national-city",
+      "external": true
+    },
+    "secondaryCta": {
+      "label": "Back to Home",
+      "href": "/"
+    },
+    "panel": {
+      "badgeImage": "/media/hero/royal-fern-logo.jpg",
+      "kicker": "Beard Grooming",
+      "headline": "Trims, Lineups & Shape Ups"
+    }
+  },
+  "sections": [
+    {
+      "id": "beard-services-title",
+      "kicker": "Beard Services",
+      "title": "Beard work tailored to your face shape",
+      "text": "Every beard trim and shape-up is balanced around your jawline, growth pattern, and the finish you want day to day.",
+      "layout": "detail-grid",
+      "items": [
+        {
+          "title": "Beard Trim",
+          "text": "Length cleanup with controlled bulk removal, cheek line refinement, and neckline detail for a cleaner silhouette."
+        },
+        {
+          "title": "Beard Lineup",
+          "text": "Sharp edge definition across cheeks, mustache, and neckline to restore structure and keep your beard looking intentional."
+        },
+        {
+          "title": "Beard Shaping",
+          "text": "Strategic tapering and contouring to improve symmetry and pair naturally with your haircut and fade level."
+        }
+      ]
+    },
+    {
+      "id": "beard-visit-title",
+      "kicker": "Your Visit",
+      "title": "What to expect at your beard appointment",
+      "layout": "split-grid",
+      "items": [
+        {
+          "title": "Service flow",
+          "list": [
+            "Consultation on shape goals, fullness, and line preference.",
+            "Measured trim and edge work using clipper and razor detailing.",
+            "Final mirror check with adjustments for symmetry and balance."
+          ]
+        },
+        {
+          "title": "Best fit for",
+          "text": "Clients searching for beard trims, beard lineups, and beard shaping in National City."
+        }
+      ]
+    },
+    {
+      "id": "beard-faq-title",
+      "kicker": "FAQ",
+      "title": "Questions clients ask before booking beard work",
+      "layout": "faq-grid",
+      "items": [
+        {
+          "title": "Is beard shaping only for long beards?",
+          "text": "No. Even shorter beards benefit from shaping when the goal is cleaner cheek lines, better balance, and a more intentional profile next to the haircut."
+        },
+        {
+          "title": "Can beard work look natural instead of overly carved in?",
+          "text": "Yes. Some clients want very crisp definition, while others want a softer natural finish. The shape can be tailored to whichever direction fits you better."
+        },
+        {
+          "title": "Should I combine beard work with my haircut?",
+          "text": "If you want the cleanest overall result, combining them usually makes sense because the haircut silhouette and beard proportions can be balanced together in one session."
+        }
+      ]
+    }
+  ]
+}

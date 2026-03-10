@@ -1,0 +1,109 @@
+{
+  "template": "detail",
+  "outputPath": "mens-haircuts-national-city/index.html",
+  "bodyClass": "service-page service-page--mens",
+  "title": "Men\u2019s Haircuts in National City, CA | Classic & Modern Men\u2019s Cuts",
+  "description": "Royal Fern Barber Studio provides men\u2019s haircuts in National City, CA including classic cuts, modern styles, taper cleanups, scissor work, and haircut plus beard combinations.",
+  "faqSchema": [
+    {
+      "question": "What kinds of men\u2019s haircuts can I get at Royal Fern Barber Studio?",
+      "answer": "Royal Fern offers men\u2019s haircuts ranging from classic short cuts and scissor work to modern textured styles, tapers, cleanups, and haircut plus beard combinations in National City, CA."
+    },
+    {
+      "question": "Can I book a men\u2019s haircut even if I am not sure what style fits me best?",
+      "answer": "Yes. Consultations are part of the service, so clients can talk through length, styling routine, maintenance level, and face shape before the haircut starts."
+    },
+    {
+      "question": "Do you do both classic and modern men\u2019s haircut styles?",
+      "answer": "Yes. Royal Fern works on classic men\u2019s cuts, polished business-ready shapes, textured modern looks, and taper-based finishes depending on how clean or relaxed you want the final result."
+    },
+    {
+      "question": "Can I combine a men\u2019s haircut with beard work?",
+      "answer": "Yes. Haircuts can be paired with beard trims, beard lineups, and shaping so the haircut and facial hair finish feel balanced together."
+    }
+  ],
+  "hero": {
+    "variant": "panel",
+    "eyebrow": "Royal Fern Men\u2019s Cuts",
+    "title": "Men\u2019s Haircuts in National City, CA",
+    "subtitle": "Men\u2019s haircuts in National City, CA for clients looking for clean tapers, classic short cuts, scissor work, textured styles, and dependable haircut-and-beard combinations.",
+    "primaryCta": {
+      "label": "Book Now",
+      "href": "https://getsquire.com/booking/book/royalfern-barber-studio-national-city",
+      "external": true
+    },
+    "secondaryCta": {
+      "label": "View Services",
+      "href": "/services/"
+    },
+    "panel": {
+      "badgeImage": "/media/hero/royal-fern-logo.jpg",
+      "kicker": "Men\u2019s Haircuts",
+      "headline": "Classic structure, modern finish."
+    }
+  },
+  "sections": [
+    {
+      "id": "mens-options-title",
+      "kicker": "Cut Types",
+      "title": "What this page is really for",
+      "text": "This page is for men searching for a reliable barber in National City who can handle both polished traditional shapes and more current textured finishes without the haircut feeling rushed or generic.",
+      "layout": "detail-grid",
+      "items": [
+        {
+          "title": "Classic Men\u2019s Haircuts",
+          "text": "Short back and sides, business-ready cuts, side-part structure, and clean natural shapes that look put together without overstyling."
+        },
+        {
+          "title": "Modern Everyday Styles",
+          "text": "Texture up top, softer movement, taper-focused finishes, and cuts designed to hold shape even when you are not using a lot of product."
+        },
+        {
+          "title": "Haircut + Beard Balance",
+          "text": "Men who want the haircut and beard to work together instead of looking like two separate services can pair their cut with beard cleanup or shaping."
+        }
+      ]
+    },
+    {
+      "id": "mens-visit-title",
+      "kicker": "What To Expect",
+      "title": "How a men\u2019s haircut appointment usually goes",
+      "layout": "split-grid",
+      "items": [
+        {
+          "title": "Good info to bring in",
+          "list": [
+            "How short you like the sides and neckline.",
+            "Whether you want a natural finish or something sharper.",
+            "How much time you actually spend styling your hair at home.",
+            "If you want the haircut to work with a beard or lineup."
+          ]
+        },
+        {
+          "title": "Best fit for this page",
+          "text": "Clients searching phrases like men\u2019s haircut near me, barber for men in National City, guys haircut, gents haircut, classic men\u2019s cut, or haircut plus beard trim are all landing in the right place here."
+        }
+      ]
+    },
+    {
+      "id": "mens-faq-title",
+      "kicker": "FAQ",
+      "title": "Questions people actually ask before booking",
+      "layout": "faq-grid",
+      "items": [
+        {
+          "title": "Do you only do fades?",
+          "text": "No. Fades are a big part of barbering, but this page is also for classic men\u2019s cuts, taper cleanups, scissor-driven shapes, and everyday styles that need structure more than skin exposure."
+        },
+        {
+          "title": "What if I am not sure what haircut fits me?",
+          "text": "That is normal. The consultation is where length, growth pattern, face shape, and maintenance level get sorted out so you are not guessing your way into a bad cut."
+        },
+        {
+          "title": "Can I get a men\u2019s haircut and beard service together?",
+          "text": "Yes. A lot of clients book with both in mind so the haircut silhouette and beard shape look intentional together instead of disconnected."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "template": "overview",
+  "outputPath": "services/index.html",
+  "title": "Barber Services in National City, CA | Haircuts, Fades & Beard Trims",
+  "description": "Explore barber services at Royal Fern Barber Studio in National City, CA including men's haircuts, fade haircuts, beard trims, lineups, beard shaping, and hot towel shaves.",
+  "hero": {
+    "eyebrow": "Royal Fern Services",
+    "title": "Barber Services in National City, CA",
+    "subtitle": "Professional haircuts, beard trims, and beard grooming in National City, CA.",
+    "primaryCta": {
+      "label": "Book Now",
+      "href": "https://getsquire.com/booking/book/royalfern-barber-studio-national-city",
+      "external": true
+    },
+    "secondaryCta": {
+      "label": "Back to Home",
+      "href": "/"
+    },
+    "panel": {
+      "badgeImage": "/media/hero/royal-fern-logo.jpg",
+      "kicker": "Service Menu",
+      "headline": "Haircuts & Grooming"
+    }
+  }
+}

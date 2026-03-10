@@ -1,21 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#144E47" />
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <title>Barber Services in National City, CA | Haircuts, Fades &amp; Beard Trims</title>
-  <meta name="description" content="Explore barber services at Royal Fern Barber Studio in National City, CA including men&#39;s haircuts, fade haircuts, beard trims, lineups, beard shaping, and hot towel shaves." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles/global-nav.css">
-  <style>
+import { escapeHtml, renderHead, renderLink } from "./service-page.shared.mjs";
+
+const OVERVIEW_INLINE_STYLES = `  <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --primary: #144E47;
@@ -224,9 +209,14 @@
       .hero-cta-row { width: 100%; }
       .hero-cta { width: 100%; text-align: center; }
     }
-  </style>
-  <script src="/scripts/global-nav.js" defer></script>
-</head>
+  </style>`;
+
+export function renderServicesOverviewPage(page) {
+  return `${renderHead({
+    title: page.title,
+    description: page.description,
+    extraHeadMarkup: OVERVIEW_INLINE_STYLES,
+  })}
 <body>
   <main class="page-shell">
     <section class="hero-frame" aria-labelledby="page-title">
@@ -238,26 +228,26 @@
       <div class="hero-inner">
         <div class="hero-panel" aria-hidden="true">
           <div class="hero-panel-badge">
-            <img src="/media/hero/royal-fern-logo.jpg" alt="" />
+            <img src="${escapeHtml(page.hero.panel.badgeImage)}" alt="" />
           </div>
           <div class="hero-panel-card">
-            <span>Service Menu</span>
-            <strong>Haircuts &amp; Grooming</strong>
+            <span>${escapeHtml(page.hero.panel.kicker)}</span>
+            <strong>${escapeHtml(page.hero.panel.headline)}</strong>
           </div>
         </div>
 
         <div class="hero-content">
-          <div class="hero-eyebrow">Royal Fern Services</div>
-          <h1 id="page-title" class="hero-title">Barber Services in National City, CA</h1>
+          <div class="hero-eyebrow">${escapeHtml(page.hero.eyebrow)}</div>
+          <h1 id="page-title" class="hero-title">${escapeHtml(page.hero.title)}</h1>
           <div class="divider" aria-hidden="true">
             <div class="divider-line"></div>
             <div class="divider-icon"></div>
             <div class="divider-line"></div>
           </div>
-          <h2 class="hero-subtitle">Professional haircuts, beard trims, and beard grooming in National City, CA.</h2>
+          <h2 class="hero-subtitle">${escapeHtml(page.hero.subtitle)}</h2>
           <div class="hero-cta-row">
-            <a class="hero-cta" href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" target="_blank" rel="noopener noreferrer">Book Now</a>
-            <a class="hero-cta secondary" href="/">Back to Home</a>
+            ${renderLink(page.hero.primaryCta, "hero-cta")}
+            ${renderLink(page.hero.secondaryCta, "hero-cta secondary")}
           </div>
         </div>
       </div>
@@ -265,3 +255,5 @@
   </main>
 </body>
 </html>
+`;
+}
