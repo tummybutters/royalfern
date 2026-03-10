@@ -5,6 +5,9 @@
 
   const nav = document.createElement("nav");
   nav.className = "rf-site-nav";
+  if (isHome) {
+    nav.classList.add("is-home");
+  }
   nav.setAttribute("aria-label", "Primary");
   nav.innerHTML = `
     <a href="/" class="rf-nav-logo">
@@ -89,54 +92,142 @@
   window.addEventListener("scroll", syncScrolled, { passive: true });
   syncScrolled();
 
+  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const shouldPrefetch = !connection?.saveData && connection?.effectiveType !== "slow-2g" && connection?.effectiveType !== "2g";
+  const prefetchedUrls = new Set();
+
+  const prefetchPage = (href) => {
+    if (!shouldPrefetch || !href || prefetchedUrls.has(href)) {
+      return;
+    }
+
+    prefetchedUrls.add(href);
+
+    const link = document.createElement("link");
+    link.rel = "prefetch";
+    link.as = "document";
+    link.href = href;
+    document.head.appendChild(link);
+  };
+
+  nav.querySelectorAll("a[href]").forEach((link) => {
+    const url = new URL(link.href, window.location.origin);
+
+    if (url.origin !== window.location.origin || url.pathname === normalizedPath) {
+      return;
+    }
+
+    const warmRoute = () => prefetchPage(url.href);
+    link.addEventListener("pointerenter", warmRoute, { passive: true });
+    link.addEventListener("focus", warmRoute);
+    link.addEventListener("touchstart", warmRoute, { passive: true });
+  });
+
   const footer = document.createElement("footer");
   const footerYear = new Date().getFullYear();
   footer.className = "rf-site-footer";
-  footer.innerHTML = `
-    <div class="rf-footer-content">
-      <div class="rf-footer-brand">
-        <div class="rf-footer-brand-top">
-          <div class="rf-footer-brand-logo">
+  if (isHome) {
+    footer.classList.add("is-home");
+    footer.innerHTML = `
+      <div class="rf-footer-content">
+        <div class="rf-footer-brand">
+          <div class="rf-footer-brand-logo is-home-logo">
             <img src="/media/hero/royal-fern-logo.jpg" alt="Royal Fern Barber Studio logo">
           </div>
-          <div class="rf-footer-brand-name">ROYAL FERN BARBER STUDIO</div>
+          <div class="rf-footer-brand-name is-home-name">ROYAL FERN BARBER STUDIO</div>
+          <p>Professional haircuts, fades, beard trims, lineups, and classic grooming in National City, CA.</p>
+          <div class="rf-footer-social" aria-label="Royal Fern links">
+            <a href="https://www.instagram.com/royalfernbarberstudio_sd/" aria-label="Royal Fern Instagram" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="mailto:royalfern992@gmail.com" aria-label="Email Royal Fern">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 6h16v12H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
+            </a>
+            <a href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" aria-label="Book Royal Fern" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M3 10h18"></path></svg>
+            </a>
+          </div>
         </div>
-        <p>Professional haircuts, fades, beard trims, lineups, and classic grooming in National City, CA.</p>
-        <p class="rf-footer-note">3030 Plaza Bonita Road Unit #1336, National City, CA 91950. Studio #116.</p>
+        <div class="rf-footer-column">
+          <h4>Service Pages</h4>
+          <ul>
+            <li><a href="/services/">All Services</a></li>
+            <li><a href="/fade-haircuts/">Fade Haircuts</a></li>
+            <li><a href="/beard-trims-beard-lineups-shaping/">Beard Trims & Lineups</a></li>
+            <li><a href="/gallery/">Haircut Gallery</a></li>
+          </ul>
+        </div>
+        <div class="rf-footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="/gallery/">Gallery</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/contact-hours-walk-ins/">Hours & Booking</a></li>
+          </ul>
+        </div>
+        <div class="rf-footer-column">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" target="_blank" rel="noopener noreferrer">Book Online</a></li>
+            <li><a href="mailto:royalfern992@gmail.com">royalfern992@gmail.com</a></li>
+            <li>Open daily: 10:00 AM - 7:00 PM</li>
+            <li><a href="/contact-hours-walk-ins/">Visit Details</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="rf-footer-column">
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/gallery/">Gallery</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/services/">Services</a></li>
-        </ul>
+      <div class="rf-footer-bottom">
+        <p>&copy; ${footerYear} Royal Fern Barber Studio. All rights reserved.</p>
+        <p>Crafted with precision in National City, CA</p>
       </div>
-      <div class="rf-footer-column">
-        <h4>Service Pages</h4>
-        <ul>
-          <li><a href="/fade-haircuts/">Fade Haircuts</a></li>
-          <li><a href="/beard-trims-beard-lineups-shaping/">Beard Trims & Lineups</a></li>
-          <li><a href="/lineup-shape-up-haircuts-national-city/">Lineups & Shape Ups</a></li>
-          <li><a href="/hot-towel-shave-straight-razor-national-city/">Hot Towel Shaves</a></li>
-        </ul>
+    `;
+  } else {
+    footer.innerHTML = `
+      <div class="rf-footer-content">
+        <div class="rf-footer-brand">
+          <div class="rf-footer-brand-top">
+            <div class="rf-footer-brand-logo">
+              <img src="/media/hero/royal-fern-logo.jpg" alt="Royal Fern Barber Studio logo">
+            </div>
+            <div class="rf-footer-brand-name">ROYAL FERN BARBER STUDIO</div>
+          </div>
+          <p>Professional haircuts, fades, beard trims, lineups, and classic grooming in National City, CA.</p>
+          <p class="rf-footer-note">3030 Plaza Bonita Road Unit #1336, National City, CA 91950. Studio #116.</p>
+        </div>
+        <div class="rf-footer-column">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/gallery/">Gallery</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/services/">Services</a></li>
+          </ul>
+        </div>
+        <div class="rf-footer-column">
+          <h4>Service Pages</h4>
+          <ul>
+            <li><a href="/fade-haircuts/">Fade Haircuts</a></li>
+            <li><a href="/beard-trims-beard-lineups-shaping/">Beard Trims & Lineups</a></li>
+            <li><a href="/lineup-shape-up-haircuts-national-city/">Lineups & Shape Ups</a></li>
+            <li><a href="/hot-towel-shave-straight-razor-national-city/">Hot Towel Shaves</a></li>
+          </ul>
+        </div>
+        <div class="rf-footer-column">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" target="_blank" rel="noopener noreferrer">Book Online</a></li>
+            <li><a href="mailto:royalfern992@gmail.com">royalfern992@gmail.com</a></li>
+            <li>Open daily: 10:00 AM - 7:00 PM</li>
+            <li><a href="/contact-hours-walk-ins/">Hours, Walk-Ins & Booking</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="rf-footer-column">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" target="_blank" rel="noopener noreferrer">Book Online</a></li>
-          <li><a href="mailto:royalfern992@gmail.com">royalfern992@gmail.com</a></li>
-          <li>Open daily: 10:00 AM - 7:00 PM</li>
-          <li><a href="/contact-hours-walk-ins/">Hours, Walk-Ins & Booking</a></li>
-        </ul>
+      <div class="rf-footer-bottom">
+        <p>&copy; ${footerYear} Royal Fern Barber Studio. All rights reserved.</p>
+        <p>Crafted with precision in National City, CA</p>
       </div>
-    </div>
-    <div class="rf-footer-bottom">
-      <p>&copy; ${footerYear} Royal Fern Barber Studio. All rights reserved.</p>
-      <p>Crafted with precision in National City, CA</p>
-    </div>
-  `;
+    `;
+  }
 
   const existingFooter = document.querySelector("footer");
   if (existingFooter) {
@@ -147,6 +238,35 @@
       main.insertAdjacentElement("afterend", footer);
     } else {
       document.body.appendChild(footer);
+    }
+  }
+
+  footer.querySelectorAll("a[href]").forEach((link) => {
+    const url = new URL(link.href, window.location.origin);
+
+    if (url.origin !== window.location.origin || url.pathname === normalizedPath) {
+      return;
+    }
+
+    const warmRoute = () => prefetchPage(url.href);
+    link.addEventListener("pointerenter", warmRoute, { passive: true });
+    link.addEventListener("focus", warmRoute);
+    link.addEventListener("touchstart", warmRoute, { passive: true });
+  });
+
+  const warmCommonRoutes = () => {
+    ["/", "/gallery/", "/about/", "/services/"].forEach((href) => {
+      if (href !== normalizedPath) {
+        prefetchPage(new URL(href, window.location.origin).href);
+      }
+    });
+  };
+
+  if (shouldPrefetch) {
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(warmCommonRoutes, { timeout: 1200 });
+    } else {
+      window.setTimeout(warmCommonRoutes, 600);
     }
   }
 })();

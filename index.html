@@ -10,9 +10,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     <title>Royal Fern Barber Shop in National City, CA | Royal Fern Barber Studio</title>
-    <link rel="preload" as="video" href="/media/hero/video1.mp4" type="video/mp4">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -40,152 +39,6 @@
             overflow-x: hidden;
             background: var(--cream);
             color: var(--primary);
-        }
-
-        /* Navigation */
-        .main-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 25px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            transition: all 0.4s ease;
-        }
-
-        .main-nav.scrolled {
-            background: rgba(245, 240, 232, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 18px 60px;
-            box-shadow: 0 2px 30px rgba(20, 78, 71, 0.1);
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-            min-width: 0;
-        }
-
-        .nav-logo-icon {
-            width: 45px;
-            height: 45px;
-            border: 2px solid var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.4s ease;
-        }
-
-        .nav-logo-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            transition: all 0.4s ease;
-        }
-
-        .nav-logo:hover .nav-logo-icon {
-            background: var(--primary);
-        }
-
-        .nav-logo:hover .nav-logo-icon img {
-            filter: saturate(0.95) contrast(1.05);
-        }
-
-        .nav-logo-text {
-            font-family: 'Cinzel', serif;
-            font-size: 14px;
-            letter-spacing: 2px;
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--primary);
-            text-decoration: none;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--gold);
-            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links .nav-cta {
-            padding: 14px 28px;
-            background: var(--primary);
-            color: var(--white);
-            font-family: 'Cinzel', serif;
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-decoration: none;
-            border: 2px solid var(--primary);
-            transition: all 0.4s ease;
-        }
-
-        .nav-links .nav-cta:hover {
-            background: transparent;
-            color: var(--primary);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .mobile-menu-btn span {
-            display: block;
-            width: 28px;
-            height: 2px;
-            background: var(--primary);
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu-btn[aria-expanded="true"] span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-        }
-
-        .mobile-menu-btn[aria-expanded="true"] span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-btn[aria-expanded="true"] span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-        }
-
-        .mobile-nav-panel {
-            display: none;
         }
 
         /* Hero Section */
@@ -1718,125 +1571,6 @@
             color: var(--primary);
         }
 
-        /* Footer */
-        .footer {
-            background: var(--dark);
-            padding: 80px 60px 40px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-        }
-
-        .footer-brand .footer-logo {
-            font-family: 'Cinzel', serif;
-            font-size: 22px;
-            letter-spacing: 2px;
-            color: var(--white);
-            margin-bottom: 20px;
-        }
-
-        .footer-brand-logo {
-            width: 76px;
-            height: 76px;
-            margin-bottom: 16px;
-            border: 1px solid rgba(210, 178, 106, 0.35);
-            overflow: hidden;
-            background: rgba(255, 255, 255, 0.03);
-        }
-
-        .footer-brand-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .footer-brand p {
-            font-size: 14px;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.5);
-            margin-bottom: 25px;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 15px;
-        }
-
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(210, 178, 106, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            background: var(--gold);
-            border-color: var(--gold);
-        }
-
-        .footer-social a svg {
-            width: 18px;
-            height: 18px;
-            stroke: var(--gold);
-            transition: all 0.3s ease;
-        }
-
-        .footer-social a:hover svg {
-            stroke: var(--primary);
-        }
-
-        .footer-links h4 {
-            font-family: 'Cinzel', serif;
-            font-size: 14px;
-            letter-spacing: 2px;
-            color: var(--gold);
-            margin-bottom: 25px;
-            text-transform: uppercase;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.5);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--gold);
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 60px auto 0;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-bottom p {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.4);
-        }
-
         /* Responsive */
         @media (max-width: 1024px) {
             .hero-inner,
@@ -1887,10 +1621,6 @@
                 grid-row: span 1;
             }
 
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
             .testimonials-header {
                 grid-template-columns: 1fr;
                 align-items: start;
@@ -1906,98 +1636,6 @@
         }
 
         @media (max-width: 768px) {
-            .main-nav {
-                padding: 20px 30px;
-            }
-
-            .nav-logo-text {
-                display: none;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: flex;
-                z-index: 1002;
-            }
-
-            .mobile-nav-panel {
-                position: absolute;
-                top: calc(100% + 10px);
-                left: 20px;
-                right: 20px;
-                display: block;
-                background: rgba(245, 240, 232, 0.97);
-                border: 1px solid rgba(210, 178, 106, 0.35);
-                box-shadow: 0 20px 40px rgba(10, 46, 42, 0.12);
-                backdrop-filter: blur(14px);
-                padding: 14px;
-                opacity: 0;
-                transform: translateY(-8px);
-                pointer-events: none;
-                transition: opacity 0.25s ease, transform 0.25s ease;
-                z-index: 1001;
-            }
-
-            .main-nav.mobile-open .mobile-nav-panel {
-                opacity: 1;
-                transform: translateY(0);
-                pointer-events: auto;
-            }
-
-            .mobile-nav-panel::before {
-                content: '';
-                position: absolute;
-                inset: 8px;
-                border: 1px solid rgba(20, 78, 71, 0.1);
-                pointer-events: none;
-            }
-
-            .mobile-nav-links {
-                display: grid;
-                gap: 8px;
-                position: relative;
-                z-index: 1;
-            }
-
-            .mobile-nav-links a {
-                display: block;
-                text-decoration: none;
-                color: var(--primary);
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                font-size: 12px;
-                padding: 12px 14px;
-                border: 1px solid rgba(20, 78, 71, 0.08);
-                background: rgba(255, 255, 255, 0.35);
-                transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-            }
-
-            .mobile-nav-links a:hover,
-            .mobile-nav-links a:focus-visible {
-                background: rgba(210, 178, 106, 0.12);
-                border-color: rgba(210, 178, 106, 0.35);
-                transform: translateY(-1px);
-                outline: none;
-            }
-
-            .mobile-nav-links .mobile-nav-cta {
-                background: var(--primary);
-                color: var(--white);
-                border-color: var(--primary);
-                font-family: 'Cinzel', serif;
-                letter-spacing: 1.5px;
-            }
-
-            .mobile-nav-links .mobile-nav-cta:hover,
-            .mobile-nav-links .mobile-nav-cta:focus-visible {
-                background: var(--gold);
-                color: var(--primary);
-                border-color: var(--gold);
-            }
-
             .hero {
                 padding: 100px 20px 80px;
             }
@@ -2083,8 +1721,7 @@
                 letter-spacing: 1px;
             }
 
-            .barbers-grid,
-            .footer-content {
+            .barbers-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -2157,16 +1794,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .footer {
-                padding: 60px 30px 30px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-
             .hours-grid {
                 grid-template-columns: 1fr;
             }
@@ -2176,35 +1803,6 @@
   <script src="/scripts/global-nav.js" defer></script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="main-nav">
-        <a href="/" class="nav-logo">
-            <div class="nav-logo-icon">
-                <img src="/media/hero/royal-fern-logo.jpg" alt="Royal Fern Barber Studio logo">
-            </div>
-            <span class="nav-logo-text">ROYAL FERN BARBER STUDIO</span>
-        </a>
-        <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="/gallery/">Gallery</a>
-            <a href="/about/">About</a>
-            <a href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" class="nav-cta" target="_blank" rel="noopener noreferrer">Book Now</a>
-        </div>
-        <button class="mobile-menu-btn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <div class="mobile-nav-panel" id="mobileNavPanel" aria-hidden="true">
-            <div class="mobile-nav-links">
-                <a href="/">Home</a>
-                <a href="/gallery/">Gallery</a>
-                <a href="/about/">About</a>
-                <a href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" class="mobile-nav-cta" target="_blank" rel="noopener noreferrer">Book Now</a>
-            </div>
-        </div>
-    </nav>
-
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-pattern"></div>
@@ -2229,22 +1827,22 @@
                 <div class="hero-image">
                     <div class="hero-video-stack" id="heroVideoStack" aria-label="Royal Fern Barber Studio highlights">
                         <div class="hero-video-card" data-video-index="0" data-title="Precision Fades">
-                            <video autoplay muted loop playsinline preload="auto">
+                            <video autoplay muted loop playsinline preload="metadata" data-rf-preload-state="metadata">
                                 <source src="/media/hero/video1.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="hero-video-card" data-video-index="1" data-title="Chairside Details">
-                            <video muted loop playsinline preload="metadata">
+                            <video muted loop playsinline preload="none" data-rf-preload-state="none">
                                 <source src="/media/hero/video2.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="hero-video-card" data-video-index="2" data-title="Studio Atmosphere">
-                            <video muted loop playsinline preload="metadata">
+                            <video muted loop playsinline preload="none" data-rf-preload-state="none">
                                 <source src="/media/hero/video3.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="hero-video-card" data-video-index="3" data-title="Clean Finishing Work">
-                            <video muted loop playsinline preload="metadata">
+                            <video muted loop playsinline preload="none" data-rf-preload-state="none">
                                 <source src="/media/hero/video4.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -2541,108 +2139,14 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <div class="footer-brand-logo">
-                    <img src="/media/hero/royal-fern-logo.jpg" alt="Royal Fern Barber Studio logo">
-                </div>
-                <div class="footer-logo">ROYAL FERN BARBER STUDIO</div>
-                <p>Professional haircuts and beard services at Royal Fern Barber Studio in National City.</p>
-                <div class="footer-social">
-                    <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-                    <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-                    <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
-                </div>
-            </div>
-            <div class="footer-links">
-                <h4>Service Pages</h4>
-                <ul>
-                    <li><a href="/services/">All Services</a></li>
-                    <li><a href="/fade-haircuts/">Fade Haircuts</a></li>
-                    <li><a href="/beard-trims-beard-lineups-shaping/">Beard Trims & Lineups</a></li>
-                    <li><a href="/gallery/">Haircut Gallery</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="/about/">About Us</a></li>
-                    <li><a href="#">Our Barbers</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Careers</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Contact</h4>
-                <ul>
-                    <li><a href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" target="_blank" rel="noopener noreferrer">Book Online</a></li>
-                    <li><a href="#">Call Us</a></li>
-                    <li><a href="#">Gift Cards</a></li>
-                    <li><a href="#">FAQs</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Royal Fern Barber Studio. All rights reserved.</p>
-            <p>Crafted with precision in National City, CA</p>
-        </div>
-    </footer>
-
-    <script async src="https://www.instagram.com/embed.js"></script>
     <script>
-        // Register ScrollTrigger
-        gsap.registerPlugin(ScrollTrigger);
+        document.addEventListener('DOMContentLoaded', initHomePage, { once: true });
 
-        // Navigation scroll effect
-        const nav = document.querySelector('.main-nav');
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const mobileNavPanel = document.getElementById('mobileNavPanel');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        }, { passive: true });
+        function initHomePage() {
+            if (!window.gsap || !window.ScrollTrigger) return;
 
-        // Mobile nav dropdown
-        (function initMobileNav() {
-            if (!nav || !mobileMenuBtn || !mobileNavPanel) return;
-
-            const setOpen = (open) => {
-                nav.classList.toggle('mobile-open', open);
-                mobileMenuBtn.setAttribute('aria-expanded', String(open));
-                mobileNavPanel.setAttribute('aria-hidden', String(!open));
-            };
-
-            mobileMenuBtn.setAttribute('aria-label', 'Toggle menu');
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
-
-            mobileMenuBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                setOpen(!nav.classList.contains('mobile-open'));
-            });
-
-            mobileNavPanel.querySelectorAll('a').forEach((link) => {
-                link.addEventListener('click', () => setOpen(false));
-            });
-
-            document.addEventListener('click', (e) => {
-                if (!nav.classList.contains('mobile-open')) return;
-                if (nav.contains(e.target)) return;
-                setOpen(false);
-            });
-
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') setOpen(false);
-            });
-
-            window.addEventListener('resize', () => {
-                if (window.innerWidth > 768) setOpen(false);
-            }, { passive: true });
-        })();
+            // Register ScrollTrigger after deferred vendor scripts are ready.
+            gsap.registerPlugin(ScrollTrigger);
 
         // Hero Video Stack Carousel
         (function initHeroVideoStack() {
@@ -2667,6 +2171,20 @@
             let firstVideoReady = false;
             let firstVideoPrimed = false;
             let heroIntroDone = false;
+            let firstVideoRequested = false;
+
+            function preloadVideo(video, mode = 'metadata') {
+                if (!video) return;
+                const preloadState = video.dataset.rfPreloadState || 'none';
+                if (preloadState === 'auto') return;
+                if (preloadState === 'metadata' && mode !== 'auto') return;
+
+                video.preload = mode;
+                video.dataset.rfPreloadState = mode;
+                try {
+                    video.load();
+                } catch (_) {}
+            }
 
             function markInitialMediaReady() {
                 if (firstVideoReady) return;
@@ -2688,7 +2206,9 @@
                 if (!videos.length) return;
 
                 if (firstVideo) {
-                    firstVideo.preload = 'auto';
+                    if (firstVideoRequested) return;
+                    firstVideoRequested = true;
+                    preloadVideo(firstVideo, 'metadata');
                     if (firstVideo.readyState >= 2) {
                         primeFirstVisibleFrame();
                         markInitialMediaReady();
@@ -2704,24 +2224,6 @@
                             tryStartInitialVideo();
                         }, { once: true });
                     }
-
-                    // Trigger network fetch immediately during the hero intro animation.
-                    firstVideo.load();
-                }
-
-                const warmRest = () => {
-                    videos.slice(1).forEach((video) => {
-                        try {
-                            video.preload = 'auto';
-                            video.load();
-                        } catch (_) {}
-                    });
-                };
-
-                if ('requestIdleCallback' in window) {
-                    window.requestIdleCallback(warmRest, { timeout: 1200 });
-                } else {
-                    setTimeout(warmRest, 500);
                 }
             }
 
@@ -2780,6 +2282,7 @@
                 videos.forEach((video, idx) => {
                     if (!video) return;
                     if (idx === currentIndex) {
+                        preloadVideo(video, 'auto');
                         const playPromise = video.play();
                         if (playPromise && typeof playPromise.catch === 'function') {
                             playPromise.catch(() => {});
@@ -2825,6 +2328,7 @@
                 if (!cards.length) return;
                 const nextIndex = (target + cards.length) % cards.length;
                 if (nextIndex === currentIndex || isAnimating) return;
+                preloadVideo(videos[nextIndex], nextIndex === 0 ? 'auto' : 'metadata');
 
                 stopAuto();
 
@@ -2883,7 +2387,26 @@
                 else scheduleAuto();
             });
 
-            warmHeroVideos();
+            const startWarming = () => {
+                warmHeroVideos();
+                if (heroObserver) {
+                    heroObserver.disconnect();
+                    heroObserver = null;
+                }
+            };
+
+            let heroObserver = null;
+            if ('IntersectionObserver' in window) {
+                heroObserver = new IntersectionObserver((entries) => {
+                    if (entries.some((entry) => entry.isIntersecting)) {
+                        startWarming();
+                    }
+                }, { rootMargin: '240px 0px' });
+                heroObserver.observe(stack);
+            } else {
+                startWarming();
+            }
+
             applyCardStyles();
             scheduleAuto();
 
@@ -2891,6 +2414,38 @@
                 heroIntroDone = true;
                 tryStartInitialVideo();
             });
+        })();
+
+        (function initInstagramEmbeds() {
+            const instagramSection = document.getElementById('instagram');
+            const embedCards = document.querySelectorAll('.instagram-media');
+            if (!instagramSection || !embedCards.length) return;
+
+            let instagramScriptRequested = false;
+
+            const loadEmbeds = () => {
+                if (instagramScriptRequested) return;
+                instagramScriptRequested = true;
+                const script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.instagram.com/embed.js';
+                script.onload = () => {
+                    window.instgrm?.Embeds?.process?.();
+                };
+                document.body.appendChild(script);
+            };
+
+            if ('IntersectionObserver' in window) {
+                const instagramObserver = new IntersectionObserver((entries) => {
+                    if (entries.some((entry) => entry.isIntersecting)) {
+                        loadEmbeds();
+                        instagramObserver.disconnect();
+                    }
+                }, { rootMargin: '320px 0px' });
+                instagramObserver.observe(instagramSection);
+            } else {
+                loadEmbeds();
+            }
         })();
 
         // Testimonials: JSON-driven auto-scrolling review carousel (drag/swipe + arrows)
@@ -2971,7 +2526,7 @@
 
             const render = async () => {
                 try {
-                    const res = await fetch('/data/google-reviews.json', { cache: 'no-store' });
+                    const res = await fetch('/data/google-reviews.json');
                     if (!res.ok) throw new Error(`Failed to load reviews (${res.status})`);
                     const data = await res.json();
                     const reviews = Array.isArray(data.reviews) ? data.reviews : [];
@@ -3357,7 +2912,7 @@
         });
 
         // Button hover micro-interactions
-        document.querySelectorAll('.hero-cta, .nav-cta, .submit-btn, .waitlist-submit, .instagram-cta').forEach(btn => {
+        document.querySelectorAll('.hero-cta, .rf-nav-cta, .submit-btn, .waitlist-submit, .instagram-cta').forEach(btn => {
             btn.addEventListener('mouseenter', () => {
                 gsap.to(btn, { scale: 1.02, duration: 0.3, ease: 'power2.out' });
             });
@@ -3373,6 +2928,7 @@
                 setTimeout(() => ScrollTrigger.refresh(), 250);
             }
         });
+        }
     </script>
 </body>
 </html>
