@@ -5,6 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fade Haircuts in National City, CA | Skin Fades, Taper Fades & Lineups</title>
   <meta name="description" content="Get fade haircuts in National City, CA at Royal Fern Barber Studio including skin fades, taper fades, low fades, mid fades, and fade + lineup combinations." />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What kinds of fades can I get at Royal Fern Barber Studio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Royal Fern provides skin fades, taper fades, low fades, mid fades, high fades, and fade plus lineup combinations in National City, CA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I book a fade even if I do not know the exact height I want?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Fade height, blend level, and finish can be worked out during the consultation based on hair density, head shape, and how bold or subtle the final cut should look."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are fade haircuts only for very short hairstyles?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Fades can be paired with shorter or longer top length depending on the style, texture, and maintenance level the client wants."
+          }
+        }
+      ]
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
@@ -329,7 +361,28 @@
     .clean-list li:last-child {
       border-bottom: 0;
       padding-bottom: 0;
-    }    }
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .faq-item {
+      border: 1px solid rgba(20,78,71,0.14);
+      background: rgba(245,240,232,0.82);
+      padding: 18px;
+    }
+    .faq-item h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+    .faq-item p {
+      font-size: 14px;
+      line-height: 1.85;
+      color: rgba(20,78,71,0.82);
+    }
     @media (max-width: 1024px) {
       .hero-inner {
         grid-template-columns: 1fr;
@@ -347,9 +400,11 @@
         max-width: none;
       }
       .detail-grid,
-      .split-grid {
+      .split-grid,
+      .faq-grid {
         grid-template-columns: 1fr;
-      }    }
+      }
+    }
     @media (max-width: 768px) {
       .page-shell { padding: 16px 16px 40px; }
       .top-nav { margin-bottom: 14px; }
@@ -364,6 +419,8 @@
       .hero-cta-row { width: 100%; }
       .hero-cta { width: 100%; text-align: center; }    }
   </style>
+<link rel="stylesheet" href="/styles/global-nav.css">
+  <script src="/scripts/global-nav.js" defer></script>
 </head>
 <body>
   <main class="page-shell">
@@ -451,6 +508,27 @@
         <article class="split-block">
           <h3>Best fit for</h3>
           <p>Clients searching for dependable skin fades, taper fades, and lineup-ready cuts in National City.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-frame" aria-labelledby="fade-faq-title">
+      <div class="section-header">
+        <span class="section-kicker">FAQ</span>
+        <h2 id="fade-faq-title" class="section-title">Questions clients ask before booking a fade</h2>
+      </div>
+      <div class="faq-grid">
+        <article class="faq-item">
+          <h3>Which fade should I ask for?</h3>
+          <p>If you are unsure, the consultation can narrow it down based on how much contrast you want, how quickly you want it to grow out, and how clean you want the perimeter to feel.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Do fades work with different hair textures?</h3>
+          <p>Yes. Fade placement and blending approach can be adjusted for straight, wavy, curly, and coily hair so the transition looks intentional instead of forced.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Can I add a lineup to my fade?</h3>
+          <p>Absolutely. Many clients want the blend from the fade plus sharper edge work around the hairline, temples, or beard for a more complete finish.</p>
         </article>
       </div>
     </section>

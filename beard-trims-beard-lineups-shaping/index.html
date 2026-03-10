@@ -5,6 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Beard Trims & Beard Shaping in National City, CA | Beard Lineup Barber</title>
   <meta name="description" content="Royal Fern Barber Studio offers beard trims, beard lineups, and beard shaping in National City, CA. Book a beard barber for clean lines, balance, and professional grooming." />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What beard services can I book at Royal Fern Barber Studio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Royal Fern offers beard trims, beard lineups, beard shaping, and haircut plus beard combinations in National City, CA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between a beard trim and beard shaping?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A beard trim mainly manages length and cleanup, while beard shaping focuses more on contour, balance, line placement, and how the beard works with the haircut."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get beard work even if I do not know the best shape for my face?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Beard work can be guided by face shape, density, growth pattern, and how sharp or natural you want the final look to feel."
+          }
+        }
+      ]
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
@@ -329,7 +361,28 @@
     .clean-list li:last-child {
       border-bottom: 0;
       padding-bottom: 0;
-    }    }
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .faq-item {
+      border: 1px solid rgba(20,78,71,0.14);
+      background: rgba(245,240,232,0.82);
+      padding: 18px;
+    }
+    .faq-item h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+    .faq-item p {
+      font-size: 14px;
+      line-height: 1.85;
+      color: rgba(20,78,71,0.82);
+    }
     @media (max-width: 1024px) {
       .hero-inner {
         grid-template-columns: 1fr;
@@ -347,9 +400,11 @@
         max-width: none;
       }
       .detail-grid,
-      .split-grid {
+      .split-grid,
+      .faq-grid {
         grid-template-columns: 1fr;
-      }    }
+      }
+    }
     @media (max-width: 768px) {
       .page-shell { padding: 16px 16px 40px; }
       .top-nav { margin-bottom: 14px; }
@@ -364,6 +419,8 @@
       .hero-cta-row { width: 100%; }
       .hero-cta { width: 100%; text-align: center; }    }
   </style>
+<link rel="stylesheet" href="/styles/global-nav.css">
+  <script src="/scripts/global-nav.js" defer></script>
 </head>
 <body>
   <main class="page-shell">
@@ -451,6 +508,27 @@
         <article class="split-block">
           <h3>Best fit for</h3>
           <p>Clients searching for beard trims, beard lineups, and beard shaping in National City.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-frame" aria-labelledby="beard-faq-title">
+      <div class="section-header">
+        <span class="section-kicker">FAQ</span>
+        <h2 id="beard-faq-title" class="section-title">Questions clients ask before booking beard work</h2>
+      </div>
+      <div class="faq-grid">
+        <article class="faq-item">
+          <h3>Is beard shaping only for long beards?</h3>
+          <p>No. Even shorter beards benefit from shaping when the goal is cleaner cheek lines, better balance, and a more intentional profile next to the haircut.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Can beard work look natural instead of overly carved in?</h3>
+          <p>Yes. Some clients want very crisp definition, while others want a softer natural finish. The shape can be tailored to whichever direction fits you better.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Should I combine beard work with my haircut?</h3>
+          <p>If you want the cleanest overall result, combining them usually makes sense because the haircut silhouette and beard proportions can be balanced together in one session.</p>
         </article>
       </div>
     </section>

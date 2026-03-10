@@ -24,6 +24,123 @@
       color: var(--primary);
       min-height: 100vh;
     }
+    .main-nav {
+      position: sticky;
+      top: 16px;
+      max-width: 1240px;
+      margin: 0 auto 20px;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      background: rgba(245, 240, 232, 0.92);
+      border: 1px solid rgba(210, 178, 106, 0.35);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 16px 34px rgba(20, 78, 71, 0.08);
+      z-index: 1000;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .main-nav.scrolled {
+      background: rgba(245, 240, 232, 0.97);
+      box-shadow: 0 20px 38px rgba(20, 78, 71, 0.12);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+      color: inherit;
+      min-width: 0;
+    }
+    .nav-logo-icon {
+      width: 45px;
+      height: 45px;
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .nav-logo-text {
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: var(--primary);
+    }
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+    .nav-links a {
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      color: var(--primary);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    .nav-links .nav-cta {
+      padding: 14px 28px;
+      background: var(--primary);
+      color: var(--white);
+      border: 2px solid var(--primary);
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+    .nav-links .nav-cta:hover {
+      background: transparent;
+      color: var(--primary);
+    }
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+    }
+    .mobile-menu-btn span {
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--primary);
+      transition: all 0.3s ease;
+    }
+    .mobile-menu-btn[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .mobile-menu-btn[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu-btn[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    .mobile-nav-panel {
+      display: none;
+    }
     .page-shell {
       min-height: 100vh;
       padding: 28px 28px 60px;
@@ -107,26 +224,18 @@
     .frame-corner.bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
     .frame-corner.br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
     .hero-inner {
+      position: relative;
+      min-height: 620px;
       display: grid;
-      grid-template-columns: minmax(260px, 0.92fr) 1.08fr;
-      gap: 44px;
-      align-items: center;
-      min-height: 560px;
+      align-items: end;
     }
     .hero-panel {
       position: relative;
-      height: 100%;
-      min-height: 520px;
-      background:
-        linear-gradient(to top, rgba(10,46,42,0.72), rgba(10,46,42,0.16)),
-        radial-gradient(circle at 22% 18%, rgba(210,178,106,0.16), transparent 42%),
-        #12322e;
+      min-height: 620px;
       border: 1px solid rgba(20,78,71,0.18);
       overflow: hidden;
-      display: grid;
-      align-content: space-between;
-      padding: 18px;
       box-shadow: 0 28px 55px rgba(20,78,71,0.12);
+      background: #12322e;
     }
     .hero-panel::before {
       content: '';
@@ -134,10 +243,29 @@
       inset: 14px;
       border: 1px solid rgba(210,178,106,0.28);
       pointer-events: none;
+      z-index: 2;
+    }
+    .hero-panel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(10,46,42,0.08) 0%, rgba(10,46,42,0.18) 34%, rgba(10,46,42,0.78) 100%),
+        radial-gradient(circle at 82% 18%, rgba(210,178,106,0.18), transparent 24%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
     }
     .hero-panel-badge {
       position: relative;
-      z-index: 1;
+      z-index: 3;
       width: 74px;
       height: 74px;
       border: 1px solid rgba(210,178,106,0.35);
@@ -155,12 +283,15 @@
     }
     .hero-panel-card {
       position: relative;
-      z-index: 1;
-      align-self: end;
+      z-index: 3;
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
       background: rgba(10,46,42,0.82);
       border: 1px solid rgba(210,178,106,0.18);
-      padding: 14px 16px;
-      max-width: 290px;
+      padding: 16px 18px;
+      max-width: 340px;
+      backdrop-filter: blur(10px);
     }
     .hero-panel-card span {
       display: block;
@@ -178,7 +309,17 @@
       line-height: 1.25;
     }
     .hero-content {
-      padding: 12px 0;
+      position: absolute;
+      right: 28px;
+      bottom: 28px;
+      z-index: 4;
+      width: min(100%, 44%);
+      max-width: 620px;
+      min-width: 420px;
+      padding: 24px 26px;
+      background: linear-gradient(180deg, rgba(245,240,232,0.9), rgba(245,240,232,0.96));
+      border: 1px solid rgba(210,178,106,0.32);
+      box-shadow: 0 22px 40px rgba(10,46,42,0.18);
     }
     .hero-eyebrow {
       font-size: 12px;
@@ -190,10 +331,10 @@
     .hero-title {
       font-family: 'Cinzel', serif;
       color: var(--primary);
-      font-size: clamp(38px, 4.6vw, 62px);
-      line-height: 1.18;
-      margin-bottom: 20px;
-      max-width: 14ch;
+      font-size: clamp(34px, 4vw, 54px);
+      line-height: 1.1;
+      margin-bottom: 18px;
+      max-width: 10ch;
     }
     .divider {
       display: flex;
@@ -213,11 +354,11 @@
       transform: rotate(45deg);
     }
     .hero-subtitle {
-      font-size: 16px;
-      line-height: 1.95;
+      font-size: 15px;
+      line-height: 1.8;
       color: rgba(20,78,71,0.78);
-      max-width: 52ch;
-      margin-bottom: 26px;
+      max-width: 36ch;
+      margin-bottom: 22px;
     }
     .hero-cta-row {
       display: flex;
@@ -243,21 +384,207 @@
       font-family: 'Inter', sans-serif;
       letter-spacing: 2px;
     }
+    .results-section {
+      max-width: 1240px;
+      margin: 32px auto 0;
+      border: 1px solid rgba(210,178,106,0.35);
+      background: rgba(255,255,255,0.45);
+      padding: 34px;
+      position: relative;
+      box-shadow: 0 18px 36px rgba(20,78,71,0.05);
+    }
+    .results-section::before {
+      content: '';
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(20,78,71,0.08);
+      pointer-events: none;
+    }
+    .results-header {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 26px;
+    }
+    .section-kicker {
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(30px, 3.3vw, 48px);
+      line-height: 1.16;
+      color: var(--primary);
+      max-width: 11ch;
+    }
+    .section-copy {
+      font-size: 16px;
+      line-height: 1.9;
+      color: rgba(20,78,71,0.78);
+      max-width: 52ch;
+      justify-self: end;
+    }
+    .results-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 22px;
+    }
+    .gallery-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(20,78,71,0.12);
+      background: #d9d2c4;
+      min-height: 420px;
+      box-shadow: 0 18px 32px rgba(20,78,71,0.08);
+    }
+    .gallery-card::before {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(210,178,106,0.22);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-card.tall {
+      min-height: 560px;
+    }
+    .gallery-card.feature {
+      grid-column: span 4;
+    }
+    .gallery-card.standard {
+      grid-column: span 4;
+    }
+    .gallery-card.wide-copy {
+      grid-column: span 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background:
+        radial-gradient(circle at top right, rgba(210,178,106,0.14), transparent 34%),
+        linear-gradient(160deg, rgba(20,78,71,0.98), rgba(10,46,42,0.98));
+      color: var(--white);
+      padding: 28px;
+    }
+    .gallery-card.wide-copy::before {
+      border-color: rgba(210,178,106,0.26);
+    }
+    .gallery-card.wide-copy::after {
+      content: '';
+      position: absolute;
+      right: -34px;
+      top: -28px;
+      width: 180px;
+      height: 180px;
+      border: 1px solid rgba(210,178,106,0.14);
+      transform: rotate(18deg);
+      pointer-events: none;
+    }
+    .gallery-card-copy {
+      position: relative;
+      z-index: 1;
+    }
+    .gallery-card-copy span,
+    .gallery-meta span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .gallery-card-copy strong {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 30px;
+      line-height: 1.22;
+      max-width: 10ch;
+    }
+    .gallery-card-copy p {
+      margin-top: 20px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.8;
+      max-width: 28ch;
+    }
+    .gallery-card-note {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .gallery-card-note i {
+      font-style: normal;
+      font-size: 10px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      border: 1px solid rgba(210,178,106,0.22);
+      color: rgba(255,255,255,0.78);
+      padding: 7px 10px;
+    }
+    .gallery-meta {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      z-index: 3;
+      background: linear-gradient(180deg, rgba(10,46,42,0.08), rgba(10,46,42,0.82));
+      padding: 52px 16px 16px;
+      color: var(--white);
+    }
+    .gallery-meta strong {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 22px;
+      line-height: 1.2;
+      max-width: 14ch;
+    }
+    .gallery-meta p {
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.78);
+      max-width: 28ch;
+    }
     @media (max-width: 1024px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        min-height: 0;
-      }
       .hero-panel {
-        min-height: 420px;
-        order: 2;
+        min-height: 560px;
       }
       .hero-content {
-        order: 1;
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+        margin: -88px 20px 0;
       }
       .hero-title {
         max-width: none;
+      }
+      .results-header {
+        grid-template-columns: 1fr;
+      }
+      .section-copy {
+        justify-self: start;
+      }
+      .gallery-card.feature,
+      .gallery-card.standard,
+      .gallery-card.wide-copy {
+        grid-column: span 6;
       }
     }
     @media (max-width: 768px) {
@@ -266,25 +593,160 @@
       .brand span { display: none; }
       .ghost-link { display: none; }
       .hero-frame { padding: 22px; }
+      .hero-inner { min-height: 0; }
       .hero-panel { min-height: 360px; }
+      .hero-panel-badge {
+        width: 62px;
+        height: 62px;
+        padding: 7px;
+      }
+      .hero-panel-card {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        max-width: none;
+        padding: 14px;
+      }
       .hero-panel-card strong { font-size: 20px; }
+      .hero-content {
+        margin: 14px 0 0;
+        padding: 22px 18px;
+      }
       .divider-line { width: 52px; }
       .hero-subtitle { font-size: 15px; line-height: 1.85; }
       .hero-cta-row { width: 100%; }
       .hero-cta { width: 100%; text-align: center; }
+      .results-section {
+        margin-top: 18px;
+        padding: 20px;
+      }
+      .section-title {
+        max-width: none;
+      }
+      .section-copy {
+        font-size: 15px;
+        line-height: 1.8;
+      }
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-card.feature,
+      .gallery-card.standard,
+      .gallery-card.wide-copy {
+        grid-column: auto;
+      }
+      .gallery-card,
+      .gallery-card.tall {
+        min-height: 360px;
+      }
+      .gallery-card.wide-copy {
+        min-height: 0;
+        padding: 22px 18px;
+      }
+      .gallery-card-copy strong {
+        font-size: 24px;
+      }
+      .gallery-meta {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+      }
+    }
+    @media (max-width: 768px) {
+      .main-nav {
+        top: 12px;
+        padding: 16px 18px;
+      }
+      .nav-logo-text { display: none; }
+      .nav-links { display: none; }
+      .mobile-menu-btn {
+        display: flex;
+        z-index: 1002;
+      }
+      .mobile-nav-panel {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 16px;
+        right: 16px;
+        display: block;
+        background: rgba(245, 240, 232, 0.97);
+        border: 1px solid rgba(210, 178, 106, 0.35);
+        box-shadow: 0 20px 40px rgba(10, 46, 42, 0.12);
+        backdrop-filter: blur(14px);
+        padding: 14px;
+        opacity: 0;
+        transform: translateY(-8px);
+        pointer-events: none;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        z-index: 1001;
+      }
+      .main-nav.mobile-open .mobile-nav-panel {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .mobile-nav-panel::before {
+        content: '';
+        position: absolute;
+        inset: 8px;
+        border: 1px solid rgba(20, 78, 71, 0.1);
+        pointer-events: none;
+      }
+      .mobile-nav-links {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 8px;
+      }
+      .mobile-nav-links a {
+        display: block;
+        text-decoration: none;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 12px;
+        padding: 12px 14px;
+        border: 1px solid rgba(20, 78, 71, 0.08);
+        background: rgba(255, 255, 255, 0.35);
+      }
+      .mobile-nav-links .mobile-nav-cta {
+        background: var(--primary);
+        color: var(--white);
+        border-color: var(--primary);
+        font-family: 'Cinzel', serif;
+      }
     }
   </style>
+<link rel="stylesheet" href="/styles/global-nav.css">
+  <script src="/scripts/global-nav.js" defer></script>
 </head>
 <body>
   <main class="page-shell">
-    <nav class="top-nav" aria-label="Page navigation">
-      <a class="brand" href="/">
-        <img src="/media/hero/royal-fern-logo.jpg" alt="Royal Fern Barber Studio logo" />
-        <span>ROYAL FERN BARBER STUDIO</span>
+    <nav class="main-nav">
+      <a href="/" class="nav-logo">
+        <div class="nav-logo-icon">
+          <img src="/media/hero/royal-fern-logo.jpg" alt="Royal Fern Barber Studio logo" />
+        </div>
+        <span class="nav-logo-text">ROYAL FERN BARBER STUDIO</span>
       </a>
-      <div class="nav-actions">
-        <a class="ghost-link" href="/">Home</a>
-        <a class="book-link" href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" target="_blank" rel="noopener noreferrer">Book Now</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/gallery/">Gallery</a>
+        <a href="/about/">About</a>
+        <a class="nav-cta" href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" target="_blank" rel="noopener noreferrer">Book Now</a>
+      </div>
+      <button class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="mobile-nav-panel" id="mobileNavPanel" aria-hidden="true">
+        <div class="mobile-nav-links">
+          <a href="/">Home</a>
+          <a href="/gallery/">Gallery</a>
+          <a href="/about/">About</a>
+          <a class="mobile-nav-cta" href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" target="_blank" rel="noopener noreferrer">Book Now</a>
+        </div>
       </div>
     </nav>
 
@@ -296,12 +758,13 @@
 
       <div class="hero-inner">
         <div class="hero-panel" aria-hidden="true">
+          <img class="hero-image" src="/media/gallery/gallery-hero-wide.jpg" alt="" />
           <div class="hero-panel-badge">
             <img src="/media/hero/royal-fern-logo.jpg" alt="" />
           </div>
           <div class="hero-panel-card">
-            <span>Real Results</span>
-            <strong>Fades, Lineups & Beard Work</strong>
+            <span>Inside Royal Fern</span>
+            <strong>Studio Atmosphere, Precision Work</strong>
           </div>
         </div>
 
@@ -313,7 +776,7 @@
             <div class="divider-icon"></div>
             <div class="divider-line"></div>
           </div>
-          <h2 class="hero-subtitle">Real men's haircuts, fade haircuts, lineups, beard trims, and beard shaping by Royal Fern Barber Studio in National City, CA.</h2>
+          <h2 class="hero-subtitle">A closer look inside Royal Fern Barber Studio with real haircut sessions, sharp finishing work, and the atmosphere behind the chair in National City, CA.</h2>
           <div class="hero-cta-row">
             <a class="hero-cta" href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" target="_blank" rel="noopener noreferrer">Book Now</a>
             <a class="hero-cta secondary" href="/">Back to Home</a>
@@ -321,6 +784,122 @@
         </div>
       </div>
     </section>
+
+    <section class="results-section" aria-labelledby="results-title">
+      <div class="results-header">
+        <div>
+          <div class="section-kicker">Recent Work</div>
+          <h2 id="results-title" class="section-title">Clean fades, beard shape, and classic finish work.</h2>
+        </div>
+        <p class="section-copy">A curated look at the kind of detail Royal Fern is known for: soft tapers, crisp blends, polished classic styling, and beard work that stays sharp from every angle.</p>
+      </div>
+
+      <div class="results-grid">
+        <figure class="gallery-card feature tall">
+          <img src="/media/gallery/gallery-beard-classic.jpg" alt="Classic beard styling and curled mustache finish at Royal Fern Barber Studio." />
+          <figcaption class="gallery-meta">
+            <span>Beard Finish</span>
+            <strong>Classic beard styling with sculpted detail</strong>
+            <p>Clean shape, soft texture control, and a polished mustache finish.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-card standard tall">
+          <img src="/media/gallery/gallery-glasses-taper.jpg" alt="Clean taper haircut with combed finish at Royal Fern Barber Studio." />
+          <figcaption class="gallery-meta">
+            <span>Taper Cut</span>
+            <strong>Refined taper with a clean side profile</strong>
+          </figcaption>
+        </figure>
+
+        <div class="gallery-card wide-copy tall">
+          <div class="gallery-card-copy">
+            <span>Gallery Standard</span>
+            <strong>Real clients. Real finishes. No filler shots.</strong>
+            <p>Every image on this page comes from the chair, built around sharp silhouette work, balanced texture, and consistent grooming discipline.</p>
+          </div>
+          <div class="gallery-card-note">
+            <i>Fades</i>
+            <i>Beard Work</i>
+            <i>Shape Ups</i>
+          </div>
+        </div>
+
+        <figure class="gallery-card standard tall">
+          <img src="/media/gallery/gallery-brick-fade.jpg" alt="Soft fade haircut in front of the brick wall at Royal Fern Barber Studio." />
+          <figcaption class="gallery-meta">
+            <span>Soft Fade</span>
+            <strong>Low fade with a smooth transition</strong>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-card standard tall">
+          <img src="/media/gallery/gallery-clean-fade.jpg" alt="Sharp haircut with clean blend and styled top at Royal Fern Barber Studio." />
+          <figcaption class="gallery-meta">
+            <span>Styled Finish</span>
+            <strong>Classic volume with a clean blend</strong>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-card standard tall">
+          <img src="/media/gallery/gallery-beard-lineup.jpg" alt="Sharp beard lineup and haircut finish at Royal Fern Barber Studio." />
+          <figcaption class="gallery-meta">
+            <span>Beard Lineup</span>
+            <strong>Defined beard shape with strong edge detail</strong>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-card feature tall">
+          <img src="/media/gallery/gallery-soft-taper.jpg" alt="Precision taper haircut with clean contour and textured top at Royal Fern Barber Studio." />
+          <figcaption class="gallery-meta">
+            <span>Precision Taper</span>
+            <strong>Balanced shape with polished contour work</strong>
+            <p>Built for a clean profile, strong top shape, and a finish that holds up from every angle.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
   </main>
+  <script>
+    const nav = document.querySelector('.main-nav');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileNavPanel = document.getElementById('mobileNavPanel');
+
+    if (nav) {
+      const syncNav = () => nav.classList.toggle('scrolled', window.scrollY > 24);
+      window.addEventListener('scroll', syncNav, { passive: true });
+      syncNav();
+    }
+
+    if (nav && mobileMenuBtn && mobileNavPanel) {
+      const setOpen = (open) => {
+        nav.classList.toggle('mobile-open', open);
+        mobileMenuBtn.setAttribute('aria-expanded', String(open));
+        mobileNavPanel.setAttribute('aria-hidden', String(!open));
+      };
+
+      mobileMenuBtn.setAttribute('aria-label', 'Toggle menu');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+
+      mobileMenuBtn.addEventListener('click', (event) => {
+        event.stopPropagation();
+        setOpen(!nav.classList.contains('mobile-open'));
+      });
+
+      mobileNavPanel.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => setOpen(false));
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!nav.classList.contains('mobile-open')) return;
+        if (nav.contains(event.target)) return;
+        setOpen(false);
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setOpen(false);
+      });
+    }
+  </script>
 </body>
 </html>
