@@ -146,16 +146,67 @@
     }
     .hero-content {
       position: absolute;
-      right: 28px;
-      bottom: 28px;
+      top: 34px;
+      left: 34px;
       z-index: 4;
-      width: min(100%, 44%);
-      max-width: 620px;
-      min-width: 420px;
-      padding: 24px 26px;
+      width: min(calc(100% - 68px), 33rem);
+      min-width: 0;
+      padding: 22px 24px 24px;
       background: linear-gradient(180deg, rgba(245,240,232,0.9), rgba(245,240,232,0.96));
       border: 1px solid rgba(210,178,106,0.32);
       box-shadow: 0 22px 40px rgba(10,46,42,0.18);
+      isolation: isolate;
+    }
+    .hero-content::before {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(20,78,71,0.12);
+      pointer-events: none;
+      z-index: -1;
+    }
+    .hero-content::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.32), transparent 38%),
+        repeating-linear-gradient(45deg, rgba(20,78,71,0.018) 0 1px, transparent 1px 16px);
+      mix-blend-mode: normal;
+      pointer-events: none;
+      z-index: -2;
+    }
+    .hero-content-corner {
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      border: 1px solid rgba(210,178,106,0.62);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-content-corner.tl {
+      top: 10px;
+      left: 10px;
+      border-right: none;
+      border-bottom: none;
+    }
+    .hero-content-corner.tr {
+      top: 10px;
+      right: 10px;
+      border-left: none;
+      border-bottom: none;
+    }
+    .hero-content-corner.bl {
+      bottom: 10px;
+      left: 10px;
+      border-right: none;
+      border-top: none;
+    }
+    .hero-content-corner.br {
+      right: 10px;
+      bottom: 10px;
+      border-left: none;
+      border-top: none;
     }
     .hero-eyebrow {
       font-size: 12px;
@@ -401,12 +452,11 @@
       }
       .hero-content {
         position: relative;
-        right: auto;
-        bottom: auto;
+        top: auto;
+        left: auto;
         width: 100%;
         max-width: none;
-        min-width: 0;
-        margin: -88px 20px 0;
+        margin: -72px 26px 0;
       }
       .hero-title {
         max-width: none;
@@ -444,6 +494,33 @@
       .hero-content {
         margin: 14px 0 0;
         padding: 22px 18px;
+      }
+      .hero-content::before {
+        inset: 10px;
+      }
+      .hero-content-corner {
+        width: 22px;
+        height: 22px;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+      }
+      .hero-content-corner.tl {
+        top: 8px;
+        left: 8px;
+      }
+      .hero-content-corner.tr {
+        top: 8px;
+        right: 8px;
+      }
+      .hero-content-corner.bl {
+        bottom: 8px;
+        left: 8px;
+      }
+      .hero-content-corner.br {
+        right: 8px;
+        bottom: 8px;
       }
       .divider-line { width: 52px; }
       .hero-subtitle { font-size: 15px; line-height: 1.85; }
@@ -510,6 +587,10 @@
         </div>
 
         <div class="hero-content">
+          <div class="hero-content-corner tl" aria-hidden="true"></div>
+          <div class="hero-content-corner tr" aria-hidden="true"></div>
+          <div class="hero-content-corner bl" aria-hidden="true"></div>
+          <div class="hero-content-corner br" aria-hidden="true"></div>
           <div class="hero-eyebrow">Royal Fern Gallery</div>
           <h1 id="page-title" class="hero-title">Haircut & Beard Trim Gallery in National City, CA</h1>
           <div class="divider" aria-hidden="true">
