@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#144E47" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <title>Lineup Haircuts & Shape Ups in National City, CA | Clean Edge-Ups</title>
+  <meta name="description" content="Get lineup haircuts and shape ups in National City, CA at Royal Fern Barber Studio, including edge-ups, taper lineups, fade plus lineup work, and beard line refinement." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/global-nav.css">
+  <script src="/scripts/global-nav.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a lineup haircut or shape up?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A lineup or shape up focuses on cleaning and defining the hairline, temples, sideburns, and neckline for a sharper outline. It can be part of a full haircut or a detail service between cuts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get a lineup with a fade or taper?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Lineups are commonly paired with fades and tapers to sharpen the edge work and give the cut a cleaner overall finish."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a lineup usually stay sharp?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on hair texture and growth speed, but many clients refresh lineups more often than full cuts because the front edge and temple area show growth quickly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do lineups work on different hair textures?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Straight, wavy, curly, and coily textures can all benefit from clean edge work when the hairline is shaped in a way that respects natural growth patterns."
+          }
+        }
+      ]
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #144E47;
+      --gold: #D2B26A;
+      --cream: #F5F0E8;
+      --white: #FFFFFF;
+      --dark: #0A2E2A;
+    }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--cream);
+      color: var(--primary);
+      min-height: 100vh;
+    }
+    .page-shell {
+      min-height: 100vh;
+      padding: 28px 28px 60px;
+      background:
+        linear-gradient(180deg, rgba(210,178,106,0.08), transparent 35%),
+        repeating-linear-gradient(45deg, rgba(20,78,71,0.035) 0 1px, transparent 1px 18px),
+        var(--cream);
+    }
+    .hero-frame,
+    .content-frame {
+      max-width: 1240px;
+      margin: 0 auto;
+      border: 1px solid rgba(210,178,106,0.35);
+      background: rgba(245,240,232,0.92);
+      box-shadow: 0 24px 50px rgba(20,78,71,0.05);
+    }
+    .hero-frame {
+      padding: 38px;
+      position: relative;
+    }
+    .frame-corner {
+      position: absolute;
+      width: 38px;
+      height: 38px;
+      border: 2px solid rgba(210,178,106,0.75);
+      pointer-events: none;
+    }
+    .frame-corner.tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+    .frame-corner.tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+    .frame-corner.bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+    .frame-corner.br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.92fr) 1.08fr;
+      gap: 44px;
+      align-items: center;
+      min-height: 560px;
+    }
+    .hero-panel {
+      position: relative;
+      min-height: 520px;
+      border: 1px solid rgba(20,78,71,0.18);
+      overflow: hidden;
+      display: grid;
+      align-content: space-between;
+      padding: 18px;
+      background:
+        linear-gradient(to top, rgba(10,46,42,0.8), rgba(10,46,42,0.14)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 68px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 68px),
+        #12322e;
+    }
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(210,178,106,0.28);
+      pointer-events: none;
+    }
+    .hero-panel-badge {
+      position: relative;
+      z-index: 1;
+      width: 74px;
+      height: 74px;
+      border: 1px solid rgba(210,178,106,0.35);
+      background: rgba(10,46,42,0.45);
+      padding: 8px;
+      display: grid;
+      place-items: center;
+    }
+    .hero-panel-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-panel-card {
+      position: relative;
+      z-index: 1;
+      background: rgba(10,46,42,0.82);
+      border: 1px solid rgba(210,178,106,0.18);
+      padding: 14px 16px;
+      max-width: 320px;
+    }
+    .hero-panel-card span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .hero-panel-card strong {
+      display: block;
+      color: var(--white);
+      font-family: "Cinzel", serif;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+    .hero-content { padding: 12px 0; }
+    .hero-eyebrow,
+    .section-kicker {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 2.6px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .hero-title,
+    .section-title {
+      font-family: "Cinzel", serif;
+      color: var(--primary);
+    }
+    .hero-title {
+      font-size: clamp(38px, 4.6vw, 62px);
+      line-height: 1.18;
+      margin-bottom: 20px;
+      max-width: 14ch;
+    }
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 22px 0 26px;
+    }
+    .divider-line {
+      width: 78px;
+      height: 1px;
+      background: rgba(20,78,71,0.22);
+    }
+    .divider-icon {
+      width: 10px;
+      height: 10px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+    .hero-subtitle,
+    .section-text,
+    .detail-card p,
+    .split-block p,
+    .faq-item p {
+      color: rgba(20,78,71,0.8);
+      line-height: 1.85;
+    }
+    .hero-subtitle {
+      font-size: 16px;
+      max-width: 54ch;
+      margin-bottom: 26px;
+    }
+    .hero-cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-cta {
+      display: inline-block;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2.4px;
+      font-size: 11px;
+      padding: 14px 18px;
+      border: 2px solid var(--primary);
+      background: var(--primary);
+      color: var(--white);
+      font-family: "Cinzel", serif;
+    }
+    .hero-cta.secondary {
+      background: transparent;
+      color: var(--primary);
+      border-color: rgba(20,78,71,0.25);
+      font-family: "Inter", sans-serif;
+      letter-spacing: 2px;
+    }
+    .content-frame {
+      margin-top: 20px;
+      padding: 30px;
+      border-color: rgba(20,78,71,0.14);
+      background: rgba(255,255,255,0.55);
+    }
+    .section-title {
+      font-size: clamp(24px, 2.8vw, 34px);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .section-header {
+      margin-bottom: 18px;
+      max-width: 70ch;
+    }
+    .detail-grid,
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .detail-card,
+    .faq-item,
+    .split-block {
+      border: 1px solid rgba(20,78,71,0.14);
+      background: rgba(245,240,232,0.82);
+      padding: 18px;
+    }
+    .detail-card h3,
+    .split-block h3,
+    .faq-item h3 {
+      font-family: "Cinzel", serif;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .detail-card h3 { font-size: 18px; }
+    .split-block h3,
+    .faq-item h3 { font-size: 20px; }
+    .split-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .clean-list {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+    .clean-list li {
+      border-bottom: 1px dashed rgba(20,78,71,0.16);
+      padding-bottom: 8px;
+      font-size: 14px;
+      line-height: 1.72;
+      color: rgba(20,78,71,0.82);
+    }
+    .clean-list li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+    @media (max-width: 1024px) {
+      .hero-inner,
+      .detail-grid,
+      .split-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-panel {
+        min-height: 420px;
+      }
+      .hero-title {
+        max-width: none;
+      }
+    }
+    @media (max-width: 768px) {
+      .page-shell { padding: 16px 16px 40px; }
+      .hero-frame,
+      .content-frame { padding: 22px; }
+      .hero-panel { min-height: 360px; }
+      .hero-panel-card strong { font-size: 20px; }
+      .divider-line { width: 52px; }
+      .hero-subtitle { font-size: 15px; line-height: 1.8; }
+      .hero-cta-row { width: 100%; }
+      .hero-cta { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero-frame" aria-labelledby="page-title">
+      <div class="frame-corner tl"></div>
+      <div class="frame-corner tr"></div>
+      <div class="frame-corner bl"></div>
+      <div class="frame-corner br"></div>
+
+      <div class="hero-inner">
+        <div class="hero-panel" aria-hidden="true">
+          <div class="hero-panel-badge">
+            <img src="/media/hero/royal-fern-logo.jpg" alt="" />
+          </div>
+          <div class="hero-panel-card">
+            <span>Shape Ups</span>
+            <strong>Crisp lines, controlled detail.</strong>
+          </div>
+        </div>
+
+        <div class="hero-content">
+          <div class="hero-eyebrow">Royal Fern Lineups</div>
+          <h1 id="page-title" class="hero-title">Lineup Haircuts &amp; Shape Ups in National City, CA</h1>
+          <div class="divider" aria-hidden="true">
+            <div class="divider-line"></div>
+            <div class="divider-icon"></div>
+            <div class="divider-line"></div>
+          </div>
+          <h2 class="hero-subtitle">Lineup haircuts, edge-ups, shape ups, taper lineups, and fade plus lineup work in National City, CA for clients who want sharper definition around the hairline, temples, beard, and neckline.</h2>
+          <div class="hero-cta-row">
+            <a class="hero-cta" href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" target="_blank" rel="noopener noreferrer">Book Now</a>
+            <a class="hero-cta secondary" href="/fade-haircuts/">View Fade Page</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-frame" aria-labelledby="lineup-types-title">
+      <div class="section-header">
+        <span class="section-kicker">Detail Work</span>
+        <h2 id="lineup-types-title" class="section-title">What people usually mean when they search lineup or shape up</h2>
+        <p class="section-text">Most lineup intent is really about cleaner edges, more control at the front hairline, and sharper temple work. Sometimes it is a quick refresh. Sometimes it is the finishing layer on top of a fade or taper.</p>
+      </div>
+      <div class="detail-grid">
+        <article class="detail-card">
+          <h3>Hairline Cleanup</h3>
+          <p>Front edge and temple detailing for clients who want a sharper frame around the face without changing the entire haircut.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Fade + Lineup</h3>
+          <p>A common combo for clients who want the blend itself to stay soft or crisp while the edge work stays especially defined.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Beard + Mustache Edge Work</h3>
+          <p>Cheek lines, lip line, and neck cleanup for facial hair that needs structure to match the haircut instead of competing with it.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-frame" aria-labelledby="lineup-visit-title">
+      <div class="section-header">
+        <span class="section-kicker">Appointment Fit</span>
+        <h2 id="lineup-visit-title" class="section-title">When this page is the right intent match</h2>
+      </div>
+      <div class="split-grid">
+        <article class="split-block">
+          <h3>Good reasons to book a lineup</h3>
+          <ul class="clean-list">
+            <li>Your haircut still looks decent, but the front edge and temple area grew out fast.</li>
+            <li>You want the finish of a fade, taper, or beard cleanup to look more intentional.</li>
+            <li>You care a lot about crisp framing around the face.</li>
+            <li>You want a shape up that respects your natural hairline instead of forcing one.</li>
+          </ul>
+        </article>
+        <article class="split-block">
+          <h3>Common search intent this page answers</h3>
+          <p>Lineup haircut near me, shape up barber, edge up haircut, taper fade with lineup, beard lineup, and clean hairline barber in National City are all close matches for what this page is built to serve.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-frame" aria-labelledby="lineup-faq-title">
+      <div class="section-header">
+        <span class="section-kicker">FAQ</span>
+        <h2 id="lineup-faq-title" class="section-title">Questions clients ask before an edge-up appointment</h2>
+      </div>
+      <div class="faq-grid">
+        <article class="faq-item">
+          <h3>Is a lineup the same thing as a full haircut?</h3>
+          <p>Not always. A lineup can be part of a full haircut, but it can also be a detail-focused refresh that sharpens the outline without fully changing the cut.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Can lineups look too harsh?</h3>
+          <p>They can if the hairline gets pushed back too aggressively. Good edge work should look clean and deliberate while still working with your natural growth pattern.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Do lineups work for curly or textured hair?</h3>
+          <p>Yes. In fact, textured hair often benefits a lot from careful line work as long as the outline is shaped with restraint and not forced into an unnatural pattern.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

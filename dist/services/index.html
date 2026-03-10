@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#144E47" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <title>Barber Services in National City, CA | Haircuts, Fades & Beard Trims</title>
+  <meta name="description" content="Explore barber services at Royal Fern Barber Studio in National City, CA including men's haircuts, fade haircuts, beard trims, lineups, beard shaping, and hot towel shaves." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #144E47;
+      --gold: #D2B26A;
+      --cream: #F5F0E8;
+      --white: #FFFFFF;
+      --dark: #0A2E2A;
+    }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--primary);
+      min-height: 100vh;
+    }
+    .main-nav {
+      position: sticky;
+      top: 16px;
+      max-width: 1240px;
+      margin: 0 auto 20px;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      background: rgba(245, 240, 232, 0.92);
+      border: 1px solid rgba(210, 178, 106, 0.35);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 16px 34px rgba(20, 78, 71, 0.08);
+      z-index: 1000;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .main-nav.scrolled {
+      background: rgba(245, 240, 232, 0.97);
+      box-shadow: 0 20px 38px rgba(20, 78, 71, 0.12);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+      color: inherit;
+      min-width: 0;
+    }
+    .nav-logo-icon {
+      width: 45px;
+      height: 45px;
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .nav-logo-text {
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: var(--primary);
+    }
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+    .nav-links a {
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      color: var(--primary);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    .nav-links .nav-cta {
+      padding: 14px 28px;
+      background: var(--primary);
+      color: var(--white);
+      border: 2px solid var(--primary);
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+    .nav-links .nav-cta:hover {
+      background: transparent;
+      color: var(--primary);
+    }
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+    }
+    .mobile-menu-btn span {
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--primary);
+      transition: all 0.3s ease;
+    }
+    .mobile-menu-btn[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .mobile-menu-btn[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu-btn[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    .mobile-nav-panel {
+      display: none;
+    }
+    .page-shell {
+      min-height: 100vh;
+      padding: 28px 28px 60px;
+      position: relative;
+      overflow: hidden;
+      background:
+        repeating-linear-gradient(45deg, rgba(20,78,71,0.035) 0 1px, transparent 1px 20px),
+        var(--cream);
+    }
+    .top-nav {
+      max-width: 1240px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      min-width: 0;
+    }
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid rgba(20,78,71,0.18);
+      background: rgba(255,255,255,0.6);
+    }
+    .brand span {
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      line-height: 1.2;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .ghost-link, .book-link {
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      padding: 12px 16px;
+      border: 1px solid rgba(20,78,71,0.14);
+      color: var(--primary);
+      background: rgba(255,255,255,0.5);
+    }
+    .book-link {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+      font-family: 'Cinzel', serif;
+    }
+    .hero-frame {
+      max-width: 1240px;
+      margin: 0 auto;
+      border: 1px solid rgba(210,178,106,0.35);
+      padding: 38px;
+      position: relative;
+      background: rgba(245,240,232,0.9);
+      box-shadow: 0 24px 50px rgba(20,78,71,0.05);
+    }
+    .frame-corner {
+      position: absolute;
+      width: 38px;
+      height: 38px;
+      border: 2px solid rgba(210,178,106,0.75);
+      pointer-events: none;
+    }
+    .frame-corner.tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+    .frame-corner.tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+    .frame-corner.bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+    .frame-corner.br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.92fr) 1.08fr;
+      gap: 44px;
+      align-items: center;
+      min-height: 560px;
+    }
+    .hero-panel {
+      position: relative;
+      height: 100%;
+      min-height: 520px;
+      background:
+        linear-gradient(to top, rgba(10,46,42,0.72), rgba(10,46,42,0.16)),
+        radial-gradient(circle at 22% 18%, rgba(210,178,106,0.16), transparent 42%),
+        #12322e;
+      border: 1px solid rgba(20,78,71,0.18);
+      overflow: hidden;
+      display: grid;
+      align-content: space-between;
+      padding: 18px;
+      box-shadow: 0 28px 55px rgba(20,78,71,0.12);
+    }
+    .hero-panel::before {
+      content: '';
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(210,178,106,0.28);
+      pointer-events: none;
+    }
+    .hero-panel-badge {
+      position: relative;
+      z-index: 1;
+      width: 74px;
+      height: 74px;
+      border: 1px solid rgba(210,178,106,0.35);
+      background: rgba(10,46,42,0.45);
+      backdrop-filter: blur(6px);
+      padding: 8px;
+      display: grid;
+      place-items: center;
+    }
+    .hero-panel-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-panel-card {
+      position: relative;
+      z-index: 1;
+      align-self: end;
+      background: rgba(10,46,42,0.82);
+      border: 1px solid rgba(210,178,106,0.18);
+      padding: 14px 16px;
+      max-width: 290px;
+    }
+    .hero-panel-card span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .hero-panel-card strong {
+      display: block;
+      color: var(--white);
+      font-family: 'Cinzel', serif;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+    .hero-content {
+      padding: 12px 0;
+    }
+    .hero-eyebrow {
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      color: var(--primary);
+      font-size: clamp(38px, 4.6vw, 62px);
+      line-height: 1.18;
+      margin-bottom: 20px;
+      max-width: 14ch;
+    }
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 22px 0 26px;
+    }
+    .divider-line {
+      width: 78px;
+      height: 1px;
+      background: rgba(20,78,71,0.22);
+    }
+    .divider-icon {
+      width: 10px;
+      height: 10px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+    .hero-subtitle {
+      font-size: 16px;
+      line-height: 1.95;
+      color: rgba(20,78,71,0.78);
+      max-width: 52ch;
+      margin-bottom: 26px;
+    }
+    .hero-cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-cta {
+      display: inline-block;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2.4px;
+      font-size: 11px;
+      padding: 14px 18px;
+      border: 2px solid var(--primary);
+      background: var(--primary);
+      color: var(--white);
+      font-family: 'Cinzel', serif;
+    }
+    .hero-cta.secondary {
+      background: transparent;
+      color: var(--primary);
+      border-color: rgba(20,78,71,0.25);
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 2px;
+    }
+    @media (max-width: 1024px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        min-height: 0;
+      }
+      .hero-panel {
+        min-height: 420px;
+        order: 2;
+      }
+      .hero-content {
+        order: 1;
+      }
+      .hero-title {
+        max-width: none;
+      }
+    }
+    @media (max-width: 768px) {
+      .page-shell { padding: 16px 16px 40px; }
+      .top-nav { margin-bottom: 14px; }
+      .brand span { display: none; }
+      .ghost-link { display: none; }
+      .hero-frame { padding: 22px; }
+      .hero-panel { min-height: 360px; }
+      .hero-panel-card strong { font-size: 20px; }
+      .divider-line { width: 52px; }
+      .hero-subtitle { font-size: 15px; line-height: 1.85; }
+      .hero-cta-row { width: 100%; }
+      .hero-cta { width: 100%; text-align: center; }
+    }
+    @media (max-width: 768px) {
+      .main-nav {
+        top: 12px;
+        padding: 16px 18px;
+      }
+      .nav-logo-text { display: none; }
+      .nav-links { display: none; }
+      .mobile-menu-btn {
+        display: flex;
+        z-index: 1002;
+      }
+      .mobile-nav-panel {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 16px;
+        right: 16px;
+        display: block;
+        background: rgba(245, 240, 232, 0.97);
+        border: 1px solid rgba(210, 178, 106, 0.35);
+        box-shadow: 0 20px 40px rgba(10, 46, 42, 0.12);
+        backdrop-filter: blur(14px);
+        padding: 14px;
+        opacity: 0;
+        transform: translateY(-8px);
+        pointer-events: none;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        z-index: 1001;
+      }
+      .main-nav.mobile-open .mobile-nav-panel {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .mobile-nav-panel::before {
+        content: '';
+        position: absolute;
+        inset: 8px;
+        border: 1px solid rgba(20, 78, 71, 0.1);
+        pointer-events: none;
+      }
+      .mobile-nav-links {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 8px;
+      }
+      .mobile-nav-links a {
+        display: block;
+        text-decoration: none;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 12px;
+        padding: 12px 14px;
+        border: 1px solid rgba(20, 78, 71, 0.08);
+        background: rgba(255, 255, 255, 0.35);
+      }
+      .mobile-nav-links .mobile-nav-cta {
+        background: var(--primary);
+        color: var(--white);
+        border-color: var(--primary);
+        font-family: 'Cinzel', serif;
+      }
+    }
+  </style>
+<link rel="stylesheet" href="/styles/global-nav.css">
+  <script src="/scripts/global-nav.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <nav class="main-nav">
+      <a href="/" class="nav-logo">
+        <div class="nav-logo-icon">
+          <img src="/media/hero/royal-fern-logo.jpg" alt="Royal Fern Barber Studio logo" />
+        </div>
+        <span class="nav-logo-text">ROYAL FERN BARBER STUDIO</span>
+      </a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/gallery/">Gallery</a>
+        <a href="/about/">About</a>
+        <a class="nav-cta" href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" target="_blank" rel="noopener noreferrer">Book Now</a>
+      </div>
+      <button class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="mobile-nav-panel" id="mobileNavPanel" aria-hidden="true">
+        <div class="mobile-nav-links">
+          <a href="/">Home</a>
+          <a href="/gallery/">Gallery</a>
+          <a href="/about/">About</a>
+          <a class="mobile-nav-cta" href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" target="_blank" rel="noopener noreferrer">Book Now</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero-frame" aria-labelledby="page-title">
+      <div class="frame-corner tl"></div>
+      <div class="frame-corner tr"></div>
+      <div class="frame-corner bl"></div>
+      <div class="frame-corner br"></div>
+
+      <div class="hero-inner">
+        <div class="hero-panel" aria-hidden="true">
+          <div class="hero-panel-badge">
+            <img src="/media/hero/royal-fern-logo.jpg" alt="" />
+          </div>
+          <div class="hero-panel-card">
+            <span>Service Menu</span>
+            <strong>Haircuts & Grooming</strong>
+          </div>
+        </div>
+
+        <div class="hero-content">
+          <div class="hero-eyebrow">Royal Fern Services</div>
+          <h1 id="page-title" class="hero-title">Barber Services in National City, CA</h1>
+          <div class="divider" aria-hidden="true">
+            <div class="divider-line"></div>
+            <div class="divider-icon"></div>
+            <div class="divider-line"></div>
+          </div>
+          <h2 class="hero-subtitle">Professional haircuts, beard trims, and beard grooming in National City, CA.</h2>
+          <div class="hero-cta-row">
+            <a class="hero-cta" href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" target="_blank" rel="noopener noreferrer">Book Now</a>
+            <a class="hero-cta secondary" href="/">Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const nav = document.querySelector('.main-nav');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileNavPanel = document.getElementById('mobileNavPanel');
+
+    if (nav) {
+      const syncNav = () => nav.classList.toggle('scrolled', window.scrollY > 24);
+      window.addEventListener('scroll', syncNav, { passive: true });
+      syncNav();
+    }
+
+    if (nav && mobileMenuBtn && mobileNavPanel) {
+      const setOpen = (open) => {
+        nav.classList.toggle('mobile-open', open);
+        mobileMenuBtn.setAttribute('aria-expanded', String(open));
+        mobileNavPanel.setAttribute('aria-hidden', String(!open));
+      };
+
+      mobileMenuBtn.setAttribute('aria-label', 'Toggle menu');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+
+      mobileMenuBtn.addEventListener('click', (event) => {
+        event.stopPropagation();
+        setOpen(!nav.classList.contains('mobile-open'));
+      });
+
+      mobileNavPanel.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => setOpen(false));
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!nav.classList.contains('mobile-open')) return;
+        if (nav.contains(event.target)) return;
+        setOpen(false);
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setOpen(false);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#144E47" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <title>Men’s Haircuts in National City, CA | Classic & Modern Men’s Cuts</title>
+  <meta name="description" content="Royal Fern Barber Studio provides men’s haircuts in National City, CA including classic cuts, modern styles, taper cleanups, scissor work, and haircut plus beard combinations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/global-nav.css">
+  <script src="/scripts/global-nav.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What kinds of men’s haircuts can I get at Royal Fern Barber Studio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Royal Fern offers men’s haircuts ranging from classic short cuts and scissor work to modern textured styles, tapers, cleanups, and haircut plus beard combinations in National City, CA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I book a men’s haircut even if I am not sure what style fits me best?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Consultations are part of the service, so clients can talk through length, styling routine, maintenance level, and face shape before the haircut starts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you do both classic and modern men’s haircut styles?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Royal Fern works on classic men’s cuts, polished business-ready shapes, textured modern looks, and taper-based finishes depending on how clean or relaxed you want the final result."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I combine a men’s haircut with beard work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Haircuts can be paired with beard trims, beard lineups, and shaping so the haircut and facial hair finish feel balanced together."
+          }
+        }
+      ]
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #144E47;
+      --gold: #D2B26A;
+      --cream: #F5F0E8;
+      --white: #FFFFFF;
+      --dark: #0A2E2A;
+    }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--cream);
+      color: var(--primary);
+      min-height: 100vh;
+    }
+    .page-shell {
+      min-height: 100vh;
+      padding: 28px 28px 60px;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(210,178,106,0.12), transparent 34%),
+        repeating-linear-gradient(45deg, rgba(20,78,71,0.035) 0 1px, transparent 1px 20px),
+        var(--cream);
+    }
+    .hero-frame,
+    .content-frame {
+      max-width: 1240px;
+      margin: 0 auto;
+      border: 1px solid rgba(210,178,106,0.35);
+      background: rgba(245,240,232,0.9);
+      box-shadow: 0 24px 50px rgba(20,78,71,0.05);
+    }
+    .hero-frame {
+      padding: 38px;
+      position: relative;
+    }
+    .frame-corner {
+      position: absolute;
+      width: 38px;
+      height: 38px;
+      border: 2px solid rgba(210,178,106,0.75);
+      pointer-events: none;
+    }
+    .frame-corner.tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+    .frame-corner.tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+    .frame-corner.bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+    .frame-corner.br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.92fr) 1.08fr;
+      gap: 44px;
+      align-items: center;
+      min-height: 560px;
+    }
+    .hero-panel {
+      position: relative;
+      min-height: 520px;
+      border: 1px solid rgba(20,78,71,0.18);
+      overflow: hidden;
+      display: grid;
+      align-content: space-between;
+      padding: 18px;
+      background:
+        linear-gradient(to top, rgba(10,46,42,0.72), rgba(10,46,42,0.18)),
+        radial-gradient(circle at 24% 16%, rgba(210,178,106,0.16), transparent 42%),
+        #12322e;
+    }
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(210,178,106,0.28);
+      pointer-events: none;
+    }
+    .hero-panel-badge {
+      position: relative;
+      z-index: 1;
+      width: 74px;
+      height: 74px;
+      border: 1px solid rgba(210,178,106,0.35);
+      background: rgba(10,46,42,0.45);
+      padding: 8px;
+      display: grid;
+      place-items: center;
+    }
+    .hero-panel-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-panel-card {
+      position: relative;
+      z-index: 1;
+      background: rgba(10,46,42,0.82);
+      border: 1px solid rgba(210,178,106,0.18);
+      padding: 14px 16px;
+      max-width: 310px;
+    }
+    .hero-panel-card span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .hero-panel-card strong {
+      display: block;
+      color: var(--white);
+      font-family: "Cinzel", serif;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+    .hero-content {
+      padding: 12px 0;
+    }
+    .hero-eyebrow,
+    .section-kicker {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 2.6px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .hero-title,
+    .section-title {
+      font-family: "Cinzel", serif;
+      color: var(--primary);
+    }
+    .hero-title {
+      font-size: clamp(38px, 4.6vw, 62px);
+      line-height: 1.18;
+      margin-bottom: 20px;
+      max-width: 14ch;
+    }
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 22px 0 26px;
+    }
+    .divider-line {
+      width: 78px;
+      height: 1px;
+      background: rgba(20,78,71,0.22);
+    }
+    .divider-icon {
+      width: 10px;
+      height: 10px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+    .hero-subtitle,
+    .section-text,
+    .detail-card p,
+    .split-block p,
+    .faq-item p {
+      color: rgba(20,78,71,0.8);
+      line-height: 1.85;
+    }
+    .hero-subtitle {
+      font-size: 16px;
+      max-width: 54ch;
+      margin-bottom: 26px;
+    }
+    .hero-cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-cta {
+      display: inline-block;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2.4px;
+      font-size: 11px;
+      padding: 14px 18px;
+      border: 2px solid var(--primary);
+      background: var(--primary);
+      color: var(--white);
+      font-family: "Cinzel", serif;
+    }
+    .hero-cta.secondary {
+      background: transparent;
+      color: var(--primary);
+      border-color: rgba(20,78,71,0.25);
+      font-family: "Inter", sans-serif;
+      letter-spacing: 2px;
+    }
+    .content-frame {
+      margin-top: 20px;
+      padding: 30px;
+      border-color: rgba(20,78,71,0.14);
+      background: rgba(255,255,255,0.55);
+    }
+    .section-title {
+      font-size: clamp(24px, 2.8vw, 34px);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .section-header {
+      margin-bottom: 18px;
+      max-width: 70ch;
+    }
+    .detail-grid,
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .detail-card,
+    .faq-item,
+    .split-block {
+      border: 1px solid rgba(20,78,71,0.14);
+      background: rgba(245,240,232,0.82);
+      padding: 18px;
+    }
+    .detail-card h3,
+    .split-block h3,
+    .faq-item h3 {
+      font-family: "Cinzel", serif;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .detail-card h3 { font-size: 18px; }
+    .split-block h3,
+    .faq-item h3 { font-size: 20px; }
+    .split-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .clean-list {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+    .clean-list li {
+      border-bottom: 1px dashed rgba(20,78,71,0.16);
+      padding-bottom: 8px;
+      font-size: 14px;
+      line-height: 1.72;
+      color: rgba(20,78,71,0.82);
+    }
+    .clean-list li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+    @media (max-width: 1024px) {
+      .hero-inner,
+      .detail-grid,
+      .split-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-panel {
+        min-height: 420px;
+      }
+      .hero-title {
+        max-width: none;
+      }
+    }
+    @media (max-width: 768px) {
+      .page-shell { padding: 16px 16px 40px; }
+      .hero-frame,
+      .content-frame { padding: 22px; }
+      .hero-panel { min-height: 360px; }
+      .hero-panel-card strong { font-size: 20px; }
+      .divider-line { width: 52px; }
+      .hero-subtitle { font-size: 15px; line-height: 1.8; }
+      .hero-cta-row { width: 100%; }
+      .hero-cta { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero-frame" aria-labelledby="page-title">
+      <div class="frame-corner tl"></div>
+      <div class="frame-corner tr"></div>
+      <div class="frame-corner bl"></div>
+      <div class="frame-corner br"></div>
+
+      <div class="hero-inner">
+        <div class="hero-panel" aria-hidden="true">
+          <div class="hero-panel-badge">
+            <img src="/media/hero/royal-fern-logo.jpg" alt="" />
+          </div>
+          <div class="hero-panel-card">
+            <span>Men’s Haircuts</span>
+            <strong>Classic structure, modern finish.</strong>
+          </div>
+        </div>
+
+        <div class="hero-content">
+          <div class="hero-eyebrow">Royal Fern Men’s Cuts</div>
+          <h1 id="page-title" class="hero-title">Men’s Haircuts in National City, CA</h1>
+          <div class="divider" aria-hidden="true">
+            <div class="divider-line"></div>
+            <div class="divider-icon"></div>
+            <div class="divider-line"></div>
+          </div>
+          <h2 class="hero-subtitle">Men’s haircuts in National City, CA for clients looking for clean tapers, classic short cuts, scissor work, textured styles, and dependable haircut-and-beard combinations.</h2>
+          <div class="hero-cta-row">
+            <a class="hero-cta" href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" target="_blank" rel="noopener noreferrer">Book Now</a>
+            <a class="hero-cta secondary" href="/services/">View Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-frame" aria-labelledby="mens-options-title">
+      <div class="section-header">
+        <span class="section-kicker">Cut Types</span>
+        <h2 id="mens-options-title" class="section-title">What this page is really for</h2>
+        <p class="section-text">This page is for men searching for a reliable barber in National City who can handle both polished traditional shapes and more current textured finishes without the haircut feeling rushed or generic.</p>
+      </div>
+      <div class="detail-grid">
+        <article class="detail-card">
+          <h3>Classic Men’s Haircuts</h3>
+          <p>Short back and sides, business-ready cuts, side-part structure, and clean natural shapes that look put together without overstyling.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Modern Everyday Styles</h3>
+          <p>Texture up top, softer movement, taper-focused finishes, and cuts designed to hold shape even when you are not using a lot of product.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Haircut + Beard Balance</h3>
+          <p>Men who want the haircut and beard to work together instead of looking like two separate services can pair their cut with beard cleanup or shaping.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-frame" aria-labelledby="mens-visit-title">
+      <div class="section-header">
+        <span class="section-kicker">What To Expect</span>
+        <h2 id="mens-visit-title" class="section-title">How a men’s haircut appointment usually goes</h2>
+      </div>
+      <div class="split-grid">
+        <article class="split-block">
+          <h3>Good info to bring in</h3>
+          <ul class="clean-list">
+            <li>How short you like the sides and neckline.</li>
+            <li>Whether you want a natural finish or something sharper.</li>
+            <li>How much time you actually spend styling your hair at home.</li>
+            <li>If you want the haircut to work with a beard or lineup.</li>
+          </ul>
+        </article>
+        <article class="split-block">
+          <h3>Best fit for this page</h3>
+          <p>Clients searching phrases like men’s haircut near me, barber for men in National City, guys haircut, gents haircut, classic men’s cut, or haircut plus beard trim are all landing in the right place here.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-frame" aria-labelledby="mens-faq-title">
+      <div class="section-header">
+        <span class="section-kicker">FAQ</span>
+        <h2 id="mens-faq-title" class="section-title">Questions people actually ask before booking</h2>
+      </div>
+      <div class="faq-grid">
+        <article class="faq-item">
+          <h3>Do you only do fades?</h3>
+          <p>No. Fades are a big part of barbering, but this page is also for classic men’s cuts, taper cleanups, scissor-driven shapes, and everyday styles that need structure more than skin exposure.</p>
+        </article>
+        <article class="faq-item">
+          <h3>What if I am not sure what haircut fits me?</h3>
+          <p>That is normal. The consultation is where length, growth pattern, face shape, and maintenance level get sorted out so you are not guessing your way into a bad cut.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Can I get a men’s haircut and beard service together?</h3>
+          <p>Yes. A lot of clients book with both in mind so the haircut silhouette and beard shape look intentional together instead of disconnected.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

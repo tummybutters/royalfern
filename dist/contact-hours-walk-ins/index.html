@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#144E47" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <title>Barber Open Now in National City, CA | Walk-Ins, Hours & Booking</title>
+  <meta name="description" content="Looking for a barber open now in National City, CA? Royal Fern Barber Studio offers walk-ins, booking, clear hours, and easy arrival details including Studio #116 at Plaza Bonita Road." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/global-nav.css">
+  <script src="/scripts/global-nav.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you take walk-ins at Royal Fern Barber Studio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Royal Fern Barber Studio serves both walk-in and booking intent. Clients who want the most predictable timing should book ahead, while walk-in interest is still part of the page intent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are your business hours?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Current listed hours are 10:00 AM to 7:00 PM Monday through Sunday."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I find the studio once I arrive?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Royal Fern Barber Studio is located at 3030 Plaza Bonita Road Unit #1336, National City, CA 91950, Studio #116."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the best option if I need a fade or beard service at a specific time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If timing matters, booking ahead is the stronger choice because it gives clients a cleaner arrival window than relying on walk-in flow."
+          }
+        }
+      ]
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #144E47;
+      --gold: #D2B26A;
+      --cream: #F5F0E8;
+      --white: #FFFFFF;
+      --dark: #0A2E2A;
+    }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      font-family: "Inter", sans-serif;
+      background: linear-gradient(180deg, #f7f3eb, #f2ede2);
+      color: var(--primary);
+      min-height: 100vh;
+    }
+    .page-shell {
+      min-height: 100vh;
+      padding: 28px 28px 60px;
+      background:
+        repeating-linear-gradient(135deg, rgba(20,78,71,0.025) 0 1px, transparent 1px 18px),
+        linear-gradient(180deg, #f7f3eb, #f2ede2);
+    }
+    .hero-frame,
+    .content-frame {
+      max-width: 1240px;
+      margin: 0 auto;
+      border: 1px solid rgba(210,178,106,0.35);
+      background: rgba(245,240,232,0.92);
+      box-shadow: 0 24px 50px rgba(20,78,71,0.05);
+    }
+    .hero-frame {
+      padding: 38px;
+      position: relative;
+    }
+    .frame-corner {
+      position: absolute;
+      width: 38px;
+      height: 38px;
+      border: 2px solid rgba(210,178,106,0.75);
+      pointer-events: none;
+    }
+    .frame-corner.tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+    .frame-corner.tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+    .frame-corner.bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+    .frame-corner.br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(320px, 1.02fr) 0.98fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    .hero-content {
+      border: 1px solid rgba(20,78,71,0.12);
+      background: rgba(255,255,255,0.48);
+      padding: 34px;
+      position: relative;
+    }
+    .hero-content::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(20,78,71,0.08);
+      pointer-events: none;
+    }
+    .hero-content > * {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-side {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+    .hero-eyebrow,
+    .section-kicker {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 2.6px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .hero-title,
+    .section-title,
+    .tile h3,
+    .faq-item h3,
+    .detail-card h3,
+    .split-block h3 {
+      font-family: "Cinzel", serif;
+      color: var(--primary);
+    }
+    .hero-title {
+      font-size: clamp(38px, 4.6vw, 62px);
+      line-height: 1.18;
+      margin-bottom: 20px;
+      max-width: 13ch;
+    }
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 22px 0 26px;
+    }
+    .divider-line {
+      width: 78px;
+      height: 1px;
+      background: rgba(20,78,71,0.22);
+    }
+    .divider-icon {
+      width: 10px;
+      height: 10px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+    .hero-subtitle,
+    .section-text,
+    .detail-card p,
+    .split-block p,
+    .faq-item p,
+    .tile p {
+      color: rgba(20,78,71,0.8);
+      line-height: 1.85;
+    }
+    .hero-subtitle {
+      font-size: 16px;
+      max-width: 54ch;
+      margin-bottom: 26px;
+    }
+    .hero-cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-cta {
+      display: inline-block;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2.4px;
+      font-size: 11px;
+      padding: 14px 18px;
+      border: 2px solid var(--primary);
+      background: var(--primary);
+      color: var(--white);
+      font-family: "Cinzel", serif;
+    }
+    .hero-cta.secondary {
+      background: transparent;
+      color: var(--primary);
+      border-color: rgba(20,78,71,0.25);
+      font-family: "Inter", sans-serif;
+      letter-spacing: 2px;
+    }
+    .tile,
+    .hours-card {
+      border: 1px solid rgba(20,78,71,0.12);
+      padding: 18px;
+    }
+    .tile {
+      background: linear-gradient(160deg, rgba(20,78,71,0.97), rgba(10,46,42,0.97));
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .tile::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(210,178,106,0.14);
+      pointer-events: none;
+    }
+    .tile > * {
+      position: relative;
+      z-index: 1;
+    }
+    .tile h3 {
+      color: var(--gold);
+      margin-bottom: 10px;
+      font-size: 19px;
+    }
+    .tile p {
+      color: rgba(255,255,255,0.84);
+    }
+    .hours-card {
+      background: rgba(245,240,232,0.9);
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(20,78,71,0.08);
+      font-size: 14px;
+    }
+    .hours-row:last-child {
+      border-bottom: 0;
+    }
+    .content-frame {
+      margin-top: 20px;
+      padding: 30px;
+      border-color: rgba(20,78,71,0.14);
+      background: rgba(255,255,255,0.55);
+    }
+    .section-title {
+      font-size: clamp(24px, 2.8vw, 34px);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .section-header {
+      margin-bottom: 18px;
+      max-width: 72ch;
+    }
+    .detail-grid,
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .detail-card,
+    .faq-item,
+    .split-block {
+      border: 1px solid rgba(20,78,71,0.14);
+      background: rgba(245,240,232,0.82);
+      padding: 18px;
+    }
+    .detail-card h3 { font-size: 18px; margin-bottom: 10px; }
+    .split-block h3,
+    .faq-item h3 { font-size: 20px; margin-bottom: 10px; }
+    .split-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .clean-list {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+    .clean-list li {
+      border-bottom: 1px dashed rgba(20,78,71,0.16);
+      padding-bottom: 8px;
+      font-size: 14px;
+      line-height: 1.72;
+      color: rgba(20,78,71,0.82);
+    }
+    .clean-list li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+    @media (max-width: 1024px) {
+      .hero-inner,
+      .detail-grid,
+      .split-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-title {
+        max-width: none;
+      }
+    }
+    @media (max-width: 768px) {
+      .page-shell { padding: 16px 16px 40px; }
+      .hero-frame,
+      .content-frame,
+      .hero-content { padding: 22px; }
+      .divider-line { width: 52px; }
+      .hero-subtitle { font-size: 15px; line-height: 1.8; }
+      .hero-cta-row { width: 100%; }
+      .hero-cta { width: 100%; text-align: center; }
+      .hours-row {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero-frame" aria-labelledby="page-title">
+      <div class="frame-corner tl"></div>
+      <div class="frame-corner tr"></div>
+      <div class="frame-corner bl"></div>
+      <div class="frame-corner br"></div>
+
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-eyebrow">Hours • Walk-Ins • Booking</div>
+          <h1 id="page-title" class="hero-title">Barber Open Now in National City, CA</h1>
+          <div class="divider" aria-hidden="true">
+            <div class="divider-line"></div>
+            <div class="divider-icon"></div>
+            <div class="divider-line"></div>
+          </div>
+          <h2 class="hero-subtitle">This page is for clients looking for current barber hours, walk-in intent, booking options, and clear arrival info so they can find Royal Fern Barber Studio without guessing.</h2>
+          <div class="hero-cta-row">
+            <a class="hero-cta" href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" target="_blank" rel="noopener noreferrer">Book Appointment</a>
+            <a class="hero-cta secondary" href="/services/">View Services</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <article class="tile">
+            <h3>Walk-Ins Welcome</h3>
+            <p>This page catches search intent around barber open now, barber near me open today, walk-in barber, and last-minute haircut searches in National City.</p>
+          </article>
+          <article class="hours-card">
+            <div class="hours-row"><span>Monday - Thursday</span><strong>10:00 AM - 7:00 PM</strong></div>
+            <div class="hours-row"><span>Friday</span><strong>10:00 AM - 7:00 PM</strong></div>
+            <div class="hours-row"><span>Saturday</span><strong>10:00 AM - 7:00 PM</strong></div>
+            <div class="hours-row"><span>Sunday</span><strong>10:00 AM - 7:00 PM</strong></div>
+          </article>
+          <article class="tile">
+            <h3>Find The Studio</h3>
+            <p>3030 Plaza Bonita Road Unit #1336, National City, CA 91950. Look for <strong>Studio #116</strong> so you do not end up wandering the building.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-frame" aria-labelledby="walkin-intent-title">
+      <div class="section-header">
+        <span class="section-kicker">Intent Match</span>
+        <h2 id="walkin-intent-title" class="section-title">What this page should answer fast</h2>
+        <p class="section-text">Clients landing here usually want to know whether the shop is open, whether they can walk in, whether it is smarter to book ahead, and exactly where to go once they arrive. That is the real use case for this page.</p>
+      </div>
+      <div class="detail-grid">
+        <article class="detail-card">
+          <h3>Open Now Searches</h3>
+          <p>If someone is searching barber open now, haircut near me open today, or same-day barber in National City, this page should quickly answer hours and next steps.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Walk-In Intent</h3>
+          <p>This is the right page for people wondering whether they can stop by without much planning or whether it is better to secure a time first.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Arrival Clarity</h3>
+          <p>The studio number matters here. Including Studio #116 and the full address helps reduce confusion once someone reaches Plaza Bonita Road.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-frame" aria-labelledby="booking-help-title">
+      <div class="section-header">
+        <span class="section-kicker">Decision Help</span>
+        <h2 id="booking-help-title" class="section-title">When to walk in and when to book</h2>
+      </div>
+      <div class="split-grid">
+        <article class="split-block">
+          <h3>Walk-in is usually fine when</h3>
+          <ul class="clean-list">
+            <li>Your schedule is flexible and you can work around availability.</li>
+            <li>You mainly want the next available appointment window.</li>
+            <li>You are nearby and checking whether the shop is open before heading over.</li>
+          </ul>
+        </article>
+        <article class="split-block">
+          <h3>Booking is the stronger move when</h3>
+          <ul class="clean-list">
+            <li>You need a specific time before work, dinner, travel, or an event.</li>
+            <li>You are booking a more detailed service like a fade plus beard cleanup.</li>
+            <li>You want the smoothest arrival with less guesswork.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-frame" aria-labelledby="hours-faq-title">
+      <div class="section-header">
+        <span class="section-kicker">FAQ</span>
+        <h2 id="hours-faq-title" class="section-title">Questions people ask before heading over</h2>
+      </div>
+      <div class="faq-grid">
+        <article class="faq-item">
+          <h3>Do you take walk-ins?</h3>
+          <p>This page is built to serve walk-in intent, but clients who want a more controlled arrival time should still use booking when timing matters.</p>
+        </article>
+        <article class="faq-item">
+          <h3>What are your hours?</h3>
+          <p>The current listed hours are 10:00 AM to 7:00 PM Monday through Sunday, which gives clear open-now and same-day search coverage across the week.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How do I find the studio?</h3>
+          <p>Use the full address and look specifically for Studio #116 at 3030 Plaza Bonita Road Unit #1336, National City, CA 91950 so you can get to the right spot faster.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#144E47" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <title>Beard Trims & Beard Shaping in National City, CA | Beard Lineup Barber</title>
+  <meta name="description" content="Royal Fern Barber Studio offers beard trims, beard lineups, and beard shaping in National City, CA. Book a beard barber for clean lines, balance, and professional grooming." />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What beard services can I book at Royal Fern Barber Studio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Royal Fern offers beard trims, beard lineups, beard shaping, and haircut plus beard combinations in National City, CA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between a beard trim and beard shaping?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A beard trim mainly manages length and cleanup, while beard shaping focuses more on contour, balance, line placement, and how the beard works with the haircut."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get beard work even if I do not know the best shape for my face?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Beard work can be guided by face shape, density, growth pattern, and how sharp or natural you want the final look to feel."
+          }
+        }
+      ]
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #144E47;
+      --gold: #D2B26A;
+      --cream: #F5F0E8;
+      --white: #FFFFFF;
+      --dark: #0A2E2A;
+    }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--primary);
+      min-height: 100vh;
+    }
+    .page-shell {
+      min-height: 100vh;
+      padding: 28px 28px 60px;
+      position: relative;
+      overflow: hidden;
+      background:
+        repeating-linear-gradient(45deg, rgba(20,78,71,0.035) 0 1px, transparent 1px 20px),
+        var(--cream);
+    }
+    .top-nav {
+      max-width: 1240px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      min-width: 0;
+    }
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid rgba(20,78,71,0.18);
+      background: rgba(255,255,255,0.6);
+    }
+    .brand span {
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      line-height: 1.2;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .ghost-link, .book-link {
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      padding: 12px 16px;
+      border: 1px solid rgba(20,78,71,0.14);
+      color: var(--primary);
+      background: rgba(255,255,255,0.5);
+    }
+    .book-link {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+      font-family: 'Cinzel', serif;
+    }
+    .hero-frame {
+      max-width: 1240px;
+      margin: 0 auto;
+      border: 1px solid rgba(210,178,106,0.35);
+      padding: 38px;
+      position: relative;
+      background: rgba(245,240,232,0.9);
+      box-shadow: 0 24px 50px rgba(20,78,71,0.05);
+    }
+    .frame-corner {
+      position: absolute;
+      width: 38px;
+      height: 38px;
+      border: 2px solid rgba(210,178,106,0.75);
+      pointer-events: none;
+    }
+    .frame-corner.tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+    .frame-corner.tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+    .frame-corner.bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+    .frame-corner.br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.92fr) 1.08fr;
+      gap: 44px;
+      align-items: center;
+      min-height: 560px;
+    }
+    .hero-panel {
+      position: relative;
+      height: 100%;
+      min-height: 520px;
+      background:
+        linear-gradient(to top, rgba(10,46,42,0.72), rgba(10,46,42,0.16)),
+        radial-gradient(circle at 22% 18%, rgba(210,178,106,0.16), transparent 42%),
+        #12322e;
+      border: 1px solid rgba(20,78,71,0.18);
+      overflow: hidden;
+      display: grid;
+      align-content: space-between;
+      padding: 18px;
+      box-shadow: 0 28px 55px rgba(20,78,71,0.12);
+    }
+    .hero-panel::before {
+      content: '';
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(210,178,106,0.28);
+      pointer-events: none;
+    }
+    .hero-panel-badge {
+      position: relative;
+      z-index: 1;
+      width: 74px;
+      height: 74px;
+      border: 1px solid rgba(210,178,106,0.35);
+      background: rgba(10,46,42,0.45);
+      backdrop-filter: blur(6px);
+      padding: 8px;
+      display: grid;
+      place-items: center;
+    }
+    .hero-panel-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-panel-card {
+      position: relative;
+      z-index: 1;
+      align-self: end;
+      background: rgba(10,46,42,0.82);
+      border: 1px solid rgba(210,178,106,0.18);
+      padding: 14px 16px;
+      max-width: 290px;
+    }
+    .hero-panel-card span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .hero-panel-card strong {
+      display: block;
+      color: var(--white);
+      font-family: 'Cinzel', serif;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+    .hero-content {
+      padding: 12px 0;
+    }
+    .hero-eyebrow {
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      color: var(--primary);
+      font-size: clamp(38px, 4.6vw, 62px);
+      line-height: 1.18;
+      margin-bottom: 20px;
+      max-width: 14ch;
+    }
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 22px 0 26px;
+    }
+    .divider-line {
+      width: 78px;
+      height: 1px;
+      background: rgba(20,78,71,0.22);
+    }
+    .divider-icon {
+      width: 10px;
+      height: 10px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+    .hero-subtitle {
+      font-size: 16px;
+      line-height: 1.95;
+      color: rgba(20,78,71,0.78);
+      max-width: 52ch;
+      margin-bottom: 26px;
+    }
+    .hero-cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-cta {
+      display: inline-block;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2.4px;
+      font-size: 11px;
+      padding: 14px 18px;
+      border: 2px solid var(--primary);
+      background: var(--primary);
+      color: var(--white);
+      font-family: 'Cinzel', serif;
+    }
+    .hero-cta.secondary {
+      background: transparent;
+      color: var(--primary);
+      border-color: rgba(20,78,71,0.25);
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 2px;
+    }
+    .content-frame {
+      max-width: 1240px;
+      margin: 20px auto 0;
+      border: 1px solid rgba(20,78,71,0.14);
+      background: rgba(255,255,255,0.55);
+      padding: 30px;
+    }
+    .section-header {
+      margin-bottom: 18px;
+      max-width: 68ch;
+    }
+    .section-kicker {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(24px, 2.8vw, 34px);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .section-text {
+      font-size: 15px;
+      line-height: 1.85;
+      color: rgba(20,78,71,0.8);
+    }
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .detail-card {
+      border: 1px solid rgba(20,78,71,0.14);
+      background: rgba(245,240,232,0.85);
+      padding: 16px;
+    }
+    .detail-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+    .detail-card p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(20,78,71,0.8);
+    }
+    .split-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .split-block {
+      border: 1px solid rgba(20,78,71,0.14);
+      background: rgba(245,240,232,0.8);
+      padding: 18px;
+    }
+    .split-block h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .split-block p {
+      font-size: 14px;
+      line-height: 1.85;
+      color: rgba(20,78,71,0.82);
+    }
+    .clean-list {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+    .clean-list li {
+      border-bottom: 1px dashed rgba(20,78,71,0.16);
+      padding-bottom: 8px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(20,78,71,0.82);
+    }
+    .clean-list li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .faq-item {
+      border: 1px solid rgba(20,78,71,0.14);
+      background: rgba(245,240,232,0.82);
+      padding: 18px;
+    }
+    .faq-item h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+    .faq-item p {
+      font-size: 14px;
+      line-height: 1.85;
+      color: rgba(20,78,71,0.82);
+    }
+    @media (max-width: 1024px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        min-height: 0;
+      }
+      .hero-panel {
+        min-height: 420px;
+        order: 2;
+      }
+      .hero-content {
+        order: 1;
+      }
+      .hero-title {
+        max-width: none;
+      }
+      .detail-grid,
+      .split-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 768px) {
+      .page-shell { padding: 16px 16px 40px; }
+      .top-nav { margin-bottom: 14px; }
+      .brand span { display: none; }
+      .ghost-link { display: none; }
+      .hero-frame { padding: 22px; }
+      .content-frame { padding: 22px; }
+      .hero-panel { min-height: 360px; }
+      .hero-panel-card strong { font-size: 20px; }
+      .divider-line { width: 52px; }
+      .hero-subtitle { font-size: 15px; line-height: 1.85; }
+      .hero-cta-row { width: 100%; }
+      .hero-cta { width: 100%; text-align: center; }    }
+  </style>
+<link rel="stylesheet" href="/styles/global-nav.css">
+  <script src="/scripts/global-nav.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <nav class="top-nav" aria-label="Page navigation">
+      <a class="brand" href="/">
+        <img src="/media/hero/royal-fern-logo.jpg" alt="Royal Fern Barber Studio logo" />
+        <span>ROYAL FERN BARBER STUDIO</span>
+      </a>
+      <div class="nav-actions">
+        <a class="ghost-link" href="/">Home</a>
+        <a class="book-link" href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" target="_blank" rel="noopener noreferrer">Book Now</a>
+      </div>
+    </nav>
+
+    <section class="hero-frame" aria-labelledby="page-title">
+      <div class="frame-corner tl"></div>
+      <div class="frame-corner tr"></div>
+      <div class="frame-corner bl"></div>
+      <div class="frame-corner br"></div>
+
+      <div class="hero-inner">
+        <div class="hero-panel" aria-hidden="true">
+          <div class="hero-panel-badge">
+            <img src="/media/hero/royal-fern-logo.jpg" alt="" />
+          </div>
+          <div class="hero-panel-card">
+            <span>Beard Grooming</span>
+            <strong>Trims, Lineups & Shape Ups</strong>
+          </div>
+        </div>
+
+        <div class="hero-content">
+          <div class="hero-eyebrow">Royal Fern Beard Services</div>
+          <h1 id="page-title" class="hero-title">Beard Trims, Beard Lineups & Beard Shaping in National City, CA</h1>
+          <div class="divider" aria-hidden="true">
+            <div class="divider-line"></div>
+            <div class="divider-icon"></div>
+            <div class="divider-line"></div>
+          </div>
+          <h2 class="hero-subtitle">Professional beard trims, beard lineups, beard shaping, beard shape ups, and haircut-and-beard-trim combos in National City, CA.</h2>
+          <div class="hero-cta-row">
+            <a class="hero-cta" href="https://getsquire.com/booking/book/royalfern-barber-studio-national-city" target="_blank" rel="noopener noreferrer">Book Now</a>
+            <a class="hero-cta secondary" href="/">Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-frame" aria-labelledby="beard-services-title">
+      <div class="section-header">
+        <span class="section-kicker">Beard Services</span>
+        <h2 id="beard-services-title" class="section-title">Beard work tailored to your face shape</h2>
+        <p class="section-text">Every beard trim and shape-up is balanced around your jawline, growth pattern, and the finish you want day to day.</p>
+      </div>
+      <div class="detail-grid">
+        <article class="detail-card">
+          <h3>Beard Trim</h3>
+          <p>Length cleanup with controlled bulk removal, cheek line refinement, and neckline detail for a cleaner silhouette.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Beard Lineup</h3>
+          <p>Sharp edge definition across cheeks, mustache, and neckline to restore structure and keep your beard looking intentional.</p>
+        </article>
+        <article class="detail-card">
+          <h3>Beard Shaping</h3>
+          <p>Strategic tapering and contouring to improve symmetry and pair naturally with your haircut and fade level.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-frame" aria-labelledby="beard-visit-title">
+      <div class="section-header">
+        <span class="section-kicker">Your Visit</span>
+        <h2 id="beard-visit-title" class="section-title">What to expect at your beard appointment</h2>
+      </div>
+      <div class="split-grid">
+        <article class="split-block">
+          <h3>Service flow</h3>
+          <ul class="clean-list">
+            <li>Consultation on shape goals, fullness, and line preference.</li>
+            <li>Measured trim and edge work using clipper and razor detailing.</li>
+            <li>Final mirror check with adjustments for symmetry and balance.</li>
+          </ul>
+        </article>
+        <article class="split-block">
+          <h3>Best fit for</h3>
+          <p>Clients searching for beard trims, beard lineups, and beard shaping in National City.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-frame" aria-labelledby="beard-faq-title">
+      <div class="section-header">
+        <span class="section-kicker">FAQ</span>
+        <h2 id="beard-faq-title" class="section-title">Questions clients ask before booking beard work</h2>
+      </div>
+      <div class="faq-grid">
+        <article class="faq-item">
+          <h3>Is beard shaping only for long beards?</h3>
+          <p>No. Even shorter beards benefit from shaping when the goal is cleaner cheek lines, better balance, and a more intentional profile next to the haircut.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Can beard work look natural instead of overly carved in?</h3>
+          <p>Yes. Some clients want very crisp definition, while others want a softer natural finish. The shape can be tailored to whichever direction fits you better.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Should I combine beard work with my haircut?</h3>
+          <p>If you want the cleanest overall result, combining them usually makes sense because the haircut silhouette and beard proportions can be balanced together in one session.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
