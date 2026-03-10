@@ -148,10 +148,6 @@ const siteData = {
               "label": "Beard Trims & Lineups"
             },
             {
-              "href": "/lineup-shape-up-haircuts-national-city/",
-              "label": "Lineups & Shape Ups"
-            },
-            {
               "href": "/hot-towel-shave-straight-razor-national-city/",
               "label": "Hot Towel Shaves"
             }
