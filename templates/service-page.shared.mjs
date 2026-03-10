@@ -73,7 +73,8 @@ ${faqScript}  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="${GOOGLE_FONTS_LINK}" rel="stylesheet">
   <link rel="stylesheet" href="/styles/global-nav.css">
-${serviceStylesheet}${extraHeadMarkup ? `${extraHeadMarkup}\n` : ""}  <script src="/scripts/global-nav.js" defer></script>
+${serviceStylesheet}${extraHeadMarkup ? `${extraHeadMarkup}\n` : ""}  <script type="module" src="/analytics.js"></script>
+  <script src="/scripts/global-nav.js" defer></script>
 </head>`;
 }
 
