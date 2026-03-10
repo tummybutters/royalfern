@@ -146,10 +146,11 @@
     }
     .hero-content {
       position: absolute;
-      top: 34px;
-      left: 34px;
+      right: 34px;
+      bottom: 34px;
       z-index: 4;
-      width: min(calc(100% - 68px), 33rem);
+      width: min(calc(100% - 68px), 31rem);
+      max-width: 31rem;
       min-width: 0;
       padding: 22px 24px 24px;
       background: linear-gradient(180deg, rgba(245,240,232,0.9), rgba(245,240,232,0.96));
@@ -452,8 +453,8 @@
       }
       .hero-content {
         position: relative;
-        top: auto;
-        left: auto;
+        right: auto;
+        bottom: auto;
         width: 100%;
         max-width: none;
         margin: -72px 26px 0;

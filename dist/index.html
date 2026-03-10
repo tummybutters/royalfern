@@ -1372,17 +1372,31 @@
             color: var(--white);
         }
 
+        .waitlist-submit:disabled {
+            cursor: wait;
+            opacity: 0.75;
+        }
+
         .waitlist-note {
             margin-top: 10px;
             color: rgba(255, 255, 255, 0.68);
             font-size: 12px;
             letter-spacing: 1px;
             text-transform: uppercase;
+            transition: color 0.3s ease;
         }
 
         .waitlist-form.is-success .waitlist-submit {
             background: transparent;
             color: var(--white);
+        }
+
+        .waitlist-note.is-success {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .waitlist-note.is-error {
+            color: #ffd0d0;
         }
 
         /* Contact Section */
@@ -2068,10 +2082,10 @@
                 <h2 class="section-title">Merch Drop Waitlist</h2>
                 <p class="merch-copy">Join the first drop list for the Discipline collection. Waitlist members get early access, sizing notifications, and first release updates before public launch.</p>
                 <form class="waitlist-form" id="merchWaitlistForm" action="#" method="post">
-                    <input id="merchWaitlistEmail" name="email" type="email" autocomplete="email" placeholder="Enter your email" aria-label="Email address" required />
+                    <input id="merchWaitlistEmail" name="email" type="email" autocomplete="email" placeholder="Enter your email" aria-label="Email address" aria-describedby="merchWaitlistNote" required />
                     <button type="submit" class="waitlist-submit">Join Waitlist</button>
                 </form>
-                <p class="waitlist-note">No spam. Merch release updates only.</p>
+                <p class="waitlist-note" id="merchWaitlistNote" role="status" aria-live="polite">No spam. Merch release updates only.</p>
             </div>
         </div>
     </section>
@@ -2886,17 +2900,61 @@
 
         const merchWaitlistForm = document.getElementById('merchWaitlistForm');
         if (merchWaitlistForm) {
-            merchWaitlistForm.addEventListener('submit', function(e) {
+            merchWaitlistForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 const emailInput = document.getElementById('merchWaitlistEmail');
                 const submitBtn = merchWaitlistForm.querySelector('.waitlist-submit');
+                const waitlistNote = document.getElementById('merchWaitlistNote');
+                const defaultSubmitText = 'Join Waitlist';
+                const defaultNoteText = 'No spam. Merch release updates only.';
+
                 if (!emailInput.checkValidity()) {
                     emailInput.reportValidity();
                     return;
                 }
-                merchWaitlistForm.classList.add('is-success');
-                submitBtn.textContent = "You're On The List";
-                emailInput.value = '';
+
+                merchWaitlistForm.classList.remove('is-success', 'is-error');
+                waitlistNote.classList.remove('is-success', 'is-error');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Joining...';
+                waitlistNote.textContent = 'Submitting your email now.';
+
+                try {
+                    const response = await fetch('/api/merch-signup', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email: emailInput.value.trim(),
+                            source: 'merch-drop'
+                        })
+                    });
+
+                    const data = await response.json().catch(() => ({}));
+
+                    if (!response.ok || !data.ok) {
+                        throw new Error(data.error || 'Signup failed.');
+                    }
+
+                    merchWaitlistForm.classList.add('is-success');
+                    waitlistNote.classList.add('is-success');
+                    submitBtn.textContent = "You're On The List";
+                    waitlistNote.textContent = 'You are on the list. Merch release updates will land here first.';
+                    emailInput.value = '';
+                } catch (error) {
+                    console.error(error);
+                    merchWaitlistForm.classList.add('is-error');
+                    waitlistNote.classList.add('is-error');
+                    submitBtn.textContent = defaultSubmitText;
+                    waitlistNote.textContent = 'Signup failed. Please try again in a moment.';
+                } finally {
+                    submitBtn.disabled = false;
+
+                    if (!merchWaitlistForm.classList.contains('is-success')) {
+                        waitlistNote.textContent = waitlistNote.textContent || defaultNoteText;
+                    }
+                }
             });
         }
 
