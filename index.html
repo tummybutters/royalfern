@@ -1325,35 +1325,19 @@
             margin-bottom: 18px;
         }
 
-        .waitlist-form {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 10px;
+        .merch-actions {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
         }
 
-        .waitlist-form input {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid rgba(210, 178, 106, 0.36);
-            background: rgba(255, 255, 255, 0.08);
-            color: var(--white);
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .waitlist-form input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .waitlist-form input:focus {
-            outline: none;
-            border-color: var(--gold);
-            box-shadow: 0 0 0 3px rgba(210, 178, 106, 0.16);
-        }
-
-        .waitlist-submit {
-            padding: 0 20px;
+        .merch-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 54px;
+            padding: 0 24px;
             border: 2px solid var(--gold);
             background: var(--gold);
             color: var(--primary);
@@ -1367,36 +1351,16 @@
             white-space: nowrap;
         }
 
-        .waitlist-submit:hover {
+        .merch-cta:hover {
             background: transparent;
             color: var(--white);
         }
 
-        .waitlist-submit:disabled {
-            cursor: wait;
-            opacity: 0.75;
-        }
-
-        .waitlist-note {
-            margin-top: 10px;
+        .merch-note {
             color: rgba(255, 255, 255, 0.68);
             font-size: 12px;
             letter-spacing: 1px;
             text-transform: uppercase;
-            transition: color 0.3s ease;
-        }
-
-        .waitlist-form.is-success .waitlist-submit {
-            background: transparent;
-            color: var(--white);
-        }
-
-        .waitlist-note.is-success {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .waitlist-note.is-error {
-            color: #ffd0d0;
         }
 
         /* Contact Section */
@@ -1752,14 +1716,10 @@
                 padding: 26px;
             }
 
-            .waitlist-submit {
+            .merch-cta {
                 padding: 14px 16px;
                 width: 100%;
                 text-align: center;
-            }
-
-            .waitlist-form {
-                grid-template-columns: 1fr;
             }
 
             .about-features {
@@ -2064,7 +2024,7 @@
         </div>
     </section>
 
-    <!-- Merch Waitlist Section -->
+    <!-- Merch Section -->
     <section class="merch" id="merch">
         <div class="merch-content">
             <div class="merch-gallery">
@@ -2080,13 +2040,12 @@
             </div>
             <div class="merch-info">
                 <p class="section-eyebrow">Royal Fern Lifestyle</p>
-                <h2 class="section-title">Merch Drop Waitlist</h2>
-                <p class="merch-copy">Join the first drop list for the Discipline collection. Waitlist members get early access, sizing notifications, and first release updates before public launch.</p>
-                <form class="waitlist-form" id="merchWaitlistForm" action="#" method="post">
-                    <input id="merchWaitlistEmail" name="email" type="email" autocomplete="email" placeholder="Enter your email" aria-label="Email address" aria-describedby="merchWaitlistNote" required />
-                    <button type="submit" class="waitlist-submit">Join Waitlist</button>
-                </form>
-                <p class="waitlist-note" id="merchWaitlistNote" role="status" aria-live="polite">No spam. Merch release updates only.</p>
+                <h2 class="section-title">Discipline Tee</h2>
+                <p class="merch-copy">The Discipline tee is available now. Tap through to shop the latest Royal Fern Lifestyle release directly on Shopify.</p>
+                <div class="merch-actions">
+                    <a class="merch-cta" href="https://royal-fern-lifestyle.myshopify.com/products/discipline-tee-royal-fern-lifestyle" target="_blank" rel="noopener noreferrer">Shop The Tee</a>
+                    <p class="merch-note">Available now. Ships from Royal Fern Lifestyle.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -2899,66 +2858,6 @@
             ease: 'power3.out'
         });
 
-        const merchWaitlistForm = document.getElementById('merchWaitlistForm');
-        if (merchWaitlistForm) {
-            merchWaitlistForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                const emailInput = document.getElementById('merchWaitlistEmail');
-                const submitBtn = merchWaitlistForm.querySelector('.waitlist-submit');
-                const waitlistNote = document.getElementById('merchWaitlistNote');
-                const defaultSubmitText = 'Join Waitlist';
-                const defaultNoteText = 'No spam. Merch release updates only.';
-
-                if (!emailInput.checkValidity()) {
-                    emailInput.reportValidity();
-                    return;
-                }
-
-                merchWaitlistForm.classList.remove('is-success', 'is-error');
-                waitlistNote.classList.remove('is-success', 'is-error');
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Joining...';
-                waitlistNote.textContent = 'Submitting your email now.';
-
-                try {
-                    const response = await fetch('/api/merch-signup', {
-                        method: 'POST',
-                        headers: {
-                            'content-type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            email: emailInput.value.trim(),
-                            source: 'merch-drop'
-                        })
-                    });
-
-                    const data = await response.json().catch(() => ({}));
-
-                    if (!response.ok || !data.ok) {
-                        throw new Error(data.error || 'Signup failed.');
-                    }
-
-                    merchWaitlistForm.classList.add('is-success');
-                    waitlistNote.classList.add('is-success');
-                    submitBtn.textContent = "You're On The List";
-                    waitlistNote.textContent = 'You are on the list. Merch release updates will land here first.';
-                    emailInput.value = '';
-                } catch (error) {
-                    console.error(error);
-                    merchWaitlistForm.classList.add('is-error');
-                    waitlistNote.classList.add('is-error');
-                    submitBtn.textContent = defaultSubmitText;
-                    waitlistNote.textContent = 'Signup failed. Please try again in a moment.';
-                } finally {
-                    submitBtn.disabled = false;
-
-                    if (!merchWaitlistForm.classList.contains('is-success')) {
-                        waitlistNote.textContent = waitlistNote.textContent || defaultNoteText;
-                    }
-                }
-            });
-        }
-
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -2971,7 +2870,7 @@
         });
 
         // Button hover micro-interactions
-        document.querySelectorAll('.hero-cta, .rf-nav-cta, .submit-btn, .waitlist-submit, .instagram-cta').forEach(btn => {
+        document.querySelectorAll('.hero-cta, .rf-nav-cta, .submit-btn, .merch-cta, .instagram-cta').forEach(btn => {
             btn.addEventListener('mouseenter', () => {
                 gsap.to(btn, { scale: 1.02, duration: 0.3, ease: 'power2.out' });
             });
